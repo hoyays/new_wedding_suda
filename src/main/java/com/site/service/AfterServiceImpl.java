@@ -105,7 +105,7 @@ public class AfterServiceImpl implements AfterService {
 			String fileNameExtension = FilenameUtils.getExtension(fileName).toLowerCase();
 			if(FilenameUtils.getExtension(fileName).toLowerCase() != "") {
 				//파일 저장 위치
-				String fileUrl = "C:/Users/User/git/lee/Ex0331_2/src/main/resources/static/upload/";
+				String fileUrl = "C:/Users/User/git/new_wedding_suda/src/main/resources/static/upload/";
 				//신규파일이름 ( 32자리이름생성.확장자명 )
 				String uploadFileName = RandomStringUtils.randomAlphanumeric(20)+"."+fileNameExtension;
 				File f = new File(fileUrl+uploadFileName);

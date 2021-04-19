@@ -121,7 +121,7 @@
 <fmt:formatDate var="date" value="${map.afterDto.bdate}" pattern="yyyy-MM-dd HH:mm:ss"/>
 <div id="community_after_detail_wrap">
 	<div id="after_detail_title">
-		<span class="after_detail_title_txt">${map.afterDto.btitle } ${map.afterDto.userid}</span>
+		<span class="after_detail_title_txt">${map.afterDto.btitle }</span>
     </div>
     <div id="after_detail_date">
 		<span id="after_detail_date_day" style="font-size:13px;color:#000000;">• 작성자</span>

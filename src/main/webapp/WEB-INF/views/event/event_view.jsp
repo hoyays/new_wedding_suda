@@ -139,9 +139,12 @@
         </div>     
 		<div id="after_return">
 			<span class="after_return_txt_list"><a href="event">목록으로</a></span>
+			<c:if test="${session_userid=='admin'}">
 			<span class="after_return_txt_edit"><a href="eventModify_view?bid=${map.eventDto.bid }" >수정</a></span>
 			<span class="after_return_txt_del"><a href="event_delete?bid=${map.eventDto.bid }" id="del_btn" style="cursor:pointer;">삭제</a></span>
 			<span class="after_return_txt_write"><a href="event_writeview" id="regist_btn" style="cursor:pointer;">글쓰기</a></span>
+			</c:if>
+			
 		</div>
 		<div style="height:70px;">
 		</div>

@@ -151,20 +151,17 @@
             <span class="event_right"></span>
         </div>
 		
-		
-		
+			<div id="after_return">
+			<c:if test="${session_userid=='admin'}">
+			<span class="after_return_txt_write"><a href="event_writeview" id="regist_btn" style="cursor:pointer;">글쓰기</a></span>
+			</c:if>
+			</div>
 		
 			
 	</div>
 </div>
 
 
-
-
-<!--실시간 체팅 구현  -->
-<jsp:include page="../include/side_chat.jsp">
-    <jsp:param name="category" value="product3" />
-</jsp:include>
 
 
 <!--푸터 넣을거임  -->

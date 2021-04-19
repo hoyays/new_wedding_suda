@@ -144,7 +144,6 @@ $(document).ready(function() {
 <div id="online_write_wrap">    
 	<form name="online_write_box" id="online_write_box" method="post" action="./after_write" enctype="multipart/form-data">
 	<input type="hidden" name="userid" id="userid" value="${session_userid }">
-	<input type="hidden" name="nname" id="nname" value="${session_name }" >
 	<div class="online_Awrite_form">
 		<ul>
 			<li class="box_li">
@@ -156,7 +155,7 @@ $(document).ready(function() {
             <li class="box_li">
 				<span class="online_write_title"><img src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;이름</span>
                 <div class="value">
-                <input type="input" name="nname" id="name" class="online_write_input02" value="${session_name}" style="padding-left:5px;color:#000000;" readonly="readonly">
+                <input type="text" name="nname" id="name" class="online_write_input02" value="${session_name}" style="padding-left:5px;color:#000000;" readonly="readonly">
                 </div>
             </li>
             <li class="box_li" >
