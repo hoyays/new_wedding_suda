@@ -135,7 +135,27 @@
 				</c:forEach> 
 				</span>
 				
-				<span><a href="./inquiry_content_view?bid=${dto.bid}&page=${map.page}&search=${map.search}" class="view_article" style="font-size:14px; float:none;">${dto.btitle}</a></span>
+				<span>
+					<a href="./inquiry_content_view?bid=${dto.bid}&page=${map.page}&search=${map.search}" class="view_article" style="font-size:14px; float:none;">
+					${dto.btitle}
+					
+					<!-- 답변채택 알림처리 -->
+					<c:if test="${dto.replycheck eq 1}">
+						<span><img alt="" src="/images/point_icon.png" width="22px" height="22px"></span>
+					</c:if>
+					
+					<!-- 새글 알림 처리 -->
+					<c:choose>
+						<c:when test="${dto.clickcheck eq 0}">
+							<span><img alt="" src="/images/new_icon.png" width="22px" height="22px"></span>
+						
+						</c:when>
+					</c:choose>
+					
+					
+					
+					</a>
+				</span>
                	
                </td>        
                <td style="font-size:14px;">${dto.userid}</td>

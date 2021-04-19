@@ -267,8 +267,7 @@ function logout()
 		<span id="sub_Color_f"><a href="./studio_list">스튜디오</a></span>
 		<span id="sub_Color_f" class="sub_under_bar"><a href="#">드레스</a></span>
 		<span id="sub_Color_f"><a href="./hairMakeUp_list">헤어메이크업</a></span>
-		<span id="sub_Color_f"><a href="./weddingHall_list">웨딩홀</a></span>
-		<span id="sub_Color_f"><a href="./travel_list">허니문</a></span>
+		<span id="sub_Color_f"><a href="./travel_list">신혼여행</a></span>
 	</div>
 </div>
 <div id="contain02">
@@ -294,9 +293,9 @@ function logout()
 	<c:forEach var="dreDto" items="${map.list }" >
 		<div class="SHOP_one_bx">
 			<div class="SHOP_img_wrap">
-				<a href="dress_contentView?infoId=${dreDto.infoId }"><p class="SHOP_img_inbx"><img src="../upload/${dreDto.c_fileName }" alt="${dreDto.com_name }" width="290" height="370" id="pop_img_info" data="815" style="cursor:pointer;"></p></a>
+				<a href="dress_contentView?infoId=${dreDto.infoId }&page=${map.page}&search=${map.search}"><p class="SHOP_img_inbx"><img src="../upload/${dreDto.c_fileName }" alt="${dreDto.com_name }" width="290" height="370" id="pop_img_info" data="815" style="cursor:pointer;"></p></a>
 	            <div class="SHOP_img_logo">
-					<span><a href="dress_contentView?infoId=${dreDto.infoId}" id="pop_img_info" style="cursor:pointer;" class="SHOP_bg" data="815">상품보기</a></span>
+					<span><a href="dress_contentView?infoId=${dreDto.infoId}&page=${map.page}&search=${map.search}" id="pop_img_info" style="cursor:pointer;" class="SHOP_bg" data="815">상품보기</a></span>
 					<span class="SHOP_gal_ttx_color"><a href="${dreDto.c_onlineAddress }" id="consult_info" class="SHOP_bg">홈페이지</a></span>
 				</div>
 	        </div>

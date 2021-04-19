@@ -192,7 +192,14 @@ function logout()
 						<a href=""><span id="up_menu" data="01" name="up_menu_" class="">웨딩수다소개</span></a>
                         <a href=""><span id="up_menu" data="02" name="up_menu_" class="">예약</span></a>
                         <a href=""><span id="up_menu" data="03" name="up_menu_" class="">정보</span></a>
-                        <a href="/inquiry/inquiry_main"><span id="up_menu" data="04" name="up_menu_" class="">지식인</span></a>
+                        <a href="/inquiry/inquiry_main">
+                        	<span id="up_menu" data="04" name="up_menu_" class="">
+                        	지식인
+                        	<c:if test="${map.clickCount lt map.listCount}">
+                        		<img src="/images/alarm_icon.jpg" width="25px" height="25px">
+                        	</c:if>
+                        	</span>
+                        </a>
                         <a href=""><span id="up_menu" data="05" name="up_menu_" class="">상품권교환</span></a>
                         <a href=""><span id="up_menu" data="06" class="M_ttl_menu">커뮤니티</span></a>
                     </div>
@@ -424,7 +431,7 @@ function logout()
                               <div class="MSub_bx_02">
                                    <ul>
                                         <li><a href="/community/notice_list.asp" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">공지사항</a></li>
-                                        <li><a href="/community/board_list.asp" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">문의게시판</a></li>
+                                        <li><a href="../info/question_list" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">문의게시판</a></li>
                                         <li><a href="/community/after_list.asp" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">웨딩후기</a></li>
                                    </ul>
                               </div>

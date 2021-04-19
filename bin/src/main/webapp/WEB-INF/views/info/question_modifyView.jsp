@@ -88,9 +88,9 @@
 			return false;
 		}
 		
-		var str = $('#bcontent').val();
+		/* var str = $('#bcontent').val();
 	      str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
-	      $('#bcontent').val(str);
+	      $('#bcontent').val(str); */
 		
 	      document.online_write_box.submit();
 	      
@@ -372,17 +372,7 @@ $(document).ready(function() {
             <li class="box_li" >
             <span class="online_write_title"><img src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;제목</span>
                 <div class="value">
-                <select id="bcategory" name="bcategory" style="height: 30px; border: none;">
-                	<c:choose>
-                		<c:when test="${map.queDto.bcategory eq '웨딩홀' }">
-                			<option selected>웨딩홀</option>
-                		</c:when>
-                		<c:otherwise>
-                			<option selected="selected">허니문</option>
-                		</c:otherwise>
-                	</c:choose>
-                	</select>
-                <input type="text" name="btitle" id="btitle" class="online_write_input02" value="${map.queDto.btitle }" style="padding-left:5px;color:#000000;">
+                	<input type="text" name="btitle" id="btitle" class="online_write_input02" value="${map.queDto.btitle }" style="padding-left:5px;color:#000000;">
                 </div>
             </li>
             <li class="box_li" >

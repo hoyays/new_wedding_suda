@@ -195,7 +195,7 @@ function logout()
                         <a href="/inquiry/inquiry_main">
                         	<span id="up_menu" data="04" name="up_menu_" class="">
                         	지식인
-                        	<c:if test="${map.clickCount lt map.listCount}">
+                        	<c:if test="${map.clickCount lt map.listCount && session_userid ne null}">
                         		<img src="/images/alarm_icon.jpg" width="25px" height="25px">
                         	</c:if>
                         	</span>

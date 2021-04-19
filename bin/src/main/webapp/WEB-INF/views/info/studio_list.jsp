@@ -100,8 +100,7 @@
 		<span id="sub_Color_f" class="sub_under_bar"><a href="/info/studio_list">스튜디오</a></span>
         <span id="sub_Color_f"><a href="/info/dress_list">드레스</a></span>
 		<span id="sub_Color_f"><a href="/info/hairMakeUp_list">헤어메이크업</a></span>
-		<span id="sub_Color_f"><a href="./weddingHall_list">웨딩홀</a></span>
-		<span id="sub_Color_f"><a href="./travel_list">허니문</a></span>
+		<span id="sub_Color_f"><a href="./travel_list">신혼여행</a></span>
     </div>
 </div>
 
@@ -205,9 +204,9 @@
 				<div class="col_one_bx">
 			        <!-- 반복시작 -->
 					<div class="col_img_wrap">
-						<a href="studio_contentView?infoId=${stuDto.infoId }"><p class="col_img_inbx"><img src="../upload/${stuDto.c_fileName }" alt="${stuDto.com_name }" width="378" height="248" id="pop_img_info" data="1118" style="cursor:pointer;"></p></a>
+						<a href="studio_contentView?infoId=${stuDto.infoId }&page=${map.page}&search=${map.search}"><p class="col_img_inbx"><img src="../upload/${stuDto.c_fileName }" alt="${stuDto.com_name }" width="378" height="248" id="pop_img_info" data="1118" style="cursor:pointer;"></p></a>
 			            <div class="col_img_logo">
-							<span><a href="studio_contentView?infoId=${stuDto.infoId }" id="pop_img_info" style="cursor: pointer;" class="col_bg" data="1118">상품보기</a></span>
+							<span><a href="studio_contentView?infoId=${stuDto.infoId }&page=${map.page}&search=${map.search}" id="pop_img_info" style="cursor: pointer;" class="col_bg" data="1118">상품보기</a></span>
 							<span class="col_gal_ttx_color"><a href="${stuDto.c_onlineAddress }" id="consult_info" class="col_bg" style="">홈페이지</a></span>
 						</div>
 			        </div>

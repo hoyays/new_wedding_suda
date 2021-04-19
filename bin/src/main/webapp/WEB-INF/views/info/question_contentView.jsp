@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html><head>
 <meta charset="utf-8">
@@ -184,7 +185,7 @@ $(document).ready(function() {
 </script>
 <div id="community_after_detail_wrap">
 	<div id="after_detail_title">
-		<span class="after_detail_title_txt">[ ${map.queDto.bcategory} ] ${map.queDto.btitle}</span>
+		<span class="after_detail_title_txt">${map.queDto.btitle}</span>
     </div>
     <div id="after_detail_date">
 		<span id="after_detail_date_day" style="font-size:13px;color:#000000;">• 작성자</span>
@@ -201,23 +202,29 @@ $(document).ready(function() {
 		<div id="after_lotation_left">
 			<div class="after_lotation_left01"><a><img src="../images/up.jpg" alt="up">이전글</a></div>
             <div class="after_lotation_left02">
-				
-					<a href="after_view.asp?idx=18895&amp;pageNo=1&amp;search=&amp;keyword=">[웨딩화보] 모니카블랑쉬</a> 
-				
+					<a href="./question_contentView?bid=${map.preDto.bid}&page=${map.page}&search=${map.search}">${map.preDto.btitle}</a> 
 			</div>
         </div>
         <div id="after_lotation_right">
 			<div class="after_lotation_right01"><a><img src="../images/down.jpg" alt="down">다음글</a></div>
             <div class="after_lotation_right02">
-				<a>다음글이 없습니다.</a>
+				<a href="./question_contentView?bid=${map.nextDto.bid}&page=${map.page}&search=${map.search}">${map.nextDto.btitle}</a>
 				</div>
             </div>
         </div>     
 		<div id="after_return">
 			<span class="after_return_txt_list"><a href="./question_list?page=${map.page }&search=${map.search}">목록으로</a></span>
-			<span class="after_return_txt_edit"><a href="./question_modifyView?bid=${map.queDto.bid }&page=${map.page }&search=${map.search}" id="edit_btn" style="cursor:pointer;" data="18896" data2="pageNo=1&amp;search=&amp;keyword=" data3="pageNo=1&amp;search=&amp;keyword=" data4="${map.queDto.bname }">수정</a></span>
-			<span class="after_return_txt_del"><a id="del_btn" style="cursor:pointer;" data="18896" data2="pageNo=1&amp;search=&amp;keyword=" data3="pageNo=1&amp;search=&amp;keyword=" data4="${map.queDto.bname }" onclick="deleteCheck()">삭제</a></span>
-			<span class="after_return_txt_write"><a href="./question_replyView?bid=${map.queDto.bid }&page=${map.page }&search=${search}" id="regist_btn" style="cursor:pointer;">답변달기</a></span>
+			<c:choose>
+				<c:when test="${session_userid eq map.queDto.userid || session_userid eq 'admin'}">
+					<span class="after_return_txt_edit"><a href="./question_modifyView?bid=${map.queDto.bid }&page=${map.page }&search=${map.search}" id="edit_btn" style="cursor:pointer;" data="18896" data2="pageNo=1&amp;search=&amp;keyword=" data3="pageNo=1&amp;search=&amp;keyword=" data4="${map.queDto.bname }">수정</a></span>
+					<span class="after_return_txt_del"><a id="del_btn" style="cursor:pointer;" data="18896" data2="pageNo=1&amp;search=&amp;keyword=" data3="pageNo=1&amp;search=&amp;keyword=" data4="${map.queDto.bname }" onclick="deleteCheck()">삭제</a></span>
+				</c:when>
+			</c:choose>
+			<c:choose>
+				<c:when test="${session_userid == 'admin' || session_businessTy == 'company' }">
+					<span class="after_return_txt_write"><a href="./question_replyView?bid=${map.queDto.bid }&page=${map.page }&search=${search}" id="regist_btn" style="cursor:pointer;">답변달기</a></span>
+				</c:when>
+			</c:choose>
 		</div>
 		<div style="height:70px;">
 			             		

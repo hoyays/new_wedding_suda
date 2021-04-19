@@ -215,7 +215,7 @@
 	  </delete>
 	  
 	  
-	  <!-- [ 허니문 ] -->
+	  <!-- [ 신혼여행 ] -->
 	  
 	 <!-- 전체 리스트 가져오기 -->
 		<select id="selectTravelListAll" resultType="com.site.dto.TravelcompanyInfoDto">
@@ -249,7 +249,7 @@
 		  	]]>
 	  	</select>
 	  	
-	  	<!-- 허니문 게시글 수정하기 -->
+	  	<!-- 신혼여행 게시글 수정하기 -->
 	  	<update id="updateTravelModify">
 		  	<![CDATA[ 
 			  	update TravelcompanyInfo set content=#{content},c_price=#{c_price},c_image=#{c_image},
@@ -265,13 +265,13 @@
 		  </delete>
 	  
 	  
-	  <!-- [ 웨딩홀/허니문 문의 게시판 ] -->
+	  <!-- [ 신혼여행 문의 게시판 ] -->
 	  
 	   <!-- 전체 리스트 가져오기 -->
 		<select id="selectQuestionListAll" resultType="com.site.dto.questionBoardDto">
 			<![CDATA[ 
 			  	select * from (select rownum rnum,a.* from
-				(select * from question_board order by bGroup desc, bStep asc) a)
+				(select * from question_board order by bgroup desc, bstep asc) a)
 				where rnum>=#{startrow} and rnum<=#{endrow}
 		    ]]> 
 		</select>
@@ -282,8 +282,7 @@
 			  	select * from
 				(select rownum rnum,a.* from
 				(select * from question_board where bname like '%'||#{search}||'%' or btitle like '%'||#{search}||'%'
-				or bcategory like '%'||#{search}||'%'
-				order by bGroup desc,bStep asc) a)
+				order by bgroup desc,bstep asc) a)
 				where rnum>=#{startrow} and rnum<=#{endrow}
 		    ]]>   
 		</select>
@@ -297,7 +296,6 @@
 		  <select id="QuestionListCountSearch" resultType="int">
 		  	<![CDATA[
 	  			select count(*) from question_board where bname like '%'||#{search}||'%' or btitle like '%'||#{search}||'%' 
-	  			or bcategory like '%'||#{search}||'%'
 	  		]]> 
 		  </select>
 		  
@@ -311,12 +309,62 @@
 		  	select * from question_board where bid=#{bid}
 		  </select>
 		  
+		  <!-- 이전글 -->
+		  <select id="selectQuestionPreView" resultType="com.site.dto.questionBoardDto">
+		  	<![CDATA[
+		  		select * from (select rownum rnum, a.* from
+				(select * from question_board order by bgroup desc, bstep asc) a)
+				where rnum=
+				(select rnum from (select rownum rnum, a.* from
+				(select * from question_board order by bgroup desc, bstep asc) a)
+				where bid=#{bid})+1
+		  	]]>
+		  </select>
+		  
+		  <!-- 다음글 -->
+		  <select id="selectQuestionNextView" resultType="com.site.dto.questionBoardDto">
+		  	<![CDATA[
+		  		select * from (select rownum rnum, a.* from
+				(select * from question_board order by bgroup desc, bstep asc) a)
+				where rnum=
+				(select rnum from (select rownum rnum, a.* from
+				(select * from question_board order by bgroup desc, bstep asc) a)
+				where bid=#{bid})-1
+		  	]]>
+		  </select>
+		  
+		  <!-- 이전글(검색 있는 경우) -->
+		  <select id="selectQuestionPreViewSearch" resultType="com.site.dto.questionBoardDto">
+		  	<![CDATA[
+		  		select * from (select rownum rnum, a.* from
+				(select * from question_board where bname like '%'||#{search}||'%' or btitle like '%'||#{search}||'%' order by bgroup desc, bstep asc) a)
+				where rnum=
+				(select rnum from (select rownum rnum, a.* from
+				(select * from question_board where bname like '%'||#{search}||'%' or btitle like '%'||#{search}||'%' order by bgroup desc, bstep asc) a)
+				where bid=#{bid})+1
+		  	]]>
+		  </select>
+		  
+		  <!-- 다음글(검색 있는 경우) -->
+		  <select id="selectQuestionNextViewSearch" resultType="com.site.dto.questionBoardDto">
+		  	<![CDATA[
+		  		select * from (select rownum rnum, a.* from
+				(select * from question_board where bname like '%'||#{search}||'%' or btitle like '%'||#{search}||'%' order by bgroup desc, bstep asc) a)
+				where rnum=
+				(select rnum from (select rownum rnum, a.* from
+				(select * from question_board where bname like '%'||#{search}||'%' or btitle like '%'||#{search}||'%' order by bgroup desc, bstep asc) a)
+				where bid=#{bid})-1
+		  	]]>
+		  </select>
+		  
+		  
+		  
 		  <!-- 문의글 등록(insert) -->
 		  <insert id="insertQuestionWrite">
 		  	<![CDATA[ 
 			  	insert into question_board values(
-				qboard_sequence.nextval,#{bname},#{bcategory},#{btitle},#{bcontent},
-				sysdate,0,qboard_sequence.currval,0,0,#{fileName})
+				qboard_sequence.nextval,#{bname},#{btitle},#{bcontent},
+				sysdate,0,qboard_sequence.currval,0,0,#{fileName},#{userid})
 	    	]]>
 		  </insert>
 		 
@@ -327,10 +375,10 @@
 			  		select * from question_board where bid=#{bid}
 			  	]]>
 		  	</select>
-		  <!-- 허니문 게시글 수정하기 -->
+		  <!-- 신혼여행 문의게시판 수정하기 -->
 	  	<update id="updateQuestionModify">
 		  	<![CDATA[ 
-			  	update question_board set bcategory=#{bcategory},btitle=#{btitle},bcontent=#{bcontent},
+			  	update question_board set btitle=#{btitle},bcontent=#{bcontent},
 			  	fileName=#{fileName} where bid=#{bid}
 		    ]]>
 	  	</update>
@@ -346,8 +394,8 @@
 		  <insert id="insertQuestionReply">
 		  	<![CDATA[ 
 			  	insert into question_board values(
-				qboard_sequence.nextval,#{bname},#{bcategory},#{btitle},#{bcontent},
-				sysdate,0,#{bgroup},#{bstep}+1,#{bindent}+1,'')
+				qboard_sequence.nextval,#{bname},#{btitle},#{bcontent},
+				sysdate,0,#{bgroup},#{bstep}+1,#{bindent}+1,'',#{userid})
 	    	]]>
 		  </insert>
 	  

@@ -70,7 +70,7 @@ travel_SEQUENCE.nextval,'admin','허니문리조트','허니문리조트입니�
 );
 
 
-< 문의게시판(웨딩홀/허니문) 테이블 >
+< 문의게시판(신혼여행) 테이블 >
 
 create table question_board(
 bid  NUMBER(3) primary key,    
@@ -85,6 +85,14 @@ bstep             NUMBER(4),
 bindent           NUMBER(4),      
 fileName          VARCHAR2(40)
 );
+
+< 컬럼 삭제 - 4월 17일, 허니문 대신 신혼여행으로 통일 >
+alter table question_board drop column bcategory;
+< 컬럼 추가 >
+alter table question_board add userid varchar2(20);
+< 외래키 추가 >
+alter table question_board add CONSTRAINT fk_userid_question FOREIGN key(userid)
+REFERENCES ws_member(userid);
 
 
 < 시퀀스 생성 - 문의게시판 >

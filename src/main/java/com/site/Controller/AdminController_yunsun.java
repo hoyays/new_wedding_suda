@@ -17,10 +17,13 @@ import com.site.dto.MemberDto;
 import com.site.service.AdminMemberService;
 
 @Controller
-public class AdminController {
+public class AdminController_yunsun {
 	
 	@Autowired
 	AdminMemberService adminMember;
+	
+	//변수선언
+	Map<String, Object> map;
 
 	@RequestMapping("/admin/admin_login")
 	public String admin_login() {
@@ -46,7 +49,22 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/admin/admin_memberStatus")
-	public String admin_memberStatus() {
+	public String admin_memberStatus(@RequestParam @Nullable String page, 			
+			@RequestParam @Nullable String search, Model model) {
+		
+		
+		map = adminMember.boardMemberListAll(page, search);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		return "/admin/admin_memberStatus";
 	}
 	

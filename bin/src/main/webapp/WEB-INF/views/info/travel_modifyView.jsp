@@ -331,14 +331,13 @@ $('#file').change(function(evt) {
 		<span id="sub_Color_f"><a href="/info/studio_writeView">스튜디오</a></span>
 		<span id="sub_Color_f"><a href="./dress_list">드레스</a></span>
         <span id="sub_Color_f"><a href="/info/hairMakeUp_writeView">헤어메이크업</a></span>
-        <span id="sub_Color_f"><a href="./weddingHall_list">웨딩홀</a></span>
-        <span id="sub_Color_f" class="sub_under_bar"><a href="/info/travel_writeView">허니문</a></span>
+        <span id="sub_Color_f" class="sub_under_bar"><a href="/info/travel_writeView">신혼여행</a></span>
     </div>
 </div>
 <div id="contain02">
 	<div id="contain02_text">
-		<span class="title_name">허니문</span>
-        <span class="title_detail">신혼여행 업체 상품 등록 페이지입니다.</span>
+		<span class="title_name">신혼여행 업체 상품 수정 페이지</span>
+        <span class="title_detail">신혼여행 업체 상품 수정 페이지입니다.</span>
     </div>
 </div>
 

@@ -37,6 +37,20 @@
 <script type="text/javascript" src="/js/prog.js"></script>
 <script language="javascript" src="/js/jquery-ui-1.10.4.custom.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script type="text/javascript">
+
+	function questionLoginCheck() {
+		if(${session_flag == null || session_flag == 'fail' }) {
+			alert('로그인 후 이용 가능합니다.');
+			location.href="../member/login";
+			return false;
+		}else {
+			location.href="./question_writeView";
+		}
+		
+		
+	}
+</script>
 <!--접속유입통계-->	
 
 <!--접속유입통계-->
@@ -116,30 +130,37 @@
 <div class="sub_link_box">
 	<div class="sub_link_menu">
 		<span id="sub_Color_f"><a href="/community/notice_list.asp">공지사항</a></span>
-        <span id="sub_Color_f" class="sub_under_bar"><a href="/community/board_list.asp">문의게시판</a></span>
+        <span id="sub_Color_f" class="sub_under_bar"><a href="/community/board_list.asp">신혼여행 문의게시판</a></span>
 		<span id="sub_Color_f"><a href="/community/after_list.asp">웨딩후기</a></span>
     </div>
 </div>
 <div id="contain02">
 	<div id="contain02_text">
-		<span class="title_name">문의게시판</span>
-        <span class="title_detail">웨딩홀/허니문 문의게시판입니다.</span>
+		<span class="title_name">신혼여행 문의게시판</span>
+        <span class="title_detail">신혼여행 문의게시판입니다.</span>
     </div>
 </div>
 
 <script language="javascript">
 $(document).ready(function() {	
-	$('#regist_btn').click(function() {
+	/* $('#regist_btn').click(function() {
 		if ('')
 		{
 			top.location.href="board_flag.asp";
 		}else {
 			top.location.href="/membership/log_in.asp?url=/community/board_flag.asp";
 		}
-	});
+	}); */
 
-	/* $('a[id=screct_link]').click(function() {		
-		alert("비밀글은 본인이 작성한 글만 확인이 가능합니다!");		
+	
+	/* $('a[id=screct_link]').click(function() {
+		
+		if(${session_name eq map.queDto.bname || session_userid eq 'admin'}) {
+			location.href="question_contentView?bid=${queDto.bid }&page=${map.page}&search=${map.search}";
+		}else {
+			alert("비밀글은 본인이 작성한 글만 확인이 가능합니다!");	
+			return false;
+		}
 	}); */
 });
 
@@ -173,7 +194,7 @@ function go_page(n)
 			    <c:forEach begin="1" end="${queDto.bindent }">
       		<img src="../images/icon_reply.png">
       	</c:forEach>
-			    <img src="../images/board_ic_secret.gif" alt="비밀글"></span><a  href="question_contentView?bid=${queDto.bid }&page=${map.page}&search=${map.search}" id="screct_link" class="view_article" style="cursor:pointer;">[ ${queDto.bcategory } ] ${queDto.btitle }&nbsp;
+			    <img src="../images/board_ic_secret.gif" alt="비밀글"></span><a href="question_contentView?userid=${queDto.userid }&bid=${queDto.bid }&page=${map.page}&search=${map.search}" id="screct_link" class="view_article" style="cursor:pointer;">${queDto.btitle }&nbsp;
 			<%--     <c:choose>
 			    	<c:when test="${queDto.bstep > 0 }">
 			    		<span style="color:#c60e0e;">&nbsp;( ${queDto.bstep } )</span></a>  
@@ -235,7 +256,7 @@ function go_page(n)
         </div>
         
 <div id="board_write">
-        <a href="question_writeView"><input class="board_write_btn" type="button" value="문의하기" id="regist_btn" style="cursor:pointer;font-family: NanumBarunGothic;font-size:15px;"></a>
+        <input class="board_write_btn" type="button" value="문의하기" id="regist_btn" style="cursor:pointer;font-family: NanumBarunGothic;font-size:15px;" onclick="questionLoginCheck()">
     </div>
 </div>
 

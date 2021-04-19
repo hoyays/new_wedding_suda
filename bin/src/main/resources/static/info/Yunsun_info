@@ -92,3 +92,10 @@ admin_name varchar(20)
 insert into ws_admin values(
 'admin','1111','관리자'
 );
+
+
+
+★★★★★★★★★★★★★★4/18(일) 추가(ws_inquiry_board)
+★★★★★★★★★★★★★★새글 알림용
+alter table ws_inquiry_board add clickcheck number(2);
+update ws_inquiry_board set clickcheck=1;

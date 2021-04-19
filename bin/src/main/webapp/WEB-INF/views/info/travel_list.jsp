@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>웨딩수다(웨딩홀)</title>
+<title>웨딩수다</title>
 <meta name="description"
 	content="웨딩홀, 스드메, 스드메패키지,스드메견적표, 허니문, 웨딩박람회, 혼수, 예물, 결혼준비, 웨딩스튜디오, 웨딩드레스, 예식장 정보 제공">
 <meta name="keywords"
@@ -233,15 +233,14 @@
 					<span id="sub_Color_f"><a href="./studio_list">스튜디오</a></span> <span
 						id="sub_Color_f"><a href="/info/dress_list">드레스</a></span> <span
 						id="sub_Color_f"><a href="/info/hairMakeUp_list">헤어메이크업</a></span>
-					<span id="sub_Color_f"><a href="./weddingHall_list">웨딩홀</a></span>
 					<span id="sub_Color_f" class="sub_under_bar"><a
-						href="/info/travel_list">허니문</a></span>
+						href="/info/travel_list">신혼여행</a></span>
 				</div>
 			</div>
 
 			<div id="contain02">
 				<div id="contain02_text">
-					<span class="title_name">허니문</span> <span class="title_detail">결혼
+					<span class="title_name">신혼여행</span> <span class="title_detail">결혼
 						준비의 새로운 기준 베리굿웨딩과 함께 하세요!</span>
 				</div>
 			</div>
@@ -281,10 +280,9 @@
 									<tbody>
 										<tr>
 											<c:choose>
-												<c:when test="${session_userid == traDto.userid }">
-													<a href="travel_modifyView?infoId=${traDto.infoId }">
-														<span class="btn_input"><input type="button" class="online_lg_color" id="regist_btn" value="수정하기" style="cursor: pointer; font-family: NanumBarunGothic;"></span></a>
-														<span class="btn_input"><input type="button" class="online_lg_color" id="regist_btn" value="삭제하기" style="cursor: pointer; font-family: NanumBarunGothic;" onclick="deleteCheck('${traDto.infoId}')"></span>
+												<c:when test="${session_userid eq traDto.userid || session_userid eq 'admin'}">
+													<span class="after_return_txt_edit"><a href="./travel_modifyView?infoId=${traDto.infoId }&page=${map.page }&search=${map.search}" id="edit_btn" style="cursor:pointer;" data="18896" data2="pageNo=1&amp;search=&amp;keyword=" data3="pageNo=1&amp;search=&amp;keyword=" data4="${map.queDto.bname }">수정</a></span>
+													<span class="after_return_txt_del"><a id="del_btn" style="cursor:pointer;" data="18896" data2="pageNo=1&amp;search=&amp;keyword=" data3="pageNo=1&amp;search=&amp;keyword=" data4="${map.queDto.bname }" onclick="deleteCheck('${traDto.infoId}')">삭제</a></span>
 												</c:when>
 												<c:otherwise>									
 													<td align="center"

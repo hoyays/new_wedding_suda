@@ -57,7 +57,7 @@
   		<![CDATA[
   		insert into ws_inquiry_board values(
 		ws_inquiry_seq.nextval, ws_inquiry_seq.currval,0,0,0,
-		#{userid},#{btitle},#{bcontent},sysdate,#{filename},0)
+		#{userid},#{btitle},#{bcontent},sysdate,#{filename},0,0)
 		]]>
   </insert>
   
@@ -132,7 +132,7 @@
   		<![CDATA[
     	insert into ws_inquiry_board values(
 		ws_inquiry_seq.nextval, #{bgroup},#{bindent}+1,0,#{bstep}+1,
-		#{userid},#{btitle},#{bcontent},sysdate,#{filename},0)
+		#{userid},#{btitle},#{bcontent},sysdate,#{filename},0,0)
 		]]>
   </insert>
   
@@ -172,6 +172,17 @@
 		]]>
 	</update>
 
-  
+  		<!-- 새글알림용, ws_inquiry_board의 clickcheck값을 1로 변경 -->
+	<update id="updateBoardClickCheck">
+	 	<![CDATA[
+		update ws_inquiry_board set clickcheck = 1
+		where bid=#{bid}
+		]]>
+	</update>
+	
+	    <!-- inquiry_main 헤더 새글 알림용 -->
+	  <select id="selectBoardClickCount" resultType="int">
+			select sum(clickcheck) from ws_inquiry_board
+	  </select>
   
 </mapper>

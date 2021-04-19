@@ -330,17 +330,15 @@ $('#file').change(function(evt) {
 
 <div class="sub_link_box">
 	<div class="sub_link_menu">
-		<span id="sub_Color_f"><a href="/info/studio_writeView">스튜디오</a></span>
-		<span id="sub_Color_f"><a href="./dress_list">드레스</a></span>
-        <span id="sub_Color_f"><a href="/info/hairMakeUp_writeView">헤어메이크업</a></span>
-        <span id="sub_Color_f"><a href="./weddingHall_list">웨딩홀</a></span>
-        <span id="sub_Color_f" class="sub_under_bar"><a href="/info/travel_writeView">허니문</a></span>
+		<span id="sub_Color_f"><a href="/community/notice_list.asp">공지사항</a></span>
+        <span id="sub_Color_f" class="sub_under_bar"><a href="/community/board_list.asp">신혼여행 문의게시판</a></span>
+		<span id="sub_Color_f"><a href="/community/after_list.asp">웨딩후기</a></span>
     </div>
 </div>
 <div id="contain02">
 	<div id="contain02_text">
-		<span class="title_name">허니문</span>
-        <span class="title_detail">신혼여행 업체 상품 등록 페이지입니다.</span>
+		<span class="title_name">신혼여행 문의게시판</span>
+        <span class="title_detail">신혼여행 문의 등록하는 페이지입니다.</span>
     </div>
 </div>
 
@@ -366,23 +364,19 @@ $(document).ready(function() {
             <li class="box_li">
             <span class="online_write_title"><img src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;작성자</span>
                 <div class="value">
-                <input type="input" name="bname" id="bname" class="online_write_input02" value="${userMap.memberDto.name }" readonly style="padding-left:5px;color:#000000;">
+                <input type="text" name="bname" id="bname" class="online_write_input02" value="${userMap.memberDto.name }" readonly style="padding-left:5px;color:#000000;">
                 </div>
             </li>
             <li class="box_li" >
             <span class="online_write_title"><img src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;제목</span>
                 <div class="value">
-                <select id="bcategory" name="bcategory" style="height: 30px; border: none;">
-                		<option>웨딩홀</option>
-                		<option>허니문</option>
-                	</select>
-                <input type="text" name="btitle" id="btitle" class="online_write_input02" value="" style="padding-left:5px;color:#000000;">
+                	<input type="text" name="btitle" id="btitle" class="online_write_input02" value="" style="padding-left:5px;color:#000000;">
                 </div>
             </li>
             <li class="box_li" >
             <span class="online_write_title" style="font-size:14px;"><img src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;파일(필요시)</span>
                 <div class="value"> 
-                <input type="file" name="file" id="file" style="margin-left: 10px; margin-top: 12px" >
+                	<input type="file" name="file" id="file" style="margin-left: 10px; margin-top: 12px" >
                </div>
             </li>
              <li class="box_li" >

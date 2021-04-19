@@ -37,5 +37,20 @@
 	where userid=#{userid}
   </update>
   
+    <!-- 전체 회원가입 건수 확인(검색기능사용X) -->  
+  <select id="listCount" resultType="int">
+		select count(*) from ws_member
+  </select>
+  
+  	<!-- 회원전체 리스트 출력(검색기능 사용안함) -->
+  <select id="selectMemberListAll" resultType="com.site.dto.MemberDto">
+		select * from 
+		<![CDATA[
+		(select rownum rnum, a.* from 
+		(select * from ws_member order by sign_up_date desc) a) 
+		where rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
+  </select>
+  
   
 </mapper>

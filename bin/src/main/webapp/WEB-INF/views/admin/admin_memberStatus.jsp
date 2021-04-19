@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html lang="ko"><head>
 <meta charset="utf-8">
 <meta http-equiv="imagetoolbar" content="no">
@@ -36,7 +36,7 @@ var g5_admin_url = "https://demo.sir.kr/gnuboard5/adm";
 <script src="https://demo.sir.kr/gnuboard5/js/wrest.js?ver=191202"></script>
 <script src="https://demo.sir.kr/gnuboard5/js/placeholders.min.js?ver=191202"></script>
 </head>
-<body cz-shortcut-listen="true">
+<body>
 <div id="hd_login_msg">영카트5님 로그인 중 <a href="https://demo.sir.kr/gnuboard5/bbs/logout.php">로그아웃</a></div>
 <script>
 var tempX = 0;
@@ -97,29 +97,10 @@ function imageview(id, w, h)
                         <li class="gnb_li on">
                 <button type="button" class="btn_op menu-200 menu-order-2" title="회원관리">회원관리</button>
                 <div class="gnb_oparea_wr">
-						<div class="gnb_oparea">
-							<h3>회원관리</h3>
-							<ul>
-								<li data-menu="200100"><a href="./admin_memberStatus"
-									class="gnb_2da  ">회원관리</a></li>
-								<!-- <li data-menu="200300"><a
-									href="https://demo.sir.kr/gnuboard5/adm/mail_list.php"
-									class="gnb_2da  ">회원메일발송</a></li>
-								<li data-menu="200800"><a
-									href="https://demo.sir.kr/gnuboard5/adm/visit_list.php"
-									class="gnb_2da gnb_grp_style gnb_grp_div">접속자집계</a></li>
-								<li data-menu="200810"><a
-									href="https://demo.sir.kr/gnuboard5/adm/visit_search.php"
-									class="gnb_2da gnb_grp_style gnb_grp_div">접속자검색</a></li>
-								<li data-menu="200200"><a
-									href="https://demo.sir.kr/gnuboard5/adm/point_list.php"
-									class="gnb_2da  ">포인트관리</a></li>
-								<li data-menu="200900"><a
-									href="https://demo.sir.kr/gnuboard5/adm/poll_list.php"
-									class="gnb_2da  ">투표관리</a></li> -->
-							</ul>
-						</div>
-					</div>
+                    <div class="gnb_oparea">
+                        <h3>회원관리</h3>
+                        <ul><li data-menu="200100"><a href="https://demo.sir.kr/gnuboard5/adm/member_list.php" class="gnb_2da  ">회원관리</a></li><li data-menu="200300"><a href="https://demo.sir.kr/gnuboard5/adm/mail_list.php" class="gnb_2da  ">회원메일발송</a></li><li data-menu="200800"><a href="https://demo.sir.kr/gnuboard5/adm/visit_list.php" class="gnb_2da gnb_grp_style gnb_grp_div">접속자집계</a></li><li data-menu="200810"><a href="https://demo.sir.kr/gnuboard5/adm/visit_search.php" class="gnb_2da gnb_grp_style gnb_grp_div">접속자검색</a></li><li data-menu="200200"><a href="https://demo.sir.kr/gnuboard5/adm/point_list.php" class="gnb_2da  ">포인트관리</a></li><li data-menu="200900"><a href="https://demo.sir.kr/gnuboard5/adm/poll_list.php" class="gnb_2da  ">투표관리</a></li></ul>                    </div>
+                </div>
             </li>
                         <li class="gnb_li">
                 <button type="button" class="btn_op menu-300 menu-order-3" title="게시판관리">게시판관리</button>
@@ -157,12 +138,6 @@ function imageview(id, w, h)
     </nav>
 
 </header>
-
-
-
-
-
-
 <script>
 jQuery(function($){
 
@@ -207,10 +182,10 @@ jQuery(function($){
         <h1 id="container_title">관리자메인</h1>
         <div class="container_wr">
 <section>
-    <h2>회원가입목록</h2>
-    <!-- <div class="local_desc02 local_desc">
-        총회원수 2,800명 중 차단 0명, 탈퇴 : 37명
-    </div> -->
+    <h2>신규가입회원 5건 목록</h2>
+    <div class="local_desc02 local_desc">
+        총회원수 2,799명 중 차단 0명, 탈퇴 : 37명
+    </div>
 
     <div class="tbl_head01 tbl_wrap">
         <table>
@@ -220,43 +195,16 @@ jQuery(function($){
             <th scope="col">회원아이디</th>
             <th scope="col">이름</th>
             <th scope="col">닉네임</th>
-            <th scope="col">성별</th>
+            <th scope="col">권한</th>
             <th scope="col">포인트</th>
-            <th scope="col">모바일</th>
-            <th scope="col">이메일</th>
-            <th scope="col">결혼예정일</th>
-            <th scope="col">가입유형</th>
-            <th scope="col">가입일</th>
+            <th scope="col">수신</th>
+            <th scope="col">공개</th>
+            <th scope="col">인증</th>
+            <th scope="col">차단</th>
+            <th scope="col">그룹</th>
         </tr>
         </thead>
         <tbody>
-                <tr>
-            <td class="td_mbid">********</td>
-            <td class="td_mbname">*********</td>
-            <td class="td_mbname sv_use"><div><span class="sv_wrap">
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=********" class="sv_member" title="************** 자기소개" target="_blank" rel="nofollow" onclick="return false;"><span class="profile_img"><img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="no_profile" width="22" height="22"></span> **************</a>
-<span class="sv">
-<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19eXXmMWo5cXpKMXV0-" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=********" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
-</span>
-
-<noscript class="sv_nojs"><span class="sv">
-<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19eXXmMWo5cXpKMXV0-" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=********" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
-</span>
-</noscript></span></div></td>
-            <td class="td_num">2</td>
-            <td><a href="./point_list.php?sfl=mb_id&amp;stx=********">1,000</a></td>
-            <td class="td_boolean">예</td>
-            <td class="td_boolean">예</td>
-            <td class="td_boolean">예</td>
-            <td class="td_boolean">아니오</td>
-            <td class="td_category"></td>
-        </tr>
                 <tr>
             <td class="td_mbid">*****_********</td>
             <td class="td_mbname">******</td>
@@ -288,7 +236,7 @@ jQuery(function($){
             <td class="td_mbid">******</td>
             <td class="td_mbname">************</td>
             <td class="td_mbname sv_use"><div><span class="sv_wrap">
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=******" class="sv_member" title="************************ 자기소개" target="_blank" rel="nofollow" onclick="return false;"><span class="profile_img"><img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="no_profile" width="22" height="22"></span> ************************</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=******" class="sv_member" title="************************ 자기소개" target="_blank" rel="nofollow" onclick="return false;"><span class="profile_img"><img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="no_profile" width="22" height="22" title=""></span> ************************</a>
 <span class="sv">
 <a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=******" onclick="win_memo(this.href); return false;">쪽지보내기</a>
 <a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=******&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19ec2OMWo5cYo6MXQ--" onclick="win_email(this.href); return false;">메일보내기</a>
@@ -365,18 +313,45 @@ jQuery(function($){
             <td class="td_boolean">아니오</td>
             <td class="td_category"></td>
         </tr>
+                <tr>
+            <td class="td_mbid">*******</td>
+            <td class="td_mbname">****</td>
+            <td class="td_mbname sv_use"><div><span class="sv_wrap">
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*******" class="sv_member" title="******* 자기소개" target="_blank" rel="nofollow" onclick="return false;"><span class="profile_img"><img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="no_profile" width="22" height="22"></span> *******</a>
+<span class="sv">
+<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=*******" onclick="win_memo(this.href); return false;">쪽지보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=*******&amp;name=%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj3VeXWOMWo5cXo6QXV1i" onclick="win_email(this.href); return false;">메일보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*******" onclick="win_profile(this.href); return false;">자기소개</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=*******" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+</span>
+
+<noscript class="sv_nojs"><span class="sv">
+<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=*******" onclick="win_memo(this.href); return false;">쪽지보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=*******&amp;name=%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj3VeXWOMWo5cXo6QXV1i" onclick="win_email(this.href); return false;">메일보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*******" onclick="win_profile(this.href); return false;">자기소개</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=*******" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+</span>
+</noscript></span></div></td>
+            <td class="td_num">2</td>
+            <td><a href="./point_list.php?sfl=mb_id&amp;stx=*******">1,000</a></td>
+            <td class="td_boolean">예</td>
+            <td class="td_boolean">예</td>
+            <td class="td_boolean">예</td>
+            <td class="td_boolean">아니오</td>
+            <td class="td_category"></td>
+        </tr>
                 </tbody>
         </table>
     </div>
 
-    <!-- <div class="btn_list03 btn_list">
+    <div class="btn_list03 btn_list">
         <a href="./member_list.php">회원 전체보기</a>
-    </div> -->
+    </div>
 
 </section>
 
 
-<%-- <section>
+<section>
     <h2>최근게시물</h2>
 
     <div class="tbl_head01 tbl_wrap">
@@ -480,7 +455,7 @@ jQuery(function($){
 <section>
     <h2>최근 포인트 발생내역</h2>
     <div class="local_desc02 local_desc">
-        전체 11,024 건 중 5건 목록
+        전체 11,019 건 중 5건 목록
     </div>
 
     <div class="tbl_head01 tbl_wrap">
@@ -500,103 +475,25 @@ jQuery(function($){
         <tbody>
         
         <tr>
-            <td class="td_mbid"><a href="./point_list.php?sfl=mb_id&amp;stx=******_********">******_********</a></td>
-            <td class="td_mbname">*****</td>
+            <td class="td_mbid"><a href="./point_list.php?sfl=mb_id&amp;stx=*****_********">*****_********</a></td>
+            <td class="td_mbname">******</td>
             <td class="td_name sv_use"><div><span class="sv_wrap">
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=******_********" class="sv_member" title="***** 자기소개" target="_blank" rel="nofollow" onclick="return false;"><span class="profile_img"><img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="no_profile" width="22" height="22"></span> *****</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*****_********" class="sv_member" title="****** 자기소개" target="_blank" rel="nofollow" onclick="return false;"><span class="profile_img"><img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="no_profile" width="22" height="22"></span> ******</a>
 <span class="sv">
-<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=******_********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=******_********&amp;name=%2A%2A%2A%2A%2A&amp;email=XVpgj19ec2OMWo5cYo6MXQ--" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=******_********" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=******_********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=*****_********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=*****_********&amp;name=%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19eXWOMcI5cXo6MYV1iXA--" onclick="win_email(this.href); return false;">메일보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*****_********" onclick="win_profile(this.href); return false;">자기소개</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=*****_********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
 </span>
 
 <noscript class="sv_nojs"><span class="sv">
-<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=******_********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=******_********&amp;name=%2A%2A%2A%2A%2A&amp;email=XVpgj19ec2OMWo5cYo6MXQ--" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=******_********" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=******_********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=*****_********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=*****_********&amp;name=%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19eXWOMcI5cXo6MYV1iXA--" onclick="win_email(this.href); return false;">메일보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*****_********" onclick="win_profile(this.href); return false;">자기소개</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=*****_********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
 </span>
 </noscript></span></div></td>
-            <td class="td_datetime">2021-04-19 09:43:03</td>
-            <td>2021-04-19 첫로그인</td>
-            <td class="td_numbig">100</td>
-            <td class="td_numbig">1,500</td>
-        </tr>
-
-        
-        <tr>
-            <td class="td_mbid"><a href="./point_list.php?sfl=mb_id&amp;stx=**********">**********</a></td>
-            <td class="td_mbname">**********</td>
-            <td class="td_name sv_use"><div><span class="sv_wrap">
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=**********" class="sv_member" title="********** 자기소개" target="_blank" rel="nofollow" onclick="return false;"><span class="profile_img"><img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="no_profile" width="22" height="22"></span> **********</a>
-<span class="sv">
-<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=**********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=**********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj3VeXWOMXo5cXo4-" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=**********" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=**********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
-</span>
-
-<noscript class="sv_nojs"><span class="sv">
-<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=**********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=**********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj3VeXWOMXo5cXo4-" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=**********" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=**********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
-</span>
-</noscript></span></div></td>
-            <td class="td_datetime">2021-04-19 00:28:36</td>
-            <td>2021-04-19 첫로그인</td>
-            <td class="td_numbig">100</td>
-            <td class="td_numbig">236,464</td>
-        </tr>
-
-        
-        <tr>
-            <td class="td_mbid"><a href="./point_list.php?sfl=mb_id&amp;stx=**********">**********</a></td>
-            <td class="td_mbname">**********</td>
-            <td class="td_name sv_use"><div><span class="sv_wrap">
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=**********" class="sv_member" title="********** 자기소개" target="_blank" rel="nofollow" onclick="return false;"><span class="profile_img"><img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="no_profile" width="22" height="22"></span> **********</a>
-<span class="sv">
-<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=**********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=**********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj3VeXWOMXo5cXo4-" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=**********" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=**********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
-</span>
-
-<noscript class="sv_nojs"><span class="sv">
-<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=**********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=**********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj3VeXWOMXo5cXo4-" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=**********" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=**********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
-</span>
-</noscript></span></div></td>
-            <td class="td_datetime">2021-04-18 00:50:31</td>
-            <td>2021-04-18 첫로그인</td>
-            <td class="td_numbig">100</td>
-            <td class="td_numbig">236,364</td>
-        </tr>
-
-        
-        <tr>
-            <td class="td_mbid"><a href="./point_list.php?sfl=mb_id&amp;stx=********">********</a></td>
-            <td class="td_mbname">*********</td>
-            <td class="td_name sv_use"><div><span class="sv_wrap">
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=********" class="sv_member" title="************** 자기소개" target="_blank" rel="nofollow" onclick="return false;"><span class="profile_img"><img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="no_profile" width="22" height="22"></span> **************</a>
-<span class="sv">
-<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19eXXmMWo5cXpKMXV0-" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=********" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
-</span>
-
-<noscript class="sv_nojs"><span class="sv">
-<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19eXXmMWo5cXpKMXV0-" onclick="win_email(this.href); return false;">메일보내기</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=********" onclick="win_profile(this.href); return false;">자기소개</a>
-<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
-</span>
-</noscript></span></div></td>
-            <td class="td_datetime">2021-04-17 13:18:59</td>
+            <td class="td_datetime">2021-04-16 17:03:32</td>
             <td>회원가입 축하</td>
             <td class="td_numbig">1,000</td>
             <td class="td_numbig">1,000</td>
@@ -622,10 +519,88 @@ jQuery(function($){
 <a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=**********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
 </span>
 </noscript></span></div></td>
-            <td class="td_datetime">2021-04-17 00:00:55</td>
-            <td>2021-04-17 첫로그인</td>
+            <td class="td_datetime">2021-04-16 10:47:54</td>
+            <td>주문번호 2021041610464745 결제</td>
+            <td class="td_numbig">-100</td>
+            <td class="td_numbig">236,164</td>
+        </tr>
+
+        
+        <tr>
+            <td class="td_mbid"><a href="./point_list.php?sfl=mb_id&amp;stx=**********">**********</a></td>
+            <td class="td_mbname">**********</td>
+            <td class="td_name sv_use"><div><span class="sv_wrap">
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=**********" class="sv_member" title="********** 자기소개" target="_blank" rel="nofollow" onclick="return false;"><span class="profile_img"><img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="no_profile" width="22" height="22"></span> **********</a>
+<span class="sv">
+<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=**********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=**********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj3VeXWOMXo5cXo4-" onclick="win_email(this.href); return false;">메일보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=**********" onclick="win_profile(this.href); return false;">자기소개</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=**********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+</span>
+
+<noscript class="sv_nojs"><span class="sv">
+<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=**********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=**********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj3VeXWOMXo5cXo4-" onclick="win_email(this.href); return false;">메일보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=**********" onclick="win_profile(this.href); return false;">자기소개</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=**********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+</span>
+</noscript></span></div></td>
+            <td class="td_datetime">2021-04-16 01:22:14</td>
+            <td>2021-04-16 첫로그인</td>
             <td class="td_numbig">100</td>
             <td class="td_numbig">236,264</td>
+        </tr>
+
+        
+        <tr>
+            <td class="td_mbid"><a href="./point_list.php?sfl=mb_id&amp;stx=******">******</a></td>
+            <td class="td_mbname">************</td>
+            <td class="td_name sv_use"><div><span class="sv_wrap">
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=******" class="sv_member" title="************************ 자기소개" target="_blank" rel="nofollow" onclick="return false;"><span class="profile_img"><img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="no_profile" width="22" height="22"></span> ************************</a>
+<span class="sv">
+<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=******" onclick="win_memo(this.href); return false;">쪽지보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=******&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19ec2OMWo5cYo6MXQ--" onclick="win_email(this.href); return false;">메일보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=******" onclick="win_profile(this.href); return false;">자기소개</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=******" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+</span>
+
+<noscript class="sv_nojs"><span class="sv">
+<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=******" onclick="win_memo(this.href); return false;">쪽지보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=******&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19ec2OMWo5cYo6MXQ--" onclick="win_email(this.href); return false;">메일보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=******" onclick="win_profile(this.href); return false;">자기소개</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=******" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+</span>
+</noscript></span></div></td>
+            <td class="td_datetime">2021-04-15 23:03:32</td>
+            <td>회원가입 축하</td>
+            <td class="td_numbig">1,000</td>
+            <td class="td_numbig">1,000</td>
+        </tr>
+
+        
+        <tr>
+            <td class="td_mbid"><a href="./point_list.php?sfl=mb_id&amp;stx=*****_********">*****_********</a></td>
+            <td class="td_mbname">********</td>
+            <td class="td_name sv_use"><div><span class="sv_wrap">
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*****_********" class="sv_member" title="******** 자기소개" target="_blank" rel="nofollow" onclick="return false;"><span class="profile_img"><img src="https://demo.sir.kr/gnuboard5/img/no_profile.gif" alt="no_profile" width="22" height="22"></span> ********</a>
+<span class="sv">
+<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=*****_********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=*****_********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19ec2OMWo5cYo6MXQ--" onclick="win_email(this.href); return false;">메일보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*****_********" onclick="win_profile(this.href); return false;">자기소개</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=*****_********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+</span>
+
+<noscript class="sv_nojs"><span class="sv">
+<a href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=*****_********" onclick="win_memo(this.href); return false;">쪽지보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=*****_********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19ec2OMWo5cYo6MXQ--" onclick="win_email(this.href); return false;">메일보내기</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*****_********" onclick="win_profile(this.href); return false;">자기소개</a>
+<a href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=*****_********" class="link_new_page" onclick="check_goto_new(this.href, event);">전체게시물</a>
+</span>
+</noscript></span></div></td>
+            <td class="td_datetime">2021-04-15 22:59:12</td>
+            <td>회원가입 축하</td>
+            <td class="td_numbig">1,000</td>
+            <td class="td_numbig">1,000</td>
         </tr>
 
                 </tbody>
@@ -635,7 +610,7 @@ jQuery(function($){
     <div class="btn_list03 btn_list">
         <a href="./point_list.php">포인트내역 전체보기</a>
     </div>
-</section> --%>
+</section>
 
 
         <noscript>
@@ -662,7 +637,7 @@ $(".scroll_top").click(function(){
 })
 </script>
 
-<!-- <p>실행시간 : 0.010879993438721 -->
+<!-- <p>실행시간 : 0.010680198669434 -->
 
 <script src="https://demo.sir.kr/gnuboard5/adm/admin.js?ver=191202"></script>
 <script src="https://demo.sir.kr/gnuboard5/js/jquery.anchorScroll.js?ver=191202"></script>

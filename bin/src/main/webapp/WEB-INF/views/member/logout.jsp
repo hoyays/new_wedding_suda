@@ -20,7 +20,7 @@
 			<c:otherwise>
 				<script type="text/javascript">
 					alert('로그아웃이 정상적으로 되지 않았습니다.');
-					location.href="../inquiry/inquiry_main";
+					location.href="../main/main";
 				</script>
 			</c:otherwise>
 		</c:choose>
