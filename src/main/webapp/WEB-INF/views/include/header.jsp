@@ -200,8 +200,8 @@ function logout()
                         	</c:if>
                         	</span>
                         </a>
-                        <a href=""><span id="up_menu" data="05" name="up_menu_" class="">상품권교환</span></a>
-                        <a href=""><span id="up_menu" data="06" class="M_ttl_menu">커뮤니티</span></a>
+                        <a href="/mall"><span id="up_menu" data="05" name="up_menu_" class="">상품권교환</span></a>
+                        <a href=""><span id="up_menu" data="06" name="up_menu_" class="">커뮤니티</span></a>
                     </div>
                </div>
           </div>
@@ -221,19 +221,18 @@ function logout()
                             <a href="/info/hairMakeUp_list"><span>헤어메이크업</span></a>
                             <a href="/info/travel_list"><span>신혼여행</span></a>
                          </div>
-                        <!--  <div class="m_honsu">
-                         	<a href="/gallary/gallary_etc_list.asp?data=91,147"><span>예물</span></a>
-                            <a href="/gallary/gallary_etc_list.asp?data=92"><span>한복</span></a>
-                            <a href="/gallary/gallary_etc_list.asp?data=93"><span>신혼여행</span></a>
-                            <a href="/gallary/gallary_etc_list.asp?data=98"><span>예복</span></a>
-                            <a href="/gallary/gallary_etc_list.asp?data=101,102,157"><span>혼수</span></a>
+                         <div class="m_honsu">
+                            <a href="/hall/hall_bidding_list"><span>웨딩홀 입찰</span></a>
+                            <a href="/inquiry/inquiry_main"><span>지식인</span></a>
+                            <a href="/mall"><span>포인트몰</span></a>
+                            <a href="/event"><span>이벤트</span></a>
                          </div>
                          <div class="m_honey">
-                         	<a href="/honeymoon/honey_sub.asp"><span>허니문</span></a>
+                         	<a href="/noticeboard/notice_list"><span>공지사항</span></a>
                          </div>
                          <div class="m_after">
-                         	<a href="/community/after_list.asp"><span>웨딩후기</span></a>
-                         </div> -->
+                         	<a href="/noticeboard/after_list"><span>웨딩후기</span></a>
+                         </div>
                	</div>
                </div>
           </div>
@@ -399,9 +398,7 @@ function logout()
                               </div>
                               <div class="MSub_bx_02">
                                    <ul>
-                                        <li><a href="/counselling/consult.asp" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">스드메 비용 계산기</a></li>
-                                        <li><a href="/counselling/consult.asp?code=2" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">웨딩홀 간편 견적</a></li>
-                                        <li><a href="/counselling/consult.asp?code=3" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">허니문 간편 견적</a></li>                        
+                                        <li><a href="/mall" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">포인트 몰</a></li>
                                    </ul>
                               </div>
                               <div class="MSub_bx_03">
@@ -430,9 +427,10 @@ function logout()
                               </div>
                               <div class="MSub_bx_02">
                                    <ul>
-                                        <li><a href="/community/notice_list.asp" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">공지사항</a></li>
-                                        <li><a href="../info/question_list" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">문의게시판</a></li>
-                                        <li><a href="/community/after_list.asp" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">웨딩후기</a></li>
+                                        <li><a href="/noticeboard/notice_list" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">공지사항</a></li>
+                                        <li><a href="" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">문의게시판</a></li>
+                                        <li><a href="/noticeboard/after_list" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">웨딩후기</a></li>
+                                        <li><a href="./event" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">이벤트</a></li>
                                    </ul>
                               </div>
                               <div class="MSub_bx_03">

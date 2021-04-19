@@ -523,6 +523,45 @@ function noRefresh()
  }
  document.onkeydown = noRefresh ;
  
+ var randomNumber =0;
+ $(function(){
+      $("#emailck").click(function(){
+         var emailAdr = $('#email1').val()+'@'+$('#email2').val();
+         $.ajax({
+            url:"/member/EmailCheck",
+            type:"post",
+            data:{   'emailAdr': emailAdr },
+            success:function(data){   
+               if(data.result == 'true'){
+                  alert('메일을 전송하였습니다. 인증번호를 입력해주십시오.');
+                  randomNumber = data.randomNum;
+                  alert(randomNumber);
+                  return randomNumber;
+               }else {
+                  alert('메일 전송에 실패하였습니다.');
+               }
+               
+            },
+            error:function(){
+               alert("에러");
+            } 
+            
+            
+         });//ajax
+         
+      });//jQuery - 아이디 중복버튼 클릭시
+      
+      $('#emailokay').click(function() {   
+         var emailreturn = $('#emailreturn').val();   
+            if(emailreturn != randomNumber){
+               return false;
+            }else{
+               alert('정상적으로 인증이 완료 되었습니다.')
+            }
+       });
+      
+   });
+ 
 
  
 </script>
@@ -599,27 +638,35 @@ function noRefresh()
 			</li>
 			<li class="member_box_li_selet">
 				<span class="member_title_m" style="font-size:17px;"><img src="../images/member_icon03.png">&nbsp;&nbsp;이메일</span>
-				<div class="value_m">
-					<input type="text" name="email1" id="email1" class="member_input_email" style="width:120px;padding-left:5px;font-size:15px;color:#000000;">@ <input type="text" name="email2" id="email2" class="member_input_email" style="width:120px;padding-left:5px;font-size:15px;color:#000000;">
-					<select name="email3" id="email3" style="font-size:16px; height:30px;">
-						<option value="">직접입력</option>
-						<option value="naver.com">naver.com</option>
-						<option value="hanmail.net">hanmail.net</option>
-						<option value="gmail.com">gmail.com</option>
-						<option value="daum.net">daum.net</option>
-						<option value="paran.com">paran.com</option>
-						<option value="empal.com">empal.com</option>
-						<option value="nate.com">nate.com</option>
-						<option value="yahoo.co.kr">yahoo.co.kr</option>
-						<option value="chol.com">chol.com</option>
-						<option value="dreamwiz.com">dreamwiz.com</option>
-						<option value="hotmail.com">hotmail.com</option>
-						<option value="korea.com">korea.com</option>
-						<option value="lycos.co.kr">lycos.co.kr</option>
-						<option value="netian.com">netian.com</option>
-					</select>
-					<input type="hidden" name="email" id="email" value="">    
-				</div>
+				            <div class="value_m">
+               <input type="text" name="email1" id="email1" class="member_input_email" style="width:120px;padding-left:5px;font-size:15px;color:#000000;">@ 
+               <input type="text" name="email2" id="email2" class="member_input_email" style="width:120px;padding-left:5px;font-size:15px;color:#000000;">
+               <select name="email3" id="email3" style="font-size:16px; height:30px;">
+                  <option value="">직접입력</option>
+                  <option value="naver.com">naver.com</option>
+                  <option value="hanmail.net">hanmail.net</option>
+                  <option value="gmail.com">gmail.com</option>
+                  <option value="daum.net">daum.net</option>
+                  <option value="paran.com">paran.com</option>
+                  <option value="empal.com">empal.com</option>
+                  <option value="nate.com">nate.com</option>
+                  <option value="yahoo.co.kr">yahoo.co.kr</option>
+                  <option value="chol.com">chol.com</option>
+                  <option value="dreamwiz.com">dreamwiz.com</option>
+                  <option value="hotmail.com">hotmail.com</option>
+                  <option value="korea.com">korea.com</option>
+                  <option value="lycos.co.kr">lycos.co.kr</option>
+                  <option value="netian.com">netian.com</option>
+               </select>
+               
+               <input type="hidden" name="email" id="email" value="">
+               <div id="modalES">
+               <input type="text" id="emailreturn" name="emailreturn" style="font-size:16px; width:100px; height:30px;">
+               <button type="button" id="emailck" name="emailck" >인증번호 전송</button>
+               <input type="hidden" name="emailnum" id="emailnum" value="">
+               <button type="button" id="emailokay" name="emailokay" >인증번호 확인</button>
+               </div>  
+            </div>
 			</li>	
 			<li class="member_box_li_selet">
 				<span class="member_title_m" style="font-size:17px;"><img src="../images/member_icon03.png" align="absmiddle">&nbsp;&nbsp;결혼예정일</span>

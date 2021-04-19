@@ -110,6 +110,22 @@ public class MemberController {
 		return "/member/modifyCheck";
 	}
 	
+    @RequestMapping("/member/EmailCheck")
+    @ResponseBody
+    public HashMap<String, Object> EmailCheck(String emailAdr) {
+       HashMap<String, Object> map = new HashMap<String, Object>();
+       String randomNum = memberService.emailCheck(emailAdr);
+       
+       if (randomNum.equals("false")) {
+          // 이메일 발송에 실패한경우
+          map.put("result","false");
+       }else {
+          map.put("result", "true");
+          map.put("randomNum", randomNum);
+       }
+       return map;
+    }
+	
 	
 	
 	

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.site.mapper.EventMapper">
+  <select id="selectEventBoardListAll" resultType="com.site.dto.EventDto">
+      <![CDATA[
+        select * from  (select rownum rnum,a.*  from
+		(select * from event_board order by bid desc) a) 
+	  ]]>
+  </select>
+  
+    <!-- content_view -->
+  <select id="selectEventBoardContent_view" resultType="com.site.dto.EventDto">
+        select * from  event_board where bid=#{bid}
+  </select>
+  
+   <!-- 이전글 데이터 -->
+  <select id="selectEventBoard_pre" resultType="com.site.dto.EventDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from event_board order by bid desc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from event_board order by bid desc) a) 
+		where bid=#{bid})-1
+	  ]]>
+  </select>
+  <!-- 다음글 데이터 -->
+  <select id="selectEventBoard_next" resultType="com.site.dto.EventDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from event_board order by bid desc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from event_board order by bid desc) a) 
+		where bid=#{bid})+1
+	  ]]>
+  </select>
+   <!-- insert -->
+  <insert id="insertEventBoardWrite">
+       <![CDATA[
+        insert into event_board values(
+        #{userid},#{nickname},event_seq.nextval,#{btitle},
+		#{bcontent},sysdate,#{fileName})
+	   ]]>
+  </insert>
+  
+   <!-- update -->
+  <update id="updateBoardWrite">
+       <![CDATA[
+        update event_board set 
+        btitle=#{btitle},bcontent=#{bcontent},bdate=sysdate,fileName=#{fileName}
+		where bid=#{bid}
+	   ]]>
+  </update>
+  
+  <delete id="deleteBoard" >
+        delete event_board where bid=#{bid}
+  </delete>
+  
+  
+
+  
+</mapper>
+

@@ -3,7 +3,12 @@ package com.site.service;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.site.dto.MemberDto;
@@ -14,6 +19,9 @@ public class MemberService_impl implements MemberService {
 	
 	@Autowired
 	Member_mapper member_mapper;
+	
+	@Autowired
+	   private JavaMailSender send;
 
 	@Override
 	public int memberJoin(MemberDto memberDto) {
@@ -73,6 +81,25 @@ public class MemberService_impl implements MemberService {
 		return check;
 	}
 	
+	 @Override
+     public String emailCheck(String email) {
+        String randomNum = "false";
+        MimeMessage msg = send.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(msg);
+        try {
+           int i = ((int)(Math.random()*30000)+20000); // 20000 ~ 50000까지 랜덤숫자 발송
+           randomNum = Integer.toString(i);
+           helper.setTo(email);
+           helper.setSubject("웨딩 수다입니다");
+           helper.setText("인증번호는 <h1>"+randomNum+"</h1> 입니다",true);
+           msg.setRecipients(MimeMessage.RecipientType.TO, InternetAddress.parse(email));
+           send.send(msg);
+        }catch(Exception e) {
+           randomNum = "false";
+        }
+        
+        return randomNum;
+     }
 	
 	
 	

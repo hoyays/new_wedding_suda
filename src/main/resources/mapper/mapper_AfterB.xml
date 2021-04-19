@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.site.mapper.AfterMapper">
+  
+  <!-- delete -->
+  <delete id="deleteBoardDelete" >
+        delete after_board where bid=#{bid}
+  </delete>
+  
+  
+  <!-- reply -->
+  <insert id="insertBoardReply">
+       <![CDATA[
+        insert into after_board values(
+		board_seq.nextval,#{bname},#{btitle},#{bcontent},
+		sysdate,0,#{bgroup},#{bstep}+1,#{bindent}+1,#{fileName})
+	   ]]>
+  </insert>
+  <!-- replyPlus -->
+  <update id="insertBoardReplyPlus">
+       <![CDATA[
+        update after_board set bStep=bStep+1
+        where bGroup=#{bgroup} and bStep>#{bstep}
+	   ]]>
+  </update>
+  
+  
+  
+  <!-- content_view -->
+  <select id="selectAfterBoardContent_view" resultType="com.site.dto.AfterDto">
+        select * from  after_board where bid=#{bid}
+  </select>
+  <update id="selectUpHit" >
+        update after_board set bhit=bhit+1 where bid=#{bid}
+  </update>
+  <!-- 이전글 데이터 -->
+  <select id="selectAfterBoard_pre" resultType="com.site.dto.AfterDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from after_board order by bid desc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from after_board order by bid desc) a) 
+		where bid=#{bid})-1
+	  ]]>
+  </select>
+  <!-- 다음글 데이터 -->
+  <select id="selectAfterBoard_next" resultType="com.site.dto.AfterDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from after_board order by bid desc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from after_board order by bid desc) a) 
+		where bid=#{bid})+1
+	  ]]>
+  </select>
+  <!-- 이전글 데이터 - title검색 -->
+  <select id="selectAfterBoard_preTitle" resultType="com.site.dto.AfterDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from after_board where btitle like '%'||#{search}||'%'
+		order by bid desc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from after_board where btitle like '%'||#{search}||'%'
+		order by bid desc) a)
+		where bid=#{bid})-1
+	  ]]>
+  </select>
+  <!-- 다음글 데이터 - title검색 -->
+  <select id="selectAfterBoard_nextTitle" resultType="com.site.dto.AfterDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from after_board where btitle like '%'||#{search}||'%'
+		order by bid desc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from after_board where btitle like '%'||#{search}||'%'
+		order by bid desc) a)
+		where bid=#{bid})+1
+	  ]]>
+  </select>
+  <!-- 이전글 데이터 - content검색 -->
+  <select id="selectAfterBoard_preContent" resultType="com.site.dto.AfterDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from after_board where bcontent like '%'||#{search}||'%'
+		order by bid desc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from after_board where bcontent like '%'||#{search}||'%'
+		order by bid desc) a)
+		where bid=#{bid})-1
+	  ]]>
+  </select>
+  <!-- 다음글 데이터 - content검색 -->
+  <select id="selectAfterBoard_nextContent" resultType="com.site.dto.AfterDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from after_board where bcontent like '%'||#{search}||'%'
+		order by bid desc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from after_board where bcontent like '%'||#{search}||'%'
+		order by bid desc) a)
+		where bid=#{bid})+1
+	  ]]>
+  </select>
+  <!-- 이전글 데이터 - all검색 -->
+  <select id="selectAfterBoard_preAll" resultType="com.site.dto.AfterDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from after_board where bcontent like '%'||#{search}||'%' or btitle like '%'||#{search}||'%'
+		order by bid desc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from after_board where bcontent like '%'||#{search}||'%' or btitle like '%'||#{search}||'%' 
+		order by bid desc) a)
+		where bid=#{bid})-1
+	  ]]>
+  </select>
+  <!-- 다음글 데이터 - all검색 -->
+  <select id="selectAfterBoard_nextAll" resultType="com.site.dto.AfterDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from after_board where bcontent like '%'||#{search}||'%' or btitle like '%'||#{search}||'%'
+		order by bid desc) a)
+		where rnum=
+		(select rnum from (select rownum rnum,a.* from
+		(select * from after_board where bcontent like '%'||#{search}||'%' or btitle like '%'||#{search}||'%'
+		order by bid desc) a)
+		where bid=#{bid})+1
+	  ]]>
+  </select>
+  
+  
+  
+  <!-- update -->
+  <update id="updateBoardWrite">
+       <![CDATA[
+        update after_board set 
+        btitle=#{btitle},bcontent=#{bcontent},bdate=sysdate,fileName=#{fileName}
+		where bid=#{bid}
+	   ]]>
+  </update>
+  
+  
+  <!-- insert -->
+  <insert id="insertAfterBoardWrite">
+       <![CDATA[
+        insert into after_board values(
+        after_seq.nextval,#{userid},'관리자',#{btitle},
+		#{bcontent},sysdate,'0','0',#{fileName},after_seq.currval)
+	   ]]>
+  </insert>
+  
+  
+  
+  <!-- list 전체리스트 -->
+  <select id="selectAfterBoardListAll" resultType="com.site.dto.AfterDto">
+      <![CDATA[
+        select * from  (select rownum rnum,a.*  from
+		(select * from after_board order by bid desc) a) 
+		where rnum>=#{startrow} and rnum<=#{endrow}
+	  ]]>
+  </select>
+  <!-- list title검색리스트 -->
+  <select id="selectAfterBoardListTitle" resultType="com.site.dto.AfterDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from after_board where btitle like '%'||#{search}||'%'
+		order by bid desc) a)
+		where rnum>=#{startrow} and rnum<=#{endrow}
+	  ]]>
+  </select>
+  <select id="selectAfterBoardListContent" resultType="com.site.dto.AfterDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from after_board where bcontent like '%'||#{search}||'%'
+		order by bid desc) a)
+		where rnum>=#{startrow} and rnum<=#{endrow}
+	  ]]>
+  </select>
+  <select id="selectAfterBoardListSearchAll" resultType="com.site.dto.AfterDto">
+      <![CDATA[
+        select * from (select rownum rnum,a.* from
+		(select * from after_board where bcontent like '%'||#{search}||'%' or bTitle like '%'||#{search}||'%'
+		order by bid desc) a)
+		where rnum>=#{startrow} and rnum<=#{endrow}
+	  ]]>
+  </select>
+  
+  
+  
+  <!-- 전체리스트 개수 -->
+  <select id="listCount" resultType="int">
+      select count(*) from after_board
+  </select>
+  <!-- title 검색 개수 -->
+  <select id="listCountTitle" resultType="int">
+    <![CDATA[
+      select count(*) from after_board where btitle like '%'||#{search}||'%'
+    ]]>
+  </select>
+  <select id="listCountContent" resultType="int">
+    <![CDATA[
+      select count(*) from after_board where bcontent like '%'||#{search}||'%'
+    ]]>
+  </select>
+  <select id="listCountSearchAll" resultType="int">
+    <![CDATA[
+      select count(*) from after_board where bcontent like '%'||#{search}||'%' or btitle like '%'||#{search}||'%'
+    ]]>
+  </select>
+  
+  
+  <!-- comment 등록 -->
+  <insert id="insertCommentWrite">
+        <selectKey resultType="int" keyProperty="commentNo" order="BEFORE" >
+	      select com_seq.nextval from dual
+	    </selectKey>  
+        insert into commentBoard values(
+		#{commentNo},#{bid},#{id},#{commentPw},#{commentContent},sysdate)
+  </insert>
+  <!-- comment 저장된 1개 읽어오기 -->
+  <select id="selectCommentWrite" resultType="com.site.dto.CommentDto">
+        SELECT * FROM commentBoard where commentNo=#{commentNo}
+  </select>
+  
+  <update id="updateCommentUpdate" >
+        update commentBoard set commentContent=#{commentContent},
+        commentDate=sysdate where commentNo=#{commentNo}
+  </update>
+  
+  <delete id="deleteComment" >
+        delete commentBoard where commentNo=#{commentNo}
+  </delete>
+  
+  
+  
+  <!-- comment 전체 읽기 -->
+  <select id="selectEvent_CommentList" resultType="com.site.dto.CommentDto">
+        SELECT * FROM commentBoard where bid=#{bid}
+  </select>
+  <!-- comment 개수 -->
+  <select id="selectEvent_CommentCount" resultType="int">
+        SELECT count(*) FROM commentBoard where bid=#{bid}
+  </select>
+  
+  
+  
+</mapper>
+

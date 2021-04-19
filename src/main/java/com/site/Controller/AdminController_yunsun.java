@@ -55,15 +55,7 @@ public class AdminController_yunsun {
 		
 		map = adminMember.boardMemberListAll(page, search);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		model.addAttribute("map", map);
 		
 		return "/admin/admin_memberStatus";
 	}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.site.mapper.MallMapper">
+  
+
+  
+  
+  <!-- list 전체리스트 -->
+  <select id="selectMallBoardList" resultType="com.site.dto.MallDto">
+      <![CDATA[
+        select * from point_mall
+		
+	  ]]>
+  </select>
+    <!-- content_view -->
+  <select id="selectMall_view" resultType="com.site.dto.MallDto">
+        select * from  point_mall where bid=#{bid}
+  </select>
+  
+  	<!--아이디찾기 -->
+    <select id="selectMall_userid" resultType="com.site.dto.MemberDto">
+        select * from ws_member  where userid=#{userid}
+  </select>
+  
+  <!--포인트 사용-->
+  
+  <update id="spentPoint">
+  	UPDATE ws_member SET point=point-#{point} where userid=#{userid}
+  </update>
+  <insert id="insertAfterBoardWrite">
+       <![CDATA[
+       insert into point_mall values(
+		#{userid},mall_seq.nextval,#{btitle},#{bcontent},sysdate,#{fileName},#{point})
+	   ]]>
+  </insert>
+  
+  
+</mapper>
+
