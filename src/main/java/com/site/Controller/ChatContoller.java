@@ -47,6 +47,7 @@ public class ChatContoller {
 		return roomList;
 	}
 	
+	
 	/**
 	 * 방 정보가져오기
 	 * @param params
@@ -78,6 +79,18 @@ public class ChatContoller {
 	}
 
 	
+	@RequestMapping("/chat_addon")
+	public String chat_addon() {
+		
+		return "chat/chat_addon";
+	}
+	
+	@RequestMapping("/chat")
+	public ModelAndView chat() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("chat");
+		return mv;
+	}
 	
 	
 }

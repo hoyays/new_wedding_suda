@@ -172,23 +172,20 @@
 							<h3>게시판관리</h3>
 							<ul>
 								<li data-menu="300100"><a
-									href="https://demo.sir.kr/gnuboard5/adm/board_list.php"
-									class="gnb_2da  ">게시판관리</a></li>
+									href="./admin_info_studio"
+									class="gnb_2da  ">스튜디오 게시판</a></li>
 								<li data-menu="300200"><a
-									href="https://demo.sir.kr/gnuboard5/adm/boardgroup_list.php"
-									class="gnb_2da  ">게시판그룹관리</a></li>
+									href="./admin_info_dress"
+									class="gnb_2da ">드레스 게시판</a></li>
 								<li data-menu="300300"><a
-									href="https://demo.sir.kr/gnuboard5/adm/popular_list.php"
-									class="gnb_2da gnb_grp_style gnb_grp_div">인기검색어관리</a></li>
+									href="./admin_info_hm"
+									class="gnb_2da gnb_grp_style gnb_grp_div">헤어메이크업 게시판</a></li>
 								<li data-menu="300400"><a
-									href="https://demo.sir.kr/gnuboard5/adm/popular_rank.php"
-									class="gnb_2da gnb_grp_style gnb_grp_div">인기검색어순위</a></li>
-								<li data-menu="300500"><a
-									href="https://demo.sir.kr/gnuboard5/adm/qa_config.php"
-									class="gnb_2da  ">1:1문의설정</a></li>
-								<li data-menu="300600"><a
-									href="https://demo.sir.kr/gnuboard5/adm/contentlist.php"
-									class="gnb_2da gnb_grp_style gnb_grp_div">내용관리</a></li>
+									href="./admin_info_travel"
+									class="gnb_2da gnb_grp_style gnb_grp_div">신혼여행 게시판</a></li>
+								<li data-menu="300400"><a
+									href="./admin_info_question"
+									class="gnb_2da gnb_grp_style gnb_grp_div on">신혼여행 문의게시판</a></li>
 							</ul>
 						</div>
 					</div>
@@ -367,6 +364,7 @@
 		<div id="container" class="">
 
 			<h1 id="container_title">게시판관리</h1>
+			<!-- ---------------------- -->
 			<div class="container_wr">
 				<div class="local_ov01 local_ov">
 					<a href="/gnuboard5/adm/board_list.php" class="ov_listall">전체목록</a>
@@ -409,123 +407,77 @@
 											전체</label> <input type="checkbox" name="chkall" value="1" id="chkall"
 										onclick="check_all(this.form)"></th>
 									<th scope="col"><a
-										href="/gnuboard5/adm/board_list.php?&amp;sst=a.gr_id&amp;sod=asc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">그룹</a></th>
-									<th scope="col"><a
 										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_table&amp;sod=asc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">TABLE</a></th>
 									<th scope="col"><a
-										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_skin&amp;sod=desc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">스킨</a></th>
+										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_skin&amp;sod=desc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">게시글번호</a></th>
 									<th scope="col"><a
-										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_mobile_skin&amp;sod=desc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">모바일<br>스킨
+										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_mobile_skin&amp;sod=desc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">작성자
 									</a></th>
 									<th scope="col"><a
-										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_subject&amp;sod=asc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">제목</a></th>
-									<th scope="col">읽기P<span class="sound_only">포인트</span></th>
-									<th scope="col">쓰기P<span class="sound_only">포인트</span></th>
-									<th scope="col">댓글P<span class="sound_only">포인트</span></th>
-									<th scope="col">다운P<span class="sound_only">포인트</span></th>
-									<th scope="col"><a
-										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_use_sns&amp;sod=asc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">SNS<br>사용
+										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_mobile_skin&amp;sod=desc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">아이디
 									</a></th>
 									<th scope="col"><a
-										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_use_search&amp;sod=asc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">검색<br>사용
+										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_mobile_skin&amp;sod=desc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">제목
 									</a></th>
 									<th scope="col"><a
-										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_order&amp;sod=asc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">출력<br>순서
+										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_mobile_skin&amp;sod=desc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">내용
 									</a></th>
-									<th scope="col">접속기기</th>
+									<th scope="col"><a
+										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_subject&amp;sod=asc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">bgroup</a></th>
+										<th scope="col"><a
+										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_subject&amp;sod=asc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">bstep</a></th>
+									<th scope="col"><a
+										href="/gnuboard5/adm/board_list.php?&amp;sst=bo_subject&amp;sod=asc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">bindent</a></th>
 									<th scope="col">관리</th>
 								</tr>
 							</thead>
 							<tbody>
 
 	
+								<!-- 반복 시작 -->
+								<c:forEach var="queDto" items="${map.q_list}">
 								<tr class="bg0">
 								
-									<!-- 반복 시작 -->
-									<c:forEach var="map" items="${map}">
 									<td class="td_chk"><label for="chk_0" class="sound_only">자유게시판</label>
 										<input type="checkbox" name="chk[]" value="0" id="chk_0">
 									</td>
-									<td><input type="hidden" name="gr_id[0]" value="shop">쇼핑몰
-									</td>
 									<td><input type="hidden" name="board_table[0]"
 										value="board"> 
-										
-										<c:choose>
-											<c:when test="${map }">
-											
-											</c:when>
-										</c:choose>
-										
-										<a href="https://demo.sir.kr/gnuboard5/board">STUDIO</a></td>
-									<td><label for="bo_skin_0" class="sound_only">스킨</label> <select
-										id="bo_skin_0" name="bo_skin[0]">
-											<option value="">선택</option>
-											<option value="theme/basic">(테마) basic</option>
-											<option value="theme/gallery">(테마) gallery</option>
-											<option value="basic" selected="selected">basic</option>
-											<option value="gallery">gallery</option>
-											<option value="n_gallery">n_gallery</option>
-									</select></td>
-									<td><label for="bo_mobile_skin_0" class="sound_only">모바일
-											스킨</label> <select id="bo_mobile_skin_0" name="bo_mobile_skin[0]">
-											<option value="">선택</option>
-											<option value="theme/basic">(테마) basic</option>
-											<option value="theme/gallery">(테마) gallery</option>
-											<option value="basic" selected="selected">basic</option>
-											<option value="gallery">gallery</option>
-									</select></td>
-									<td><label for="bo_subject_0" class="sound_only">게시판
-											제목<strong class="sound_only"> 필수</strong>
-									</label> <input type="text" name="bo_subject[0]" value="자유게시판"
-										id="bo_subject_0" required=""
-										class="required tbl_input bo_subject full_input" size="10">
-									</td>
-									<td class="td_numsmall"><label for="bo_read_point_0"
-										class="sound_only">읽기 포인트</label> <input type="text"
-										name="bo_read_point[0]" value="0" id="bo_read_point_0"
-										class="tbl_input" size="2"></td>
-									<td class="td_numsmall"><label for="bo_write_point_0"
-										class="sound_only">쓰기 포인트</label> <input type="text"
-										name="bo_write_point[0]" value="5" id="bo_write_point_0"
-										class="tbl_input" size="2"></td>
-									<td class="td_numsmall"><label for="bo_comment_point_0"
-										class="sound_only">댓글 포인트</label> <input type="text"
-										name="bo_comment_point[0]" value="1" id="bo_comment_point_0"
-										class="tbl_input" size="2"></td>
-									<td class="td_numsmall"><label for="bo_download_point_0"
-										class="sound_only">다운<br>포인트
-									</label> <input type="text" name="bo_download_point[0]" value="0"
-										id="bo_download_point_0" class="tbl_input" size="2"></td>
-									<td class="td_numsmall"><label for="bo_use_sns_0"
-										class="sound_only">SNS<br>사용
-									</label> <input type="checkbox" name="bo_use_sns[0]" value="1"
-										id="bo_use_sns_0" checked=""></td>
-									<td class="td_numsmall"><label for="bo_use_search_0"
-										class="sound_only">검색<br>사용
-									</label> <input type="checkbox" name="bo_use_search[0]" value="1"
-										id="bo_use_search_0" checked=""></td>
-									<td class="td_numsmall"><label for="bo_order_0"
-										class="sound_only">출력<br>순서
-									</label> <input type="text" name="bo_order[0]" value="0"
-										id="bo_order_0" class="tbl_input" size="2"></td>
-									<td class="td_mngsmall"><label for="bo_device_0"
-										class="sound_only">접속기기</label> <select name="bo_device[0]"
-										id="bo_device_0">
-											<option value="both" selected="selected">모두</option>
-											<option value="pc">PC</option>
-											<option value="mobile">모바일</option>
-									</select></td>
+										<a href="https://demo.sir.kr/gnuboard5/board">question_board</a></td>
+									<td><input type="hidden" name="board_table[0]"
+										value="board"> 
+										<a href="https://demo.sir.kr/gnuboard5/board">${queDto.bid}</a></td>
+									<td><input type="hidden" name="board_table[0]"
+										value="board"> 
+										<a href="https://demo.sir.kr/gnuboard5/board">${queDto.bname}</a></td>
+									<td><input type="hidden" name="board_table[0]"
+										value="board"> 
+										<a href="https://demo.sir.kr/gnuboard5/board">${queDto.userid}</a></td>
+									<td><input type="hidden" name="board_table[0]"
+										value="board"> 
+										<a href="https://demo.sir.kr/gnuboard5/board">${queDto.btitle}</a></td>
+									<td><input type="hidden" name="board_table[0]"
+										value="board"> 
+										<a href="https://demo.sir.kr/gnuboard5/board">${queDto.bcontent}</a></td>
+									<td><input type="hidden" name="board_table[0]"
+										value=""> 
+										<a href="">${queDto.bgroup}</a></td>
+									<td><input type="hidden" name="board_table[0]"
+										value="board"> 
+										<a href="https://demo.sir.kr/gnuboard5/board">${queDto.bstep}</a></td>
+									<td><input type="hidden" name="board_table[0]"
+										value="board"> 
+										<a href="https://demo.sir.kr/gnuboard5/board">${queDto.bindent}</a></td>
 									<td class="td_mng td_mng_m"><a
 										href="./board_form.php?w=u&amp;bo_table=board&amp;sst=&amp;sod=&amp;sfl=&amp;stx=&amp;page="
 										class="btn btn_03">수정</a> <a
 										href="./board_copy.php?bo_table=board"
 										class="board_copy btn btn_02" target="win_board_copy">복사</a></td>
 								
+								
+								</tr>
 								</c:forEach>
 								<!-- 반복 끝 -->
-								</tr>
-
 								
 							</tbody>
 						</table>
@@ -579,6 +531,10 @@
 
 			</div>
 		</div>
+		
+		
+		<!-- ---------------------- -->
+		
 
 	</div>
 

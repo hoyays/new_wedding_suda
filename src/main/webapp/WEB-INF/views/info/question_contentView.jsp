@@ -196,7 +196,14 @@ $(document).ready(function() {
         <span class="after_detail_date_day" style="font-size:13px;">${map.queDto.bhit }</span>
     </div>
     
-    <div id="after_detail_img" style="font-size:14px;">${map.queDto.bcontent }</div>
+    <c:choose>
+    	<c:when test="${map.queDto.fileName ne null}">
+    		<p style="text-align: center;">
+				<img class="txc-image" style="clear: none; float: none;" src="../upload/${map.queDto.fileName }"></p>
+    	</c:when>
+    </c:choose>
+    <div id="after_detail_img" style="font-size:14px;">${map.queDto.bcontent }
+    </div>
 	
     <div id="after_detail_lotation">
 		<div id="after_lotation_left">
@@ -221,7 +228,7 @@ $(document).ready(function() {
 				</c:when>
 			</c:choose>
 			<c:choose>
-				<c:when test="${session_userid == 'admin' || session_businessTy == 'company' }">
+				<c:when test="${session_userid eq 'admin' || session_businessTy eq 'company' }">
 					<span class="after_return_txt_write"><a href="./question_replyView?bid=${map.queDto.bid }&page=${map.page }&search=${search}" id="regist_btn" style="cursor:pointer;">답변달기</a></span>
 				</c:when>
 			</c:choose>

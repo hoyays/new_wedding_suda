@@ -234,8 +234,6 @@ pageContext.setAttribute("cn", "\n");
 <!-- 삭제하기 버튼 클릭시 -->
 
 <script type="text/javascript">
-
-
 	function deleteCheck() {
 		alert("삭제버튼 클릭");
 		if (confirm("삭제하시겠습니까?") == true) {
@@ -311,7 +309,9 @@ pageContext.setAttribute("cn", "\n");
 .jssorb05
 
 
+
  
+
 
 
 div
@@ -319,10 +319,14 @@ div
 .jssorb05
 
 
+
  
 
 
+
 div
+
+
 
 
 
@@ -332,12 +336,16 @@ div
 .jssorb05
 
 
+
  
 		
 		
 
 
+
 no-repeat
+
+
 
 
 
@@ -348,7 +356,11 @@ overflow
 
 
 
+
+
 :hidden
+
+
 
 
 
@@ -359,7 +371,11 @@ cursor
 
 
 
+
+
 :pointer
+
+
 
 
 
@@ -468,10 +484,11 @@ cursor
 
 			<div class="sub_link_box">
 				<div class="sub_link_menu">
-					<span id="sub_Color_f"><a href="./studio_list">스튜디오</a></span>
-					<span id="sub_Color_f"><a href="./dress_list">드레스</a></span> 
-					<span id="sub_Color_f" class="sub_under_bar"><a href="./hairMakeUp_list">헤어메이크업</a></span> 
-					<span id="sub_Color_f"><a href="./travel_list">신혼여행</a></span>
+					<span id="sub_Color_f"><a href="./studio_list">스튜디오</a></span> <span
+						id="sub_Color_f"><a href="./dress_list">드레스</a></span> <span
+						id="sub_Color_f" class="sub_under_bar"><a
+						href="./hairMakeUp_list">헤어메이크업</a></span> <span id="sub_Color_f"><a
+						href="./travel_list">신혼여행</a></span>
 				</div>
 			</div>
 			<script
@@ -481,7 +498,7 @@ cursor
 			<link rel="stylesheet" type="text/css" href="/css/prog.css">
 			<link rel="stylesheet" type="text/css" href="/css/popup.css">
 			<script type="text/javascript">
-			
+				
 			</script>
 			<div id="popup_wrap">
 				<!--header-->
@@ -495,96 +512,101 @@ cursor
 								<span class="popup_store_tx">${map.hmDto.com_name } <!--[<span id="now_img_order" style="color:#ed5900"></span>/<span id="max_img_size"></span>]--></span>
 							</div>
 						</div>
-							
-						</div>
-						<img alt="${map.hmDto.com_name }" src="../upload/${map.hmDto.c_fileName }"> 
-					</div>
-				</div>
-				
-			</div>
-			<div
-				style="border-bottom: 1px solid #d9d9d9; width: 1280px; margin: 0 auto; height: 1px; clear: both;">&nbsp;</div>
-
-			<!--비슷한컨셉의 스튜디오 리스트 시작-->
-			<div class="pop_SStudio_wrap">
-				<div class="pop_SStudio_leftbx">
-					<div class="pop_SStudio_LTtitlebx">
-						<span>헤어메이크업 정보</span>
-					</div>
-					<div class="info" style="padding-left: 30px;">
-						<p class="title">
-							${fn:replace(map.hmDto.content,br,cn)}
-						</p>
-						<div class="priceInfo">
-							<ul>
-								<li>
-									<div class="stit">  업체명</div>
-									<div class="heavygray">
-										<strong>  -  ${map.hmDto.com_name}</strong>
-									</div>
-								</li>
-								<br>
-								<li>
-									<div class="stit">업체 상품</div>
-									<div class="orange">
-										<strong> - ${map.hmDto.c_productName}</strong>
-									</div>
-								</li>
-								<br>
-								<li>
-									<div class="stit">가격</div>
-									<div class="orange">
-										<strong> - ${map.hmDto.c_productPrice}원</strong>
-									</div>
-								</li>
-								<br>
-								<li>
-									<div class="stit">업체 전화번호</div>
-									<div class="orange">
-										<strong> - ${map.hmDto.com_tel}</strong>
-									</div>
-								</li>
-								<br>
-								<li>
-									<div class="stit">업체 주소</div>
-									<div class="orange">
-										<strong> - ${map.hmDto.c_address}</strong>
-									</div>
-								</li>
-							</ul>
-						</div>
-
+						<p style="text-align: center;">
+								<img class="txc-image" style="clear: none; float: none;" src="../upload/${map.hmDto.c_fileName }"></p>
 
 					</div>
-					<!-- //info -->
-					<span class="btn_input" style="position: absolute; right: 60px; bottom: 320px;">
-						<c:choose>
-							<c:when test="${session_userid == map.hmDto.userid }">
-								<a href="hairMakeUp_modifyView?infoId=${map.hmDto.infoId }">
-								<span class="btn_input"><input type="button" class="online_lg_color" id="regist_btn" value="수정하기" style="cursor: pointer; font-family: NanumBarunGothic;"></span></a>
-								<span class="btn_input"><input type="button" class="online_lg_color" id="regist_btn" value="삭제하기" style="cursor: pointer; font-family: NanumBarunGothic;" onclick="deleteCheck()"></span>
-								<a href="./hairMakeUp_list?page=${map.page }&search=${map.search}"><span class="btn_input"><input type="button" class="online_lg_color" id="regist_btn" value="목록" style="cursor: pointer; font-family: NanumBarunGothic;"></span></a>
-							</c:when>
-							<c:otherwise>
-								<a href="#">
-									<span class="btn_input"><input type="button" class="online_lg_color" id="regist_btn" value="예약하기" style="cursor: pointer; font-family: NanumBarunGothic;"></span>
-								</a>
-								<a href="./hairMakeUp_list?page=${map.page }&search=${map.search}"><span class="btn_input"><input type="button" class="online_lg_color" id="regist_btn" value="목록" style="cursor: pointer; font-family: NanumBarunGothic;"></span></a>
-							</c:otherwise>
-						</c:choose>
-					</span>
-
+					<%-- <img alt="${map.hmDto.com_name }"
+						src="../upload/${map.hmDto.c_fileName }"> --%>
 				</div>
 			</div>
-
-
-
-			<!--푸터 넣을거임  -->
-			<jsp:include page="../include/footer.jsp">
-				<jsp:param name="category" value="product2" />
-			</jsp:include>
-
 
 		</div>
+		<div
+			style="border-bottom: 1px solid #d9d9d9; width: 1280px; margin: 0 auto; height: 1px; clear: both;">&nbsp;</div>
+
+		<!--비슷한컨셉의 스튜디오 리스트 시작-->
+		<div class="pop_SStudio_wrap">
+			<div class="pop_SStudio_leftbx">
+				
+					<div class="online_Awrite_form">						
+						<ul>
+							<li class="box_li" style="padding-left: 40px; height: 300px;"><span
+								class="online_write_title" style="height: 263px;"><img
+									src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;업체 소개 :
+							</span>
+								<div class="online_write_title">
+									<span style="position: absolute; height: 263px; text-align: center;">${map.hmDto.content}</span>
+								</div>
+							</li>
+							<li class="box_li" style="padding-left: 40px;"><span
+								class="online_write_title"><img
+									src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;업체명 : </span>
+								<div class="online_write_title">
+									<span style="text-align: center;">${map.hmDto.com_name}</span>
+								</div></li>
+							<li class="box_li" style="padding-left: 40px;"><span
+								class="online_write_title"><img
+									src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;상품명 : </span>
+								<div class="online_write_title">
+									<span>${map.hmDto.c_productName}</span>
+								</div></li>
+							<li class="box_li" style="padding-left: 40px;"><span
+								class="online_write_title"><img
+									src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;가격 : </span>
+								<div class="online_write_title">
+									<span>${map.hmDto.c_productPrice}</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+
+				<!-- //info -->
+				<span class="btn_input"
+					style="position: absolute; right: 60px; bottom: 320px;"> <c:choose>
+						<c:when test="${session_userid == map.hmDto.userid }">
+							<a href="hairMakeUp_modifyView?infoId=${map.hmDto.infoId }">
+								<span class="btn_input"><input type="button"
+									class="online_lg_color" id="regist_btn" value="수정하기"
+									style="cursor: pointer; font-family: NanumBarunGothic;"></span>
+							</a>
+							<span class="btn_input"><input type="button"
+								class="online_lg_color" id="regist_btn" value="삭제하기"
+								style="cursor: pointer; font-family: NanumBarunGothic;"
+								onclick="deleteCheck()"></span>
+							<a
+								href="./hairMakeUp_list?page=${map.page }&search=${map.search}"><span
+								class="btn_input"><input type="button"
+									class="online_lg_color" id="regist_btn" value="목록"
+									style="cursor: pointer; font-family: NanumBarunGothic;"></span></a>
+						</c:when>
+						<c:otherwise>
+							<a href="#"> <span class="btn_input"><input
+									type="button" class="online_lg_color" id="regist_btn"
+									value="예약하기"
+									style="cursor: pointer; font-family: NanumBarunGothic;"></span>
+							</a>
+							<a
+								href="./hairMakeUp_list?page=${map.page }&search=${map.search}"><span
+								class="btn_input"><input type="button"
+									class="online_lg_color" id="regist_btn" value="목록"
+									style="cursor: pointer; font-family: NanumBarunGothic;"></span></a>
+						</c:otherwise>
+					</c:choose>
+				</span>
+
+			</div>
+		</div>
+
+
+
+		<!--푸터 넣을거임  -->
+		<jsp:include page="../include/footer.jsp">
+			<jsp:param name="category" value="product2" />
+		</jsp:include>
+
+
+	</div>
 </body>
 </html>

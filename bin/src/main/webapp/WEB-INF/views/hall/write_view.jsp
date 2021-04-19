@@ -14,12 +14,6 @@
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
        function writeCheck(){
-    	   if($("#bidding_name").val()==""){
-    		   alert("작성자를 꼭 적으셔야 합니다.");
-    		   $("#bidding_name").focus();
-    		   return false;
-    		   
-    	   }
     	   if($("#bidding_title").val()==""){
     		   alert("타이틀을 꼭 적으셔야 합니다.");
     		   $("#bidding_title").focus();
@@ -60,7 +54,7 @@
 				</colgroup>
 				<tr>
 					<th>작성자</th>
-					<td><input type="text" name="bidding_name" id="bidding_name"></td>
+					<td><input type="text" name="bidding_name" id="bidding_name" value="${session_name}" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<th>제목</th>

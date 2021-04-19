@@ -48,7 +48,7 @@
     margin: 0 auto;
     position: fixed;
     top: 250px;
-    left: 1500px; 
+    left: 1600px; 
     z-index: 6;
 }
 	</style>
@@ -59,7 +59,7 @@
 	var ws;
 
 	function wsOpen(){
-		ws = new WebSocket("ws://" + location.host + "/chating");
+		ws = new WebSocket("ws://" + location.host + "/chating/"+"1");
 		wsEvt();
 	}
 		
@@ -99,7 +99,8 @@
 	}
 
 	function chatName(){
-		var userName = $("#userName").val();
+		var userName = "${session_nickName}";
+		alert(userName);
 		if(userName == null || userName.trim() == ""){
 			alert("로그인 후 이용가능합니다.");
 			$("#userName").focus();
@@ -138,7 +139,7 @@
 		<div id="yourName">
 			<table class="inputTable">
 				<tr>
-					<th><input class="chatinput"  type="text" name="userName" id="userName" value="${session_nickName}"></th>
+					<th><input class="chatinput"  type="hidden" name="userName" id="userName" value="${session_nickName}"></th>
 					<th><button onclick="chatName()" id="startBtn">채팅시작하기</button></th>
 				</tr>
 			</table>
@@ -155,5 +156,6 @@
 	</div>
 
 </div>
+
 </body>
 </html>

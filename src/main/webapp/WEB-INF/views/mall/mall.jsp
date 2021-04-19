@@ -175,6 +175,11 @@
     <jsp:param name="category" value="product2" />
 </jsp:include>
 
+<jsp:include page="../include/side_chat.jsp">
+    <jsp:param name="category" value="product3" />
+</jsp:include>
+
+
 
 
 

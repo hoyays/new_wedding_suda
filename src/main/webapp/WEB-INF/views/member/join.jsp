@@ -108,7 +108,7 @@
  </div>
 <script language="javascript">
 $(document).ready(function() {	
-	$('#id_button').click(function() {	
+	$('#id_button').click(function() {
 		var userid = $('#userid').val();	
 		var idPtn = /^[a-zA-Z0-9]{6,15}$/;
 		if(idPtn.test(userid) != true){
@@ -262,7 +262,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#cusEnter").datepicker({
+	/* $("#cusEnter").datepicker({
 		changeMonth: true,
 		changeYear: true,
 		yearRange:'2017:+5',
@@ -272,7 +272,7 @@ $(document).ready(function() {
 		monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],			
 		showMonthAfterYear: true,		
 		minDate:0
-	});
+	}); */
 
 	$('#dong_btn').click(function() {
 		var data = $(this).attr("data");

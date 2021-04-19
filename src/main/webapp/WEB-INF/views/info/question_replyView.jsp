@@ -369,14 +369,7 @@ $(document).ready(function() {
             <li class="box_li">
             <span class="online_write_title"><img src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;작성자</span>
                 <div class="value">
-                	<c:choose>
-                		<c:when test="${session_businessTy eq 'company' }">
-                			<input type="text" name="bname" id="bname" class="online_write_input02" value="${userMap.memberDto.com_name }" readonly style="padding-left:5px;color:#000000;">
-                		</c:when>
-                		<c:otherwise>
-                			<input type="text" name="bname" id="bname" class="online_write_input02" value="${userMap.memberDto.name }" readonly style="padding-left:5px;color:#000000;">
-                		</c:otherwise>
-                	</c:choose>
+                	<input type="text" name="bname" id="bname" class="online_write_input02" value="${userMap.memberDto.name }" readonly style="padding-left:5px;color:#000000;">
                 </div>
             </li>
             <li class="box_li" >

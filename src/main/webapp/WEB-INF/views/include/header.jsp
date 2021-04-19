@@ -173,10 +173,24 @@ function logout()
 							<span><a href="/admin/admin_login">관리자페이지</a></span>
                 		</c:when>
                 		<c:otherwise>
-                			<span>${session_userid}</span>
+                			<span>${session_userid}(포인트 : ${session_point}점)|
+                			<c:choose>
+                				<c:when test="${session_businessTy eq 'company'}">
+                					기업회원
+                				</c:when>
+                				<c:otherwise>
+                					일반회원
+                				</c:otherwise>
+                			</c:choose>
+                			
+                			</span>
 							<span>|</span>
 	                   		<span><a href="/member/userInfoModify_pwdCheck">회원정보수정</a></span>
 							<span>|</span>
+							<c:if test="${session_userid=='admin'}">
+							<span><a href="/room">회원채팅방</a></span>
+							<span>|</span>
+							</c:if>
 							<span><a href="/member/logout">로그아웃</a></span>
                 		
                 		</c:otherwise>
@@ -258,14 +272,14 @@ function logout()
                               </div>
                               <div class="MSub_bx_02">
                                    <ul>
-                                        <li><a href="/about/greeting" id="lay_sub_css" class="lay_sub_css_" style="font-size: 16px;">왜 웨딩수다일까요?</a></li>
-                                        <li><a href="/about/info" id="lay_sub_css" class="lay_sub_css_" style="font-size: 16px;">웨딩서비스</a></li>
+                                        <!-- <li><a href="/about/greeting" id="lay_sub_css" class="lay_sub_css_" style="font-size: 16px;">왜 웨딩수다일까요?</a></li>
+                                        <li><a href="/about/info" id="lay_sub_css" class="lay_sub_css_" style="font-size: 16px;">웨딩서비스</a></li> -->
                                         <li><a href="/about/planner" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">웨딩플래너</a></li>
 										<li><a href="/about/map" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">찾아오시는길</a></li>
                                    </ul>
                               </div>
                               <div class="MSub_bx_03">
-                                   <p><img src="http://vgood.co.kr/admin/contentsImg/homepage/201803/planning(0).jpg"></p>
+                                   <p><img src="/images/drop_down_img1.jpg"></p>
                               </div>
                               <div class="MSub_bx_04">
                                    <div class="MSub_bx_04_inbx">
@@ -296,7 +310,7 @@ function logout()
                                    </ul>
                               </div>
                               <div class="MSub_bx_03">
-                                   <p><img src="http://vgood.co.kr/admin/contentsImg/homepage/201803/venues(1).jpg"></p>
+                                   <p><img src="/images/drop_down_img2.jpg"></p>
                               </div>
                               <div class="MSub_bx_04">
                                    <div class="MSub_bx_04_inbx">
@@ -340,7 +354,7 @@ function logout()
                                    </ul>
                               </div>
                               <div class="MSub_bx_03">
-                                   <p><img src="http://vgood.co.kr/admin/contentsImg/homepage/201803/vendors(2).jpg"></p>
+                                   <p><img src="/images/drop_down_img3.jpg"></p>
                               </div>
                               <div class="MSub_bx_04">
                                    <div class="MSub_bx_04_inbx">
@@ -373,7 +387,7 @@ function logout()
                                    </ul>
                               </div>
                               <div class="MSub_bx_03">
-                                   <p><img src="http://vgood.co.kr/admin/contentsImg/homepage/201803/event.jpg"></p>
+                                   <p><img src="/images/drop_down_img4.jpg"></p>
                               </div>
                               <div class="MSub_bx_04">
                                    <div class="MSub_bx_04_inbx">
@@ -402,7 +416,7 @@ function logout()
                                    </ul>
                               </div>
                               <div class="MSub_bx_03">
-                                   <p><img src="http://vgood.co.kr/admin/contentsImg/homepage/201803/budget(0).jpg"></p>
+                                   <p><img src="/images/drop_down_img5.jpg"></p>
                               </div>
                               <div class="MSub_bx_04">
                                    <div class="MSub_bx_04_inbx">
@@ -428,13 +442,13 @@ function logout()
                               <div class="MSub_bx_02">
                                    <ul>
                                         <li><a href="/noticeboard/notice_list" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">공지사항</a></li>
-                                        <li><a href="" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">문의게시판</a></li>
+                                        <li><a href="/info/question_list" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">문의게시판</a></li>
                                         <li><a href="/noticeboard/after_list" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">웨딩후기</a></li>
                                         <li><a href="./event" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">이벤트</a></li>
                                    </ul>
                               </div>
                               <div class="MSub_bx_03">
-                                   <p><img src="http://vgood.co.kr/admin/contentsImg/homepage/201803/story(0).jpg"></p>
+                                   <p><img src="/images/drop_down_img6.jpg"></p>
                               </div>
                               <div class="MSub_bx_04">
                                    <div class="MSub_bx_04_inbx">

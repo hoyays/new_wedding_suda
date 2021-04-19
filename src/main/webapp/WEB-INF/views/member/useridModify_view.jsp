@@ -267,7 +267,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#cusEnter").datepicker({
+	/* $("#cusEnter").datepicker({
 		changeMonth: true,
 		changeYear: true,
 		yearRange:'2017:+5',
@@ -277,7 +277,7 @@ $(document).ready(function() {
 		monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],			
 		showMonthAfterYear: true,		
 		minDate:0
-	});
+	}); */
 
 	$('#dong_btn').click(function() {
 		var data = $(this).attr("data");
@@ -441,7 +441,8 @@ $(document).ready(function() {
 		
 		
  		
-		//로그인 확인 클릭		
+		//로그인 확인 클릭
+		//document.modify_box.submit();
 		$('#modify_box').submit();		
 	});
 });

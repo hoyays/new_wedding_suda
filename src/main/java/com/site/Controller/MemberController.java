@@ -64,6 +64,7 @@ public class MemberController {
 			session.setAttribute("session_name", ((MemberDto)map.get("memberDto")).getName());
 			session.setAttribute("session_nickName",((MemberDto) map.get("memberDto")).getNickName());
 			session.setAttribute("session_businessTy",((MemberDto) map.get("memberDto")).getBusinessTy());
+			session.setAttribute("session_point",((MemberDto) map.get("memberDto")).getPoint());
 		}else {
 			session.setAttribute("session_flag", "fail");
 		}

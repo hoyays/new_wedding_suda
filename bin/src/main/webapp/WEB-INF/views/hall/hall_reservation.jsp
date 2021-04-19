@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 	<head>
-	<title>Wedding Sude</title>
+	<title>Wedding Suda</title>
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="/css/reset.css" type="text/css">
 		<link rel="stylesheet" href="/css/main.css?ver=1" type="text/css">
@@ -20,6 +20,31 @@
 		<script language="javascript" src="/js/jquery-ui-1.10.4.custom.js"></script>
 		<script type="text/javascript"
 			src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+<script type="text/javascript">
+function counselingCheck() {
+	if($("#counseling_name").val()==""){
+		alert("이름을 꼭 적으셔야 합니다.");
+		$("#counseling_name").focus();
+		return false;
+	}
+	if($("#phone2").val()==""){
+		alert("전화번호를 꼭 적으셔야 합니다.");
+		$("#phone2").focus();
+		return false;
+	}
+	if($("#phone3").val()==""){
+		alert("전화번호를 꼭 적으셔야 합니다.");
+		$("#phone3").focus();
+		return false;
+	}
+	document.counsel_box.submit();
+}
+
+
+</script>
+			
+			
 	</head>
 	<body>
 	
@@ -34,29 +59,21 @@
 		
 	
 		<div id="counsel_wrap">
-			<form name="counsel_box" id="counsel_box" method="post">
-				<input type="hidden" name="code" id="code" value="2"> <input
-					type="hidden" name="client_name1" id="client_name1"> <input
-					type="hidden" name="client_name2" id="client_name2"> <input
-					type="hidden" name="client_name3" id="client_name3"> <input
-					type="hidden" name="client_name4" id="client_name4">
+			<form action="./counseling_reservation" name="counsel_box" id="counsel_box" method="post" >
 				<div class="counsel_form">
 					<ul>
 	
-						<li class="counsel_box_li_selet"><span class="counsel_title"
-							style="font-size: 15px;"><img
-								src="../images/member_icon02.png">&nbsp;&nbsp;&nbsp;원하시는 지역</span>
+						<li class="counsel_box_li_selet">
+						<span class="counsel_title"	style="font-size: 15px;">
+						<img src="../images/member_icon02.png">&nbsp;&nbsp;&nbsp;원하시는 지역</span>
 							<div class="value_selet" style="line-height: 35px;">
+								<input type="checkbox" class="selet_text" name="sido" id="sido"	value="서울강남구"> 
+								<span class="selet_text" style="font-size: 15px;">서울 강남</span>&nbsp;&nbsp;&nbsp;&nbsp; 
+								<input type="checkbox" class="selet_text" name="sido" id="sido"	value="서울서초구"> 
+								<span class="selet_text" style="font-size: 15px;">서울 서초</span>&nbsp;&nbsp;&nbsp;&nbsp; 
+								<input type="checkbox" class="selet_text" name="sido" id="sido"	value="서울송파구"> 
+								<span class="selet_text" style="font-size: 15px;">서울 송파</span>&nbsp;&nbsp;&nbsp;&nbsp; 
 								<input type="checkbox" class="selet_text" name="sido" id="sido"
-									value="서울강남구"> <span class="selet_text"
-									style="font-size: 15px;">서울 강남</span>&nbsp;&nbsp;&nbsp;&nbsp; <input
-									type="checkbox" class="selet_text" name="sido" id="sido"
-									value="서울서초구"> <span class="selet_text"
-									style="font-size: 15px;">서울 서초</span>&nbsp;&nbsp;&nbsp;&nbsp; <input
-									type="checkbox" class="selet_text" name="sido" id="sido"
-									value="서울송파구"> <span class="selet_text"
-									style="font-size: 15px;">서울 송파</span>&nbsp;&nbsp;&nbsp;&nbsp; <input
-									type="checkbox" class="selet_text" name="sido" id="sido"
 									value="서울강동구"> <span class="selet_text"
 									style="font-size: 15px;">서울 강동</span>&nbsp;&nbsp;&nbsp;&nbsp; <input
 									type="checkbox" class="selet_text" name="sido" id="sido"
@@ -77,16 +94,6 @@
 									type="checkbox" class="selet_text" name="sido" id="sido"
 									value="기타지역"> <span class="selet_text"
 									style="font-size: 15px;">기타</span>
-								<!--<input type="checkbox" class="selet_text" name="sido" id="sido" value="중구" /> <span class="selet_text" style="font-size:15px;">중구</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" class="selet_text" name="sido" id="sido" value="남구" /> <span class="selet_text" style="font-size:15px;">남구</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" class="selet_text" name="sido" id="sido" value="동구" /> <span class="selet_text" style="font-size:15px;">동구</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" class="selet_text" name="sido" id="sido" value="서구" /> <span class="selet_text" style="font-size:15px;">서구</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" class="selet_text" name="sido" id="sido" value="북구" /> <span class="selet_text" style="font-size:15px;">북구</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" class="selet_text" name="sido" id="sido" value="수성구" /> <span class="selet_text" style="font-size:15px;">수성구</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" class="selet_text" name="sido" id="sido" value="달서구"/> <span class="selet_text" style="font-size:15px;">달서구</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" class="selet_text" name="sido" id="sido" value="달성군"/> <span class="selet_text" style="font-size:15px;">달성군</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" class="selet_text" name="sido" id="sido" value="경북"/> <span class="selet_text" style="font-size:15px;">경북</span>&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" class="selet_text" name="sido" id="sido" value="기타지역"/> <span class="selet_text" style="font-size:15px;">기타</span>//-->
 							</div></li>
 						<li class="counsel_box_li_selet"><span class="counsel_title"
 							style="font-size: 15px;"><img
@@ -133,7 +140,7 @@
 								src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;성명</span>
 							<div class="value02">
 								<input type="text" name="name" id="name"
-									class="member_input_email" value=""> <select name="sex"
+									class="counseling_name" value="${session_name}" readonly<!-- ="readonly" -->> <select name="sex"
 									id="sex" class="phone_coun_selects" style="font-size: 23px;">
 									<option value="W">신부</option>
 									<option value="M">신랑</option>
@@ -156,35 +163,11 @@
 									name="phone3" type="text" class="coun_input_tel" id="phone3"
 									maxlength="4" value="">
 							</div></li>
-						<!--<li class="counsel_box_li_selet">
-						<span class="counsel_title"><img src="../images/member_icon02.png" />&nbsp;&nbsp;&nbsp;이메일</span>
-						<div class="value03">
-							<input type="text" name="email1" id="email1" class="member_input_email" value="" />@ <input type="text" name="email2" id="email2" class="member_input_email" value="" /> <select name="email3" id="email3" class="email_box" style="font-size:18px;">
-								<option value="">직접입력</option>
-								<option value="naver.com" >naver.com</option>
-								<option value="hanmail.net" >hanmail.net</option>
-								<option value="gmail.com" >gmail.com</option>
-								<option value="daum.net" >daum.net</option>
-								<option value="paran.com" >paran.com</option>
-								<option value="empal.com" >empal.com</option>
-								<option value="nate.com" >nate.com</option>
-								<option value="yahoo.co.kr" >yahoo.co.kr</option>
-								<option value="chol.com" >chol.com</option>
-								<option value="dreamwiz.com" >dreamwiz.com</option>
-								<option value="hotmail.com" >hotmail.com</option>
-								<option value="korea.com" >korea.com</option>
-								<option value="lycos.co.kr" >lycos.co.kr</option>
-								<option value="netian.com" >netian.com</option>
-							</select>
-						</div>
-					</li>//-->
 						<li class="ess double"><span class="counsel_title"
 							style="font-size: 15px;"><img
 								src="../images/member_icon03.png">&nbsp;&nbsp;&nbsp;결혼예정일</span>
 							<div class="value02">
-								<input type="text" name="cusEnter" id="cusEnter"
-									class="member_input_email hasDatepicker" readonly=""
-									style="cursor: pointer" value="">
+								<input type="date" name="cusEnter" id="cusEnter" class="member_input_email hasDatepicker" style="width:150px;cursor:pointer;padding-left:5px;font-size:15px;color:#000000;">
 							</div></li>
 						<li class="ess double"><span class="counsel_title"
 							style="font-size: 15px;"><img
@@ -210,14 +193,15 @@
 				<div class="counsel_button">
 					<span class="counsel_center"> <span class="button_pack">
 							<span class="btn_input"><button type="button"
-									id="regist_btn" data="2"
-									style="cursor: pointer; font-family: NanumBarunGothic;"
-									class="counsel_color">신청하기</button></span>
+									id="regist_btn"	style="cursor: pointer; font-family: NanumBarunGothic;"
+									class="counsel_color" onclick="counselingCheck()">신청버튼</button></span>
+							<span class="btn_input"><button type="reset" id="reset" class="btn_lg_color02" style="cursor:pointer;font-size:18px;">취소</button></span> 
 					</span>
 					</span>
 				</div>
+				
 			</form>
-			
+
 			</div>
 		
 		<!-- footer -->

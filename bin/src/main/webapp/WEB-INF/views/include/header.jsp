@@ -259,8 +259,8 @@ function logout()
                               </div>
                               <div class="MSub_bx_02">
                                    <ul>
-                                        <li><a href="/about/greeting" id="lay_sub_css" class="lay_sub_css_" style="font-size: 16px;">왜 웨딩수다일까요?</a></li>
-                                        <li><a href="/about/info" id="lay_sub_css" class="lay_sub_css_" style="font-size: 16px;">웨딩서비스</a></li>
+                                        <!-- <li><a href="/about/greeting" id="lay_sub_css" class="lay_sub_css_" style="font-size: 16px;">왜 웨딩수다일까요?</a></li>
+                                        <li><a href="/about/info" id="lay_sub_css" class="lay_sub_css_" style="font-size: 16px;">웨딩서비스</a></li> -->
                                         <li><a href="/about/planner" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">웨딩플래너</a></li>
 										<li><a href="/about/map" id="lay_sub_css" class="lay_sub_css_" style="font-size:16px;">찾아오시는길</a></li>
                                    </ul>

@@ -12,8 +12,7 @@
 <script type="text/javascript" src="/js/document.on.js"></script>
 <script type="text/javascript" src="/js/prog.js"></script>
 <script language="javascript" src="/js/jquery-ui-1.10.4.custom.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <div id="footer_wrap2">
 	<div class="ft_wrap cf">
@@ -70,3 +69,5 @@
 		</span>
 	</div>
 </div>
+
+

@@ -35,6 +35,12 @@ var g5_admin_url = "https://demo.sir.kr/gnuboard5/adm";
 <script src="https://demo.sir.kr/gnuboard5/js/common.js?ver=191202"></script>
 <script src="https://demo.sir.kr/gnuboard5/js/wrest.js?ver=191202"></script>
 <script src="https://demo.sir.kr/gnuboard5/js/placeholders.min.js?ver=191202"></script>
+<style type="text/css">
+	.board_link_wrap{
+		margin: o auto;
+	}
+</style>
+
 </head>
 <body cz-shortcut-listen="true">
 <div id="hd_login_msg">영카트5님 로그인 중 <a href="https://demo.sir.kr/gnuboard5/bbs/logout.php">로그아웃</a></div>
@@ -124,10 +130,30 @@ function imageview(id, w, h)
                         <li class="gnb_li">
                 <button type="button" class="btn_op menu-300 menu-order-3" title="게시판관리">게시판관리</button>
                 <div class="gnb_oparea_wr">
-                    <div class="gnb_oparea">
-                        <h3>게시판관리</h3>
-                        <ul><li data-menu="300100"><a href="https://demo.sir.kr/gnuboard5/adm/board_list.php" class="gnb_2da  ">게시판관리</a></li><li data-menu="300200"><a href="https://demo.sir.kr/gnuboard5/adm/boardgroup_list.php" class="gnb_2da  ">게시판그룹관리</a></li><li data-menu="300300"><a href="https://demo.sir.kr/gnuboard5/adm/popular_list.php" class="gnb_2da gnb_grp_style gnb_grp_div">인기검색어관리</a></li><li data-menu="300400"><a href="https://demo.sir.kr/gnuboard5/adm/popular_rank.php" class="gnb_2da gnb_grp_style gnb_grp_div">인기검색어순위</a></li><li data-menu="300500"><a href="https://demo.sir.kr/gnuboard5/adm/qa_config.php" class="gnb_2da  ">1:1문의설정</a></li><li data-menu="300600"><a href="https://demo.sir.kr/gnuboard5/adm/contentlist.php" class="gnb_2da gnb_grp_style gnb_grp_div">내용관리</a></li></ul>                    </div>
-                </div>
+						<div class="gnb_oparea">
+							<h3>게시판관리</h3>
+							<ul>
+								<li data-menu="300100"><a
+									href="./admin_inquiryBoard"
+									class="gnb_2da  ">지식인 게시판</a></li>
+								<!-- <li data-menu="300200"><a
+									href="https://demo.sir.kr/gnuboard5/adm/boardgroup_list.php"
+									class="gnb_2da  ">게시판그룹관리</a></li>
+								<li data-menu="300300"><a
+									href="https://demo.sir.kr/gnuboard5/adm/popular_list.php"
+									class="gnb_2da gnb_grp_style gnb_grp_div">인기검색어관리</a></li>
+								<li data-menu="300400"><a
+									href="https://demo.sir.kr/gnuboard5/adm/popular_rank.php"
+									class="gnb_2da gnb_grp_style gnb_grp_div">인기검색어순위</a></li>
+								<li data-menu="300500"><a
+									href="https://demo.sir.kr/gnuboard5/adm/qa_config.php"
+									class="gnb_2da  ">1:1문의설정</a></li>
+								<li data-menu="300600"><a
+									href="https://demo.sir.kr/gnuboard5/adm/contentlist.php"
+									class="gnb_2da gnb_grp_style gnb_grp_div">내용관리</a></li> -->
+							</ul>
+						</div>
+					</div>
             </li>
                         <li class="gnb_li">
                 <button type="button" class="btn_op menu-400 menu-order-4" title="쇼핑몰관리">쇼핑몰관리</button>
@@ -237,7 +263,7 @@ jQuery(function($){
         	
 					<tr>
 						<td class="td_mbid">${memberDto.userid}</td>
-						<td class="td_mbname">${memberDto.name}*********</td>
+						<td class="td_mbname">${memberDto.name}</td>
 						<td class="td_mbname sv_use"><div>
 								<span class="sv_wrap"> <a
 									href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=********"
@@ -246,223 +272,51 @@ jQuery(function($){
 										class="profile_img"><img
 											src="https://demo.sir.kr/gnuboard5/img/no_profile.gif"
 											alt="no_profile" width="22" height="22"></span>
-										**************</a> <span class="sv"> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=********"
-										onclick="win_memo(this.href); return false;">쪽지보내기</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19eXXmMWo5cXpKMXV0-"
-										onclick="win_email(this.href); return false;">메일보내기</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=********"
-										onclick="win_profile(this.href); return false;">자기소개</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=********"
-										class="link_new_page"
-										onclick="check_goto_new(this.href, event);">전체게시물</a>
+										${memberDto.nickName}</a>
 								</span>
 
-									<noscript class="sv_nojs">
+									<!-- <noscript class="sv_nojs">
 										<span class="sv"> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=********"
+											href="#"
 											onclick="win_memo(this.href); return false;">쪽지보내기</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19eXXmMWo5cXpKMXV0-"
+											href="#"
 											onclick="win_email(this.href); return false;">메일보내기</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=********"
+											href="#"
 											onclick="win_profile(this.href); return false;">자기소개</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=********"
+											href="#"
 											class="link_new_page"
 											onclick="check_goto_new(this.href, event);">전체게시물</a>
 										</span>
-									</noscript></span>
+									</noscript> -->
 							</div></td>
-						<td class="td_num">2</td>
-						<td><a href="./point_list.php?sfl=mb_id&amp;stx=********">1,000</a></td>
-						<td class="td_boolean">예</td>
-						<td class="td_boolean">예</td>
-						<td class="td_boolean">예</td>
-						<td class="td_boolean">아니오</td>
-						<td class="td_category"></td>
+						<td class="td_num">
+						<c:choose>
+							<c:when test="${memberDto.sex eq 'W'}">
+								신부
+							</c:when>
+							<c:otherwise>
+								신랑
+							</c:otherwise>
+						</c:choose>
+						</td>
+						<td><a href="#">${memberDto.point}</a></td>
+						<td class="td_boolean">${memberDto.mobile}</td>
+						<td class="td_boolean">${memberDto.email}</td>
+						<td class="td_boolean">${memberDto.cusEnter}</td>
+						<td class="td_boolean">
+							<c:choose>
+							<c:when test="${memberDto.businessTy eq 'company'}">
+								기업회원
+							</c:when>
+							<c:otherwise>
+								일반회원
+							</c:otherwise>
+						</c:choose>
+						</td>
+						<td class="td_category">${memberDto.sign_up_date}</td>
 					</tr>
-					<tr>
-						<td class="td_mbid">*****_********</td>
-						<td class="td_mbname">******</td>
-						<td class="td_mbname sv_use"><div>
-								<span class="sv_wrap"> <a
-									href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*****_********"
-									class="sv_member" title="****** 자기소개" target="_blank"
-									rel="nofollow" onclick="return false;"><span
-										class="profile_img"><img
-											src="https://demo.sir.kr/gnuboard5/img/no_profile.gif"
-											alt="no_profile" width="22" height="22"></span> ******</a> <span
-									class="sv"> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=*****_********"
-										onclick="win_memo(this.href); return false;">쪽지보내기</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=*****_********&amp;name=%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19eXWOMcI5cXo6MYV1iXA--"
-										onclick="win_email(this.href); return false;">메일보내기</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*****_********"
-										onclick="win_profile(this.href); return false;">자기소개</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=*****_********"
-										class="link_new_page"
-										onclick="check_goto_new(this.href, event);">전체게시물</a>
-								</span>
-
-									<noscript class="sv_nojs">
-										<span class="sv"> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=*****_********"
-											onclick="win_memo(this.href); return false;">쪽지보내기</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=*****_********&amp;name=%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19eXWOMcI5cXo6MYV1iXA--"
-											onclick="win_email(this.href); return false;">메일보내기</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*****_********"
-											onclick="win_profile(this.href); return false;">자기소개</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=*****_********"
-											class="link_new_page"
-											onclick="check_goto_new(this.href, event);">전체게시물</a>
-										</span>
-									</noscript></span>
-							</div></td>
-						<td class="td_num">2</td>
-						<td><a
-							href="./point_list.php?sfl=mb_id&amp;stx=*****_********">1,000</a></td>
-						<td class="td_boolean">아니오</td>
-						<td class="td_boolean">아니오</td>
-						<td class="td_boolean">예</td>
-						<td class="td_boolean">아니오</td>
-						<td class="td_category"></td>
-					</tr>
-					<tr>
-						<td class="td_mbid">******</td>
-						<td class="td_mbname">************</td>
-						<td class="td_mbname sv_use"><div>
-								<span class="sv_wrap"> <a
-									href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=******"
-									class="sv_member" title="************************ 자기소개"
-									target="_blank" rel="nofollow" onclick="return false;"><span
-										class="profile_img"><img
-											src="https://demo.sir.kr/gnuboard5/img/no_profile.gif"
-											alt="no_profile" width="22" height="22"></span>
-										************************</a> <span class="sv"> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=******"
-										onclick="win_memo(this.href); return false;">쪽지보내기</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=******&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19ec2OMWo5cYo6MXQ--"
-										onclick="win_email(this.href); return false;">메일보내기</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=******"
-										onclick="win_profile(this.href); return false;">자기소개</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=******"
-										class="link_new_page"
-										onclick="check_goto_new(this.href, event);">전체게시물</a>
-								</span>
-
-									<noscript class="sv_nojs">
-										<span class="sv"> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=******"
-											onclick="win_memo(this.href); return false;">쪽지보내기</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=******&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19ec2OMWo5cYo6MXQ--"
-											onclick="win_email(this.href); return false;">메일보내기</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=******"
-											onclick="win_profile(this.href); return false;">자기소개</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=******"
-											class="link_new_page"
-											onclick="check_goto_new(this.href, event);">전체게시물</a>
-										</span>
-									</noscript></span>
-							</div></td>
-						<td class="td_num">2</td>
-						<td><a href="./point_list.php?sfl=mb_id&amp;stx=******">1,000</a></td>
-						<td class="td_boolean">아니오</td>
-						<td class="td_boolean">아니오</td>
-						<td class="td_boolean">예</td>
-						<td class="td_boolean">아니오</td>
-						<td class="td_category"></td>
-					</tr>
-					<tr>
-						<td class="td_mbid">*****_********</td>
-						<td class="td_mbname">********</td>
-						<td class="td_mbname sv_use"><div>
-								<span class="sv_wrap"> <a
-									href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*****_********"
-									class="sv_member" title="******** 자기소개" target="_blank"
-									rel="nofollow" onclick="return false;"><span
-										class="profile_img"><img
-											src="https://demo.sir.kr/gnuboard5/img/no_profile.gif"
-											alt="no_profile" width="22" height="22"></span> ********</a> <span
-									class="sv"> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=*****_********"
-										onclick="win_memo(this.href); return false;">쪽지보내기</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=*****_********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19ec2OMWo5cYo6MXQ--"
-										onclick="win_email(this.href); return false;">메일보내기</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*****_********"
-										onclick="win_profile(this.href); return false;">자기소개</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=*****_********"
-										class="link_new_page"
-										onclick="check_goto_new(this.href, event);">전체게시물</a>
-								</span>
-
-									<noscript class="sv_nojs">
-										<span class="sv"> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=*****_********"
-											onclick="win_memo(this.href); return false;">쪽지보내기</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=*****_********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19ec2OMWo5cYo6MXQ--"
-											onclick="win_email(this.href); return false;">메일보내기</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=*****_********"
-											onclick="win_profile(this.href); return false;">자기소개</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=*****_********"
-											class="link_new_page"
-											onclick="check_goto_new(this.href, event);">전체게시물</a>
-										</span>
-									</noscript></span>
-							</div></td>
-						<td class="td_num">2</td>
-						<td><a
-							href="./point_list.php?sfl=mb_id&amp;stx=*****_********">1,000</a></td>
-						<td class="td_boolean">아니오</td>
-						<td class="td_boolean">아니오</td>
-						<td class="td_boolean">예</td>
-						<td class="td_boolean">아니오</td>
-						<td class="td_category"></td>
-					</tr>
-					<tr>
-						<td class="td_mbid">***********</td>
-						<td class="td_mbname">*********</td>
-						<td class="td_mbname sv_use"><div>
-								<span class="sv_wrap"> <a
-									href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=***********"
-									class="sv_member" title="********* 자기소개" target="_blank"
-									rel="nofollow" onclick="return false;"><span
-										class="profile_img"><img
-											src="https://demo.sir.kr/gnuboard5/img/no_profile.gif"
-											alt="no_profile" width="22" height="22"></span> *********</a> <span
-									class="sv"> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=***********"
-										onclick="win_memo(this.href); return false;">쪽지보내기</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=***********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19eXXmMWo5cXpKMXV0-"
-										onclick="win_email(this.href); return false;">메일보내기</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=***********"
-										onclick="win_profile(this.href); return false;">자기소개</a> <a
-										href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=***********"
-										class="link_new_page"
-										onclick="check_goto_new(this.href, event);">전체게시물</a>
-								</span>
-
-									<noscript class="sv_nojs">
-										<span class="sv"> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/memo_form.php?me_recv_mb_id=***********"
-											onclick="win_memo(this.href); return false;">쪽지보내기</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/formmail.php?mb_id=***********&amp;name=%2A%2A%2A%2A%2A%2A%2A%2A%2A&amp;email=XVpgj19eXXmMWo5cXpKMXV0-"
-											onclick="win_email(this.href); return false;">메일보내기</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/profile.php?mb_id=***********"
-											onclick="win_profile(this.href); return false;">자기소개</a> <a
-											href="https://demo.sir.kr/gnuboard5/bbs/new.php?mb_id=***********"
-											class="link_new_page"
-											onclick="check_goto_new(this.href, event);">전체게시물</a>
-										</span>
-									</noscript></span>
-							</div></td>
-						<td class="td_num">2</td>
-						<td><a
-							href="./point_list.php?sfl=mb_id&amp;stx=***********">1,000</a></td>
-						<td class="td_boolean">예</td>
-						<td class="td_boolean">예</td>
-						<td class="td_boolean">예</td>
-						<td class="td_boolean">아니오</td>
-						<td class="td_category"></td>
-					</tr>
+					
+					
 					</c:forEach>
 					<!-- 회원리스트 반복 끝 -->
                 </tbody>
@@ -474,6 +328,49 @@ jQuery(function($){
     </div> -->
 
 </section>
+
+<div id="board_link_wrap">
+	
+		<div id="board_link_num"> 		
+            <a href="./admin_memberStatus?page=1&search=${map.search}" title="1 페이지">&lt;&lt;</a>
+            <c:choose>
+            	<c:when test="${map.page <= 1}">
+					<a>&lt;</a>    <!-- 현재페이지가 1페이지 이하일 경우 링크없음 -->
+            	</c:when>
+				<c:otherwise>
+					<a href="./admin_memberStatus?page=${map.page-1}&search=${map.search}">&lt;</a>   
+				</c:otherwise>            	
+            </c:choose>
+            
+            <!-- 페이지 넘버링 반복시작 -->
+            <c:forEach var="nowPage" begin="${map.starPage}" end="${map.endPage}">
+            	<c:choose>
+            		<c:when test="${nowPage == map.page}">
+						<span style="font-size:16px;">${nowPage}</span>
+            		</c:when>
+            		<c:when test="${nowPage > 0 && nowPage != map.page}">
+						<a href="./admin_memberStatus?page=${nowPage}&search=${map.search}">${nowPage}</a>
+            		</c:when>
+            	</c:choose>
+            </c:forEach>
+            <!-- 페이지 넘버링 반복끝 -->
+
+<c:choose>
+	<c:when test="${map.page} >= ${map.maxPage}">
+		<a title="다음" class="num_right">&gt;</a>   <!-- 현재 페이지가 maxPage 이상일 경우 링크 없음 -->
+	</c:when>
+	<c:otherwise>
+		<a href="./admin_memberStatus?page=${map.page+1}&search=${map.search}" title="다음" class="num_right">&gt;</a>
+	</c:otherwise>
+</c:choose>
+<a href="./admin_memberStatus?page=${map.maxPage}&search=${map.search}" title="${map.maxPage} 페이지" class="num_right">&gt;&gt;</a>
+           
+        </div>
+		 	
+	<!-- <div id="board_write">
+        <a href="./inquiry_write_view"><input class="board_write_btn" type="button" value="글쓰기" id="regist_btn" style="cursor:pointer;font-family: NanumBarunGothic;font-size:15px;"></a>
+    </div> -->
+</div>
 
 
 <%-- <section>

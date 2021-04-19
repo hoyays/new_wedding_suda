@@ -276,7 +276,7 @@
 		    ]]> 
 		</select>
 	
-	<!-- 검색한 리스트 가져오기 -->
+		<!-- 검색한 리스트 가져오기 -->
 		<select id="selectQuestionListSearch" resultType="com.site.dto.questionBoardDto">
 			<![CDATA[ 
 			  	select * from

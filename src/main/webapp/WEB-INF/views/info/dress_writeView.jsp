@@ -31,7 +31,7 @@
 <!--<link rel="stylesheet" href="../fonts/spoqahansansregular.css?ver=1" type="text/css">-->
 <link rel="stylesheet" href="../fonts/NanumBarunGothic.css?ver=1" type="text/css">
 <link rel="stylesheet" type="text/css" href="/css/jquery-ui-1.10.4.custom.css">
-
+<script type="text/javascript" src="/js/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="/js/document.on.js"></script>
 <script type="text/javascript" src="/js/prog.js"></script>
@@ -101,15 +101,18 @@
 	        return false;
 	    }
 		
-		if($('#content').val()=="") {
-			alert('업체내용을 작성해주세요.');
-			$("#content").focus();
+	    if(CKEDITOR.instances.bcontent1.getData() == '' || CKEDITOR.instances.bcontent1.getData().length == 0){
+			alert("내용을 입력해 주세요!");
+			$("#bcontent1").focus();
 			return false;
 		}
 		
-		var str = $('#content').val();
+		var content_data = CKEDITOR.instances.bcontent1.getData(); 
+		document.getElementById('content').value = content_data;
+		
+		/* var str = $('#content').val();
 	      str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
-	      $('#content').val(str);
+	      $('#content').val(str); */
 		
 	      document.online_write_box.submit();
 		/* $.ajax({
@@ -449,7 +452,304 @@ $(document).ready(function() {
                </div>
                
             </li>
-             <li class="online_wirte_editor" style="clear:both;">
+            <li class="online_wirte_editor">				
+                <div><table width="100%"><tbody><tr><td><link rel="stylesheet" href="/DaumEditor-master/daumeditor/css/editor.css" type="text/css" charset="utf-8">
+<script src="/DaumEditor-master/daumeditor/js/editor_loader.js" type="text/javascript" charset="utf-8"></script><script type="text/javascript" src="http://verygoodwedding.co.kr/DaumEditor-master/daumeditor/js/editor.js" charset="utf-8"></script>
+<script type="text/javascript">
+<!--
+//동영상기능추가
+TrexConfig.addTool
+(
+    "cinema", // 마크업에 추가한 id(tx_cinema)에 "tx_"를 제외한 부분이 됩니다.
+    {
+        url: "/DaumEditor-master/daumeditor/pages/trex/movie.html", // 속성은 마음대로 추가 가능
+        name: "editor_movie"
+    }
+);
+
+Trex.Tool.Test = Trex.Class.create
+(
+	{
+		$const: {__Identity: 'cinema' },
+		$extend: Trex.Tool,
+		oninitialized: function(config) 
+		{ 
+			var _editor = this.editor;
+			var self = this;
+			var _toolHandler = function()
+			{
+				// 정의된 속성을 이용해서 버튼 클릭시 새 창을 호출 
+				//window.open( config.url, config.name );
+				window.open(config.url, config.name, 'width=500, height=500, status=no scrollbars=yes, resizable=yes');
+			};
+			
+			this.weave.bind(this)
+			(
+				new Trex.Button(this.buttonCfg), 
+				null,
+				_toolHandler
+			);
+		}
+	}
+);
+//동영상기능추가
+//-->
+</script>
+<input type="text" name="bcontent1" id="bcontent1" style="display:none;" row="100px">
+<!-- <textarea name="bcontent" id="bcontent" style="display:none;" row="100px" value="안녕하세요"></textarea> -->
+<!-- 에디터 추가 -->
+<script type="text/javascript">
+ CKEDITOR.replace('bcontent1', {height: 500});
+</script>
+
+<script type="text/javascript">
+	$(function(){
+		var add_text = "<p>업체 특징</p><p>추천 키워드</p>";
+		CKEDITOR.instances.bcontent1.setData(add_text);
+		
+	});
+</script>
+
+
+
+
+<input type="hidden" name="content" id="content" value="">
+
+
+
+
+
+<div id="tx_trex_container" name="tx_trex_container">
+<div class="body">
+
+
+	
+	
+<script type="text/javascript">
+	
+	var config = {
+		txHost: '', /* 런타임 시 리소스들을 로딩할 때 필요한 부분으로, 경로가 변경되면 이 부분 수정이 필요. ex) http://xxx.xxx.com */
+		txPath: '/DaumEditor-master/daumeditor/', /* 런타임 시 리소스들을 로딩할 때 필요한 부분으로, 경로가 변경되면 이 부분 수정이 필요. ex) /xxx/xxx/ */
+		txService: 'sample', /* 수정필요없음. */
+		txProject: 'sample', /* 수정필요없음. 프로젝트가 여러개일 경우만 수정한다. */
+		initializedId: "", /* 대부분의 경우에 빈문자열 */
+		wrapper: "tx_trex_container", /* 에디터를 둘러싸고 있는 레이어 이름(에디터 컨테이너) */
+		form: 'online_write_box'+"", /* 등록하기 위한 Form 이름 */
+		txIconPath: "/DaumEditor-master/daumeditor/images/icon/editor/", /*에디터에 사용되는 이미지 디렉터리, 필요에 따라 수정한다. */
+		txDecoPath: "/DaumEditor-master/daumeditor/images/deco/contents/", /*본문에 사용되는 이미지 디렉터리, 서비스에서 사용할 때는 완성된 컨텐츠로 배포되기 위해 절대경로로 수정한다. */
+		canvas: {
+			styles: {
+				color: "#123456", /* 기본 글자색 */
+				fontFamily: "굴림", /* 기본 글자체 */
+				fontSize: "10pt", /* 기본 글자크기 */
+				backgroundColor: "#fff", /*기본 배경색 */
+				lineHeight: "1.5", /*기본 줄간격 */
+				padding: "8px" /* 위지윅 영역의 여백 */
+			},
+			showGuideArea: false
+		},
+		events: {
+			preventUnload: false
+		},
+		sidebar: {
+			attachbox: {
+				show: true,
+				confirmForDeleteAll: true
+			}
+		}
+		/* 지정된 넓이가 존재할경우에 설정
+		,
+		size: {
+			contentWidth: 700 
+		}
+		*/
+	};
+
+	/* EditorJSLoader.ready
+	(
+		function(Editor) 
+		{
+			var editor = new Editor(config);
+			
+		}
+	); */
+	
+</script>
+
+<!-- Sample: Saving Contents -->
+<script type="text/javascript">
+	/* 예제용 함수 */
+	function saveContent() 
+	{
+		Editor.save(); // 이 함수를 호출하여 글을 등록하면 된다.
+	}
+
+	/**
+	 * Editor.save()를 호출한 경우 데이터가 유효한지 검사하기 위해 부르는 콜백함수로
+	 * 상황에 맞게 수정하여 사용한다.
+	 * 모든 데이터가 유효할 경우에 true를 리턴한다.
+	 * @function
+	 * @param {Object} editor - 에디터에서 넘겨주는 editor 객체
+	 * @returns {Boolean} 모든 데이터가 유효할 경우에 true
+	 */
+	function validForm(editor) {
+		// Place your validation logic here
+
+		// sample : validate that content exists
+		var validator = new Trex.Validator();
+		var content = editor.getContent();
+		if (!validator.exists(content)) {
+			alert('내용을 입력하세요');
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Editor.save()를 호출한 경우 validForm callback 이 수행된 이후
+	 * 실제 form submit을 위해 form 필드를 생성, 변경하기 위해 부르는 콜백함수로
+	 * 각자 상황에 맞게 적절히 응용하여 사용한다.
+	 * @function
+	 * @param {Object} editor - 에디터에서 넘겨주는 editor 객체
+	 * @returns {Boolean} 정상적인 경우에 true
+	 */
+	function setForm(editor) {
+        var i, input;
+        var form = editor.getForm();
+        var content = editor.getContent();
+
+        // 본문 내용을 필드를 생성하여 값을 할당하는 부분
+        var textarea = document.createElement('textarea');
+        textarea.name = 'content';
+        textarea.value = content;
+        form.createField(textarea);
+
+        /* 아래의 코드는 첨부된 데이터를 필드를 생성하여 값을 할당하는 부분으로 상황에 맞게 수정하여 사용한다.
+         첨부된 데이터 중에 주어진 종류(image,file..)에 해당하는 것만 배열로 넘겨준다. */
+        var images = editor.getAttachments('image');
+        for (i = 0; i < images.length; i++) {
+            // existStage는 현재 본문에 존재하는지 여부
+            if (images[i].existStage) {
+                // data는 팝업에서 execAttach 등을 통해 넘긴 데이터
+                alert('attachment information - image[' + i + '] \r\n' + JSON.stringify(images[i].data));
+                input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'attach_image';
+                input.value = images[i].data.imageurl;  // 예에서는 이미지경로만 받아서 사용
+                form.createField(input);
+            }
+        }
+
+        var files = editor.getAttachments('file');
+        for (i = 0; i < files.length; i++) {
+            input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'attach_file';
+            input.value = files[i].data.attachurl;
+            form.createField(input);
+        }
+        return true;
+	}
+</script>
+
+<!--<div><button onclick='saveContent()'>SAMPLE - submit contents</button></div>-->
+<!-- End: Saving Contents -->
+
+<!-- Sample: Loading Contents -->
+
+<textarea id="sample_contents_source" style="display:none;"></textarea>
+
+<script type="text/javascript">
+	function loadContent() 
+	{
+		var http_url = "http://verygoodwedding.co.kr";
+
+		var attachments = {};
+		attachments['image'] = [];
+		
+		var editor_img_src = "";
+		var editor_img_src_array = editor_img_src.split("|");
+
+		for(var i=0;i<editor_img_src_array.length;i++)
+		{
+			var img_src = editor_img_src_array[i];
+			var img_mi_name = img_src.substring(img_src.lastIndexOf("/")+1, img_src.length);
+			if(img_mi_name!="")
+			{
+				attachments['image'].push
+				(
+					{
+						'attacher': 'image',
+						'data': 
+						{
+							'imageurl': img_src,
+							'filename': img_mi_name,
+							'filesize': 0,
+							'originalurl': img_src,
+							'thumburl': img_src
+						}
+					}
+				);
+			}
+		}
+		
+		
+			attachments['file'] = [];
+			
+			var editor_file_src = "";
+			var editor_file_src_array = editor_file_src.split("|");
+			
+			for(var i=0;i<editor_file_src_array.length;i++)
+			{
+				var file_href = editor_file_src_array[i];
+				var file_mi_name = file_href.substring(file_href.lastIndexOf("/")+1, file_href.length);
+
+				if(file_mi_name != "") 
+				{
+					attachments['file'].push
+					(
+						{
+							'attacher': 'file',
+							'data': 
+							{
+								'attachurl': file_href,
+								'filemime': file_mi_name,
+								'filename': file_mi_name,
+								'filesize': 0
+							}
+						}
+					);
+				}
+				
+			}
+		
+		
+		/* 저장된 컨텐츠를 불러오기 위한 함수 호출 */
+		Editor.modify
+		(
+			{
+				"attachments": function () 
+				{ /* 저장된 첨부가 있을 경우 배열로 넘김, 위의 부분을 수정하고 아래 부분은 수정없이 사용 */
+					var allattachments = [];
+					for (var i in attachments) 
+					{
+						allattachments = allattachments.concat(attachments[i]);
+					}
+
+					return allattachments;
+				}(),
+				"content": document.getElementById("sample_contents_source") /* 내용 문자열, 주어진 필드(textarea) 엘리먼트 */
+			}
+		);
+	}
+</script>
+<!--<div><button onclick='loadContent()'>SAMPLE - load contents to editor</button></div>-->
+<!-- End: Loading Contents -->
+</div>
+</td></tr></tbody></table></div>
+            </li>
+<!--              <li class="online_wirte_editor" style="clear:both;">
             <span class="online_write_title02" style="font-size:14px;"><img src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;업체설명</span>
                 <div class="value">
                 <div><textarea name="content" id="content">● brand's notes
@@ -474,7 +774,7 @@ $(document).ready(function() {
   - 
   
                 </textarea></div></div>
-            </li>
+            </li> -->
 
 
         </ul>

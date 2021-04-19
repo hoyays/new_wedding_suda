@@ -31,6 +31,11 @@ public class BoardController {
 		return "body";
 	}
 	
+	@RequestMapping("/hall/counseling_request")
+	public String counseling_request() {
+		return "/main/main";
+	}
+	
 	// noticeboard 컨트롤러
 	@RequestMapping("/noticeboard/normal")
 	public String normal() {
@@ -56,13 +61,6 @@ public class BoardController {
 	@RequestMapping("/about/map")
 	public String map() {
 		return "about/map";
-	}
-	
-	
-	// 예약 컨트롤러
-	@RequestMapping("/hall/hall_reservation")
-	public String hall_reservation() {
-		return "/hall/hall_reservation";
 	}
 	
 	@RequestMapping("/hall/hall_search")

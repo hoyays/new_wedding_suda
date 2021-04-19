@@ -483,15 +483,16 @@ cursor
 								<span class="popup_store_tx">${map.dreDto.com_name } <!--[<span id="now_img_order" style="color:#ed5900"></span>/<span id="max_img_size"></span>]--></span>
 							</div>
 						</div>
-							
+							<p style="text-align: center;">
+								<img class="txc-image" style="clear: none; float: none;" src="../upload/${map.dreDto.c_fileName }"></p>
 						</div>
-						<img alt="${map.dreDto.com_name }" src="../upload/${map.dreDto.c_fileName }"> 
+						<%-- <img alt="${map.dreDto.com_name }" src="../upload/${map.dreDto.c_fileName }">  --%>
 						<%-- <div style="position: absolute; width:300px; right:50px; top:100px; ">${fn:replace(map.dreDto.content,br,cn)}</div> --%>
 					</div>
 				</div>
-				<p class="rolling_logo">
+				<!-- <p class="rolling_logo">
 					<img src="../images/main_logo.jpg" alt="로고" style="width: 80px;">
-				</p>
+				</p> -->
 			</div>
 			<div
 				style="border-bottom: 1px solid #d9d9d9; width: 1280px; margin: 0 auto; height: 1px; clear: both;">&nbsp;</div>
@@ -499,54 +500,46 @@ cursor
 			<!--비슷한컨셉의 스튜디오 리스트 시작-->
 			<div class="pop_SStudio_wrap">
 				<div class="pop_SStudio_leftbx">
-					<div class="pop_SStudio_LTtitlebx">
-						<span>드레스 정보</span>
-					</div>
-					<div class="info" style="padding-left: 30px;">
+					<!-- <div class="pop_SStudio_LTtitlebx">
+					</div> -->
+					<div class="online_Awrite_form">
+			 	<ul>
+			 
+		        <li class="box_li" style="padding-left: 40px; ">
+		        	<span class="online_write_title"><img src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;업체 소개 : </span>
+		        	<div class="online_write_title">
+		        		<span style="position:absolute ; height: 200px; text-align: center;">${map.dreDto.content}</span>
+		        	</div>
+		        </li>
+		         <li class="box_li" style="padding-left: 40px; ">
+		            <span class="online_write_title"><img src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;업체명 : </span>
+		            <div class="online_write_title">
+		            	<span style="text-align: center;">${map.dreDto.com_name}</span>
+		            </div>
+		         </li>
+		          <li class="box_li" style="padding-left: 40px; ">
+		            <span class="online_write_title"><img src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;상품명 : </span>
+		            <div class="online_write_title">
+		            <span>${map.dreDto.c_productName}</span>   
+		            </div>
+		         </li> 
+		         <li class="box_li" style="padding-left: 40px; ">
+		            <span class="online_write_title"><img src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;가격 : </span>
+		            <div class="online_write_title">
+		            	<span>${map.dreDto.c_productPrice}</span> 
+		            </div>  
+		         </li> 
+		        </ul>
+		        </div>
+					<%-- <div class="info" style="padding-left: 30px;">
 						<p class="title">
 							${fn:replace(map.dreDto.content,br,cn)}
 						</p>
 						<div class="priceInfo">
-							<ul>
-								<li>
-									<div class="stit">  업체명</div>
-									<div class="heavygray">
-										<strong>  -  ${map.dreDto.com_name}</strong>
-									</div>
-								</li>
-								<br>
-								<li>
-									<div class="stit">업체 상품</div>
-									<div class="orange">
-										<strong> - ${map.dreDto.c_productName}</strong>
-									</div>
-								</li>
-								<br>
-								<li>
-									<div class="stit">가격</div>
-									<div class="orange">
-										<strong> - ${map.dreDto.c_productPrice}원</strong>
-									</div>
-								</li>
-								<br>
-								<li>
-									<div class="stit">업체 전화번호</div>
-									<div class="orange">
-										<strong> - ${map.dreDto.com_tel}</strong>
-									</div>
-								</li>
-								<br>
-								<li>
-									<div class="stit">업체 주소</div>
-									<div class="orange">
-										<strong> - ${map.dreDto.c_address}</strong>
-									</div>
-								</li>
-							</ul>
 						</div>
 
 
-					</div>
+					</div> --%>
 					<!-- //info -->
 					<span class="btn_input" style="position: absolute; right: 60px; bottom: 320px;"> 
 					<c:choose>

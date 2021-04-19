@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 	<head>
@@ -39,6 +40,11 @@
 	</head>
 	
 	<body>
+	
+	<c:choose>
+	<c:when test="${session_name eq map.biddingDto.bidding_name || session_businessTy eq 'company'}" >
+	
+	
 		<!-- header -->
 		<jsp:include page="../include/header.jsp">
 			<jsp:param name="category" value="product1" />
@@ -62,7 +68,7 @@
 			<p style="text-align: center;"></p>
 			<p style="text-align: center;"><span style="color: rgb(0, 0, 0);"><br></span></p>
 			<p style="text-align: center;"><br></p>
-			<p style="text-align: center;"><span style="color: rgb(0, 0, 0); font-family: Gulim, 굴림, AppleGothic, sans-serif; font-size: 10pt;">${map.biddingDto.bidding_content }</span></p>
+			<p style="text-align: center;"><span style="color: rgb(0, 0, 0); font-family: Gulim, 굴림, AppleGothic, sans-serif; font-size: 10pt;">${map.biddingDto.bidding_content } </span></p>
 	    </div>
 		
 	    <div id="after_detail_lotation">
@@ -82,25 +88,26 @@
         </div>     
 		<div id="after_return">
 			<span class="after_return_txt_list"><a href="/hall/hall_bidding_list">목록으로</a></span>
+			<c:if test="${session_businessTy ne 'company' }">
+			
 			<span class="after_return_txt_edit"><a href="/hall/modify_view?page=${map.page}&bidding_id=${map.biddingDto.bidding_id}&search=${map.search }" id="edit_btn" style="cursor:pointer;" >수정</a></span>
 			<span class="after_return_txt_del"><a id="del_btn" onclick="delete_check()" style="cursor:pointer;">삭제</a></span>
+			</c:if>
 			<span class="after_return_txt_write"><a href="/hall/reply_view?page=${map.page}&bidding_id=${map.biddingDto.bidding_id}&search=${map.search }" id="regist_btn" style="cursor:pointer;">답글달기</a></span>
 		</div>
 	</div>
 
 	
-	
-	
-	
-	
-	
 	<input type="text" name="keyword" id="keyword" class="name_view_wrap" value="" style="padding-left:5px;">
 	
-	
-	
-	
-	
-	
+	</c:when>
+	<c:otherwise>
+		<script type="text/javascript">
+			alert('작성자와 기업회원만 열람할 수 있습니다!');
+			location.href='./hall_bidding_list';
+		</script>
+	</c:otherwise>
+</c:choose>	
 	
 		<!-- footer -->
 		<jsp:include page="../include/footer.jsp">

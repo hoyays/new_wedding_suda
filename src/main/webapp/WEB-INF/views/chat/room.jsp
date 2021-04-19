@@ -144,7 +144,7 @@
 			<table class="inputTable">
 				<tr>
 					<th>방 제목</th>
-					<th><input type="hidden" name="nname" id="roomName" value="nname"></th>
+					<th><input type="hidden" name="nname" id="roomName" value="관리자"></th>
 					<th><button id="createRoom">채팅 시작하기</button></th>
 				</tr>
 			</table>

@@ -477,7 +477,7 @@ cursor
 			<script type="text/javascript">
 	
 			</script>
-			
+			<div class="pop_SStudio_wrap">
 			<div class="pic_top" style="padding-bottom: 20px; padding-top: 10px;">
 				<div class="pic_top_linkbx">
 					<span class="popup_store_tx">${map.stuDto.com_name }</span>

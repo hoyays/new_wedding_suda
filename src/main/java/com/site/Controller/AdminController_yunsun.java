@@ -65,6 +65,11 @@ public class AdminController_yunsun {
 		return "/admin/admin_logout";
 	}
 	
+	@RequestMapping("/admin/admin_inquiryBoard")
+	public String admin_inquiryBoard() {
+		return "/admin/admin_inquiryBoard";
+	}
+	
 	
 	
 }//class

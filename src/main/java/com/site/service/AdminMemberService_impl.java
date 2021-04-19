@@ -53,7 +53,7 @@ public class AdminMemberService_impl implements AdminMemberService {
 	public Map<String, Object> boardMemberListAll(String listPage, String search) {
 		
 		int page = 1;    //첫 페이지 초기화
-		int limit = 15;  //1개 페이지에 노출되는 게시글 수(15개씩)
+		int limit = 10;  //1개 페이지에 노출되는 게시글 수(10개씩)
 		
 		// page 데이터가 있으면 데이터 적용
 		if (listPage != null && listPage != "") {
