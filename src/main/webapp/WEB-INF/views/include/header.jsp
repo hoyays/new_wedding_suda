@@ -127,29 +127,6 @@ $(document).ready(function() {
 	});
 });
 
-function login()
-{
-	var href;
-	
-	try {
-		href = "/membership/log_in.asp?url=" + escape(top.location.href);
-	}catch(e){
-		href = "/membership/log_in.asp?url=" + escape("http://verygoodwedding.co.kr/");
-	};
-	top.location.replace(href)
-}
-
-function logout()
-{
-	var href;
-	
-	try {
-		href = "/membership/logout.asp?url=" + escape(top.location.href);
-	}catch(e){
-		href = "/membership/logout.asp?url=" + escape("http://verygoodwedding.co.kr/");
-	};
-	top.location.replace(href)		
-}
 </script>
 	</head>
 	<body>	
@@ -186,6 +163,8 @@ function logout()
                 			</span>
 							<span>|</span>
 	                   		<span><a href="/member/userInfoModify_pwdCheck">회원정보수정</a></span>
+							<span>|</span>
+							<span><a href="/myPoint?userid=${session_userid}">MY웨딩</a></span>
 							<span>|</span>
 							<c:if test="${session_userid=='admin'}">
 							<span><a href="/room">회원채팅방</a></span>
@@ -224,13 +203,13 @@ function logout()
                	<div class="main_sub_menu">
                		<div class="m_allmenu" style="background-color: rgb(255, 255, 255);">
                          	<p class="m_all_linebx"><img src="../images/block_line.png" alt="라인" class="m_all_line"></p>
-                              <a><span id="all_menu" data="0">전체메뉴</span></a>
+                              <a><span id="all_menu" data="0"></span></a>
                          </div>
                          <div class="m_weddinghall">
                          	<a href=""><span>웨딩서비스</span></a>
                          </div>
                          <div class="m_sdm">
-                         	<a href="/info/studio_list"><!--<span class="M_Sub_ttl">//--><span>스튜디오</span></a>
+                         	<a href="/info/studio_list"><span>스튜디오</span></a>
                             <a href="/info/dress_list"><span>드레스</span></a>
                             <a href="/info/hairMakeUp_list"><span>헤어메이크업</span></a>
                             <a href="/info/travel_list"><span>신혼여행</span></a>
@@ -250,8 +229,6 @@ function logout()
                	</div>
                </div>
           </div>
-          
-         
      </div> 
      <div style="overflow:hidden; height:166px;"> &nbsp; </div>
      

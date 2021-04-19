@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.site.dto.BuyboardDto;
 import com.site.dto.MallDto;
 import com.site.dto.MemberDto;
 
@@ -19,6 +20,10 @@ public interface MallMapper {
 	void spentPoint(String userid, int point);
 
 	void insertAfterBoardWrite(MallDto mallDto);
+
+	void insertBuy(BuyboardDto buyboardDto);
+
+	int getPoint(String userid);
 	
 	
 

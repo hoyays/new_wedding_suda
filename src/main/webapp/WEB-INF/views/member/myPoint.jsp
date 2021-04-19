@@ -89,14 +89,84 @@
 
 <div class="sub_link_box">
 	<div class="sub_link_menu">
-		<span id="sub_Color_f" class="sub_under_bar"><a href="/mall">포인트몰</a></span>
+		<span id="sub_Color_f" class="sub_under_bar"><a href="/myPoint">포인트 사용내역</a></span>
     </div>
 </div>
 <div id="contain02">
 	<div id="contain02_text">
-		<span class="title_name">구매가 완료 되었습니다.<br> 이메일을 확인해주세요.</span>
+		<span class="title_name">포인트 사용내역</span>
+        <span class="title_detail">결혼 준비의 새로운 기준 웨딩수다와 함께 하세요!</span>
     </div>
 </div>
+
+<div id="useit_wrap">	
+	<div style="border-top:2px solid #787878;"></div>	
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse:separate;padding:10px;">
+		<tbody>
+		<tr>
+			<td width="850">
+				<!-- 발주계약사항 시작 -->
+				<div id="order_list">
+<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#dedede" style="border-collapse:separate;">
+	<tbody>
+	<tr>
+		<td width="150" height="30" bgcolor="#f5f2f2" align="center" style="vertical-align:middle;">구매하신물품</td>
+		<td width="130" bgcolor="#f5f2f2" align="center" style="vertical-align:middle;">구매하신날짜</td>
+		<td width="130" bgcolor="#f5f2f2" align="center" style="vertical-align:middle;">사용 포인트</td>
+	</tr>
+	<c:forEach var="dto"  items="${map.list}">
+	<tr>
+		<td height="40"  align="center" bgcolor="#ffffff" style="vertical-align:middle;">${dto.btitle }</td>	
+		<td height="40"  align="center" bgcolor="#ffffff" style="vertical-align:middle;">${dto.buydate }</td>
+		<td height="40"  align="center" bgcolor="#ffffff" style="vertical-align:middle;">${dto.usepoint }</td>
+	</tr>
+	</c:forEach>
+		
+		
+
+	</tbody>
+	</table>
+	</div>
+	</td>
+		
+			
+		</tr>
+	</tbody>
+	</table>
+	<div id="board_link_num"> 		
+            <a href="/myPoint?userid=${session_userid }&page=1" title="1 페이지">&lt;&lt;</a>
+	<c:choose>
+	<c:when test="${map.page<=1 }">
+	<a>&lt;</a>
+	</c:when>
+	<c:otherwise>
+	<a href="/myPoint?userid=${session_userid }&page=${map.page-1}" title="이전">&lt;</a>
+	</c:otherwise>
+	</c:choose>
+	<c:forEach var="nowpage" begin="${map.startpage }" end="${map.endpage }">
+		<c:choose>
+			<c:when test="${map.page==nowpage }">
+				<span style="font-size:16px;">${nowpage}</span>
+			</c:when>
+		<c:otherwise>
+			<a href="/myPoint?userid=${session_userid}&page=${nowpage}" title="2 페이지">${nowpage}</a>
+		</c:otherwise>
+		</c:choose>
+	</c:forEach>
+	
+	  <c:choose>
+	        <c:when test="${map.page >= map.maxpage }">
+	        <a>&gt;</a>        
+			</c:when>
+	     	<c:otherwise>
+				<a href="/myPoint?userid=${session_userid}&page=${map.page+1}" title="다음" class="num_right">&gt;</a>
+	        </c:otherwise>
+	   </c:choose>
+		<a href="/myPoint?userid=${session_userid}&page=${map.maxpage }" title="11 페이지" class="num_right">&gt;&gt;</a>
+	           
+	 </div>
+	 <div style="height:50px;"></div>
+	</div>
 
 
 

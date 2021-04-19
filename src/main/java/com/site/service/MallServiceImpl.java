@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.site.dto.BuyboardDto;
 import com.site.dto.MallDto;
 import com.site.dto.MemberDto;
 import com.site.mapper.MallMapper;
@@ -60,10 +61,11 @@ public class MallServiceImpl implements MallService {
 
 
 	@Override
-	public Map<String, Object> mall_userid(String userid, int point) {
+	public int mall_userid(String userid, int point) {
 		mallMapper.spentPoint(userid,point);
-		
-		return null;
+		int getpoint=mallMapper.getPoint(userid);
+		System.out.println("임팔 포인트 반환값 : "+getpoint);
+		return getpoint;
 	}
 
 
@@ -118,6 +120,14 @@ public class MallServiceImpl implements MallService {
     
 	return;
 }
+
+
+
+	@Override
+	public void mall_buy_board(BuyboardDto buyboardDto) {
+		mallMapper.insertBuy(buyboardDto);
+		
+	}
 
 
 

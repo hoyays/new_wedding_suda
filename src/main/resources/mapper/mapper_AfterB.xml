@@ -153,7 +153,7 @@
   <insert id="insertAfterBoardWrite">
        <![CDATA[
         insert into after_board values(
-        after_seq.nextval,#{userid},'관리자',#{btitle},
+        after_seq.nextval,#{userid},#{nname},#{btitle},
 		#{bcontent},sysdate,'0','0',#{fileName},after_seq.currval)
 	   ]]>
   </insert>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.site.mapper.MyPageMapper">
+
+ <!-- list 전체리스트 -->
+  <select id="selectmyPointListAll" resultType="com.site.dto.BuyboardDto">
+      <![CDATA[
+        select * from  (select rownum rnum,a.*  from
+		(select * from buy_board where userid='admin' order by bid desc) a) 
+		where rnum>=#{startrow} and rnum<=#{endrow}
+	  ]]>
+  </select>
+  
+    <!-- 전체리스트 개수 -->
+  <select id="listCount" resultType="int">
+   <![CDATA[
+      select count(*) from buy_board where userid=#{userid}
+        ]]>
+  </select>
+  
+  
+ </mapper>

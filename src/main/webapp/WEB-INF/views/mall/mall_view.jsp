@@ -157,20 +157,28 @@ display: none;
 	
 	
 	function buyclick(){
-		alert('구매하시면 등록된 이메일로 발송됩니다.');
 		var x = $('#sum').val();
-		alert(x);
-		if(confirm('등록된 이메일 주소는'+'${map.memberDto.email }'+'입니다.')==true){
-			$(window).load(function() { $('#loading').show(); });
-			location.href='./buy?userid=${map.memberDto.userid}&email=${map.memberDto.email}&point='+x
-			$(window).load(function() { $('#loading').hide(); });
+		
+		if(${map.memberDto.point}>=x){
+			alert('구매하시면 등록된 이메일로 발송됩니다.');
+			alert(x+'포인트 차감됩니다.');
+			if(confirm('등록된 이메일 주소는'+'${map.memberDto.email }'+'입니다.')==true){
+				//$(window).load(function() { $('#loading').show(); });
+				//$(window).load(function() { $('#loading').hide(); });
+				location.href='./buy?btitle=${map.mallDto.btitle}&name=${map.memberDto.name}&userid=${map.memberDto.userid}&email=${map.memberDto.email}&point='+x
+				
+			}else{
+				return;
+			} 
+			
 		}else{
+			alert("포인트가 부족합니다. 포인트를 확인해주세요.")
 			return;
 		}
 		
 	}
 	
-	
+	 
 	</script>
 	
 	
@@ -231,8 +239,12 @@ display: none;
                 <div class="h_eventtx" style="height:75px;overflow:auto;SCROLLBAR-DARKSHADOW-COLOR: #ffffff;scrollbar-BaseC-olor: #7391A2;SCROLLBAR-FACE-COLOR: #ffffff;SCROLLBAR-SHADOW-COLOR: #cbcbcb;SCROLLBAR-ARROW-COLOR: #cbcbcb;border:1px solid #579aa4;">
 					
 					수량 : <input type=hidden name="sell_price" value="${map.mallDto.point }">
+					<input type="hidden" name="userid" id="userid" value="${map.memberDto.userid}">
+					<input type="hidden" name="name" id="name" value="${map.memberDto.name}">
+					<input type="hidden" name="btitle" id="btitle" value="${map.mallDto.btitle}">
 					<input type="text" name="amount" value="1" size="3" onchange="change();">
-					<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"><br>
+					<input type="button" value=" + " onclick="add();">
+					<input type="button" value=" - " onclick="del();"><br>
 					
 					차감 : <input type="text" name="sum" id="sum" size="11" readonly>Point
 					
