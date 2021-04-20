@@ -30,11 +30,27 @@
   <update id="spentPoint">
   	UPDATE ws_member SET point=point-#{point} where userid=#{userid}
   </update>
+  
+  <!--포인트 찾기  -->
+  <select id="getPoint" resultType="int">
+        select point from ws_member  where userid=#{userid}
+  </select>
+  
+  
   <insert id="insertAfterBoardWrite">
        <![CDATA[
        insert into point_mall values(
 		#{userid},mall_seq.nextval,#{btitle},#{bcontent},sysdate,#{fileName},#{point})
 	   ]]>
+  </insert>
+  
+  <!--포인트 사용내역 저장-->
+  
+  <insert id="insertBuy">
+	    <![CDATA[
+	  	insert into buy_board values(
+		buyboard_seq.nextval,#{userid},#{name},sysdate,#{btitle},#{point})
+		]]>
   </insert>
   
   

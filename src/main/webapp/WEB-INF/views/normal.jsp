@@ -464,22 +464,7 @@ function validate_num(val)
 	return pattern.test(val);
 }
 
-function noRefresh()
-{
-	/* CTRL + N키 막음. */
-    if ((event.keyCode == 78) && (event.ctrlKey == true))
-    {
-		event.keyCode = 0;
-        return false;
-    }
-    /* F5 번키 막음. */
-    if(event.keyCode == 116)
-    {
-		event.keyCode = 0;
-        return false;
-    }
- }
- document.onkeydown = noRefresh ;
+
  
 
  

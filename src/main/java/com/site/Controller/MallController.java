@@ -2,10 +2,10 @@ package com.site.Controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.ui.Model;
 
+import com.site.dto.BuyboardDto;
 import com.site.dto.MallDto;
+import com.site.dto.MemberDto;
 import com.site.service.MallService;
 
 @Controller
@@ -42,13 +44,12 @@ public class MallController {
 	}
 	
 	@RequestMapping("/buy")
-	public  String buy(@RequestParam String userid,int point,String email) {
-		System.out.println("point : "+point);
-		System.out.println("userid : "+userid);
-		System.out.println("email : "+email);
-		
-		mallService.mall_userid(userid,point);
-		mallService.mall_emailSend(email,point);
+	public  String buy(@RequestParam String userid,int point,String email, BuyboardDto buyboardDto,HttpServletRequest request) {
+		int getpoint=mallService.mall_userid(userid,point);
+		HttpSession session = request.getSession();
+		//mallService.mall_emailSend(email,point);
+		mallService.mall_buy_board(buyboardDto);
+		session.setAttribute("session_point",getpoint);
 		return "mall/buy";
 	}
 	
