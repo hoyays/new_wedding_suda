@@ -165,7 +165,7 @@ display: none;
 			if(confirm('등록된 이메일 주소는'+'${map.memberDto.email }'+'입니다.')==true){
 				//$(window).load(function() { $('#loading').show(); });
 				//$(window).load(function() { $('#loading').hide(); });
-				location.href='./buy?btitle=${map.mallDto.btitle}&name=${map.memberDto.name}&userid=${map.memberDto.userid}&email=${map.memberDto.email}&point='+x
+				location.href='./buy?btitle=${map.mallDto.btitle}&name=${map.memberDto.name}&userid=${map.memberDto.userid}&email=${map.memberDto.email}&usepoint='+x
 				
 			}else{
 				return;

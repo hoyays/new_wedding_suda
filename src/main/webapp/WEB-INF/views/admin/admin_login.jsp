@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko"><head>
+<html lang="ko">
+<head>
 <meta charset="utf-8">
 <meta http-equiv="imagetoolbar" content="no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +15,7 @@
 <link rel="stylesheet" href="https://demo.sir.kr/gnuboard5/js/font-awesome/css/font-awesome.min.css?ver=191202">
 <link rel="stylesheet" href="https://demo.sir.kr/gnuboard5/skin/member/basic/style.css?ver=191202">
 <link rel="stylesheet" href="https://demo.sir.kr/gnuboard5/skin/social/style.css?ver=191202">
+<link rel="shortcut icon" href="#">
 <!--[if lte IE 8]>
 <script src="https://demo.sir.kr/gnuboard5/js/html5.js"></script>
 <![endif]-->

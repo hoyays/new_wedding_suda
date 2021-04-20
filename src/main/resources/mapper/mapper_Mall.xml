@@ -49,7 +49,7 @@
   <insert id="insertBuy">
 	    <![CDATA[
 	  	insert into buy_board values(
-		buyboard_seq.nextval,#{userid},#{name},sysdate,#{btitle},#{point})
+		buyboard_seq.nextval,#{userid},#{name},sysdate,#{btitle},#{usepoint})
 		]]>
   </insert>
   

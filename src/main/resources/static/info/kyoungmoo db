@@ -1,0 +1,251 @@
+wnotice table
+
+create table wnotice_board(
+bid number(5),
+id varchar2(20),
+btitle varchar2(80),
+bcontent varchar2(800),
+bdate date default sysdate,
+bhit number(5),
+fileName varchar2(40));
+
+insert into wnotice_board values(
+noticeboard_seq.nextval,'admin','포인트를 잡아라~!',
+'포인트를 잡아라 이벤트를 시작합니다. !!<br>지식인 계시판에서 답변을 달고 채택 되시는 10분께 3만 포인트를 지급해드립니다.!',sysdate,'0','logo.jsp');
+commit;
+
+
+
+시퀀스
+
+create SEQUENCE noticeboard_seq
+INCREMENT by 1  --1번부터 시작
+start with 1
+minvalue 1
+maxvalue 100
+nocycle;
+
+
+
+
+후기
+create table after_board(
+bid number(5) primary key,
+userid varchar2(20),
+nName varchar2(20),
+btitle varchar2(80),
+bcontent varchar2(1000),
+bdate date default sysdate,
+bhit number(5),
+breply number(5),
+fileName varchar2(40),
+bgroup number(5)
+);
+alter table after_board
+
+
+insert into after_board values(
+after_seq.nextval,'admin','관리자','잘생긴김희제4','김희제 사실 존못<br>대머리<br>신류진 사진 투척합니다.<br>',
+sysdate,0,0,'1.jpg',after_seq.currval);
+
+create SEQUENCE after_seq
+INCREMENT by 1  --1번부터 시작
+start with 1
+minvalue 1
+maxvalue 9999
+nocycle;
+
+
+포인트몰
+create table point_mall(
+    userid varchar2(20),
+    bid number(5),
+    btitle varchar2(80),
+    bcontent varchar2(1000),
+    bdate date default sysdate,
+    filename varchar2(40),
+    point number(8)
+    );
+    
+ 
+     insert into point_mall values(
+'admin',mall_seq.nextval,'문화상품권','문화상품권 5만원 ~!! 짜리',sysdate,'hey.jpg',5000);
+
+
+
+create SEQUENCE mall_seq
+INCREMENT by 1  --1번부터 시작
+start with 1
+minvalue 1
+maxvalue 9999
+nocycle;
+
+
+//바이 보드//
+create SEQUENCE buyboard_seq
+INCREMENT by 1  --1번부터 시작
+start with 1
+minvalue 1
+maxvalue 9999
+noCACHE 
+nocycle;
+
+create table buy_board(
+bid number(4),
+userid varchar2(20),
+constraint fk_userid_buy foreign key(userid) references ws_member(userid),
+name varchar2(20),
+buydate date,
+btitle varchar(80)
+usepoint number(10)
+);
+
+insert into buy_board values(
+buyboard_seq.nextval,'admin','관리자',sysdate,'문화상품권5만원',50000);
+
+
+이벤트
+
+create table event_board(
+userid varchar2(20) ,
+nickName varchar2(40),
+bid number(5)primary key,
+btitle varchar2(80),
+bcontent varchar2(1000),
+bdate date default sysdate,
+filename varchar2(40)
+);
+
+create SEQUENCE event_seq
+INCREMENT by 1  --1번부터 시작
+start with 1
+minvalue 1
+maxvalue 9999
+nocycle
+nocache
+;
+
+
+insert into event_board values(
+'admin','관리자',event_seq.nextval,'포인트를 잡아라~!','100만포인트 방출 대 이벤트!!!',sysdate,'1.jpg');
+insert into event_board values(
+'admin','관리자',event_seq.nextval,'오늘의이벤트',	'이벤트짱짱맨',sysdate,'1.jpg');
+
+
+
+
+
+
+
+
+//insert 용 //
+//바이보드용//
+----------------------------------------------------------------
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'문화상품권5만원',50000);
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'각티슈',30000);
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'물티슈',2000);
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'물티슈',2000);
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'문화상품권1만원',10000);
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'기저귀',30000);
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'물티슈',2000);
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'물티슈',2000);
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'물티슈',2000);
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'물티슈',2000);
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'문화상품권1만원',10000);
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'기저귀',30000);
+insert into buy_board values(
+buyboard_seq.nextval,'bbbbbb','전지현',sysdate,'물티슈',2000);
+------------------------------------------------------------------
+ //포인트 몰 //
+ insert into point_mall values(
+'admin',mall_seq.nextval,'문화상품권5만원','문화상품권 5만원 ~!! ',sysdate,'culture.jpg',50000);
+insert into point_mall values(
+'admin',mall_seq.nextval,'문화상품권3만원','문화상품권 3만원 ~!! ',sysdate,'culture.jpg',30000);
+insert into point_mall values(
+'admin',mall_seq.nextval,'문화상품권1만원','문화상품권 1만원 ~!! ',sysdate,'culture.jpg',10000);
+insert into point_mall values(
+'admin',mall_seq.nextval,'각티슈','각티슈 사지말고 포인트로 얻자~! ',sysdate,'pp.jpg',30000);
+insert into point_mall values(
+'admin',mall_seq.nextval,'물티슈','물티슈 사지말고 포인트로 얻자~! ',sysdate,'waterpp.jpg',30000);
+insert into point_mall values(
+'admin',mall_seq.nextval,'기저귀','기저귀 필요하시죠~~!?',sysdate,'huggies.jpg',30000);
+insert into point_mall values(
+'admin',mall_seq.nextval,'분유','각티슈 사지말고 포인트로 얻자~! ',sysdate,'readtop.jpg',30000);
+insert into point_mall values(
+'admin',mall_seq.nextval,'샤넬가방','포인트로 모은 샤넬백으로 ',sysdate,'wow.jpg',8500000);
+
+
+--------------------------------------------------------------------------------
+
+//이벤트//
+insert into event_board values(
+'admin','관리자',event_seq.nextval,'쥬드주얼리 상담만 받아도 선물 증정 이벤트','쥬드주얼리 상담만 받아도 패션귀걸이증정<br> 커플링 이상 계약 시, 14k 천연 러프 다이아반지 증정',sysdate,'e1.jpg');
+insert into event_board values(
+'admin','관리자',event_seq.nextval,'바톤 4월 한정 프로모션','바톤 르노아에서 평일 방문 후 턱시도를 1회 대여하시면 1회 추가 대여 서비스를 진행해드립니다.',sysdate,'e2.jpg');
+insert into event_board values(
+'admin','관리자',event_seq.nextval,'미니스트로 특별프로모션','100만원 이상 서비스 혜택!',sysdate,'e3.jpg');
+insert into event_board values(
+'admin','관리자',event_seq.nextval,'삼성전자 프리미엄스토어 그랜드오픈매장이벤트','삼성전자 혼수상품 특별 할인 혜택',sysdate,'e4.jpg');
+insert into event_board values(
+'admin','관리자',event_seq.nextval,'아르코발레노 4월 프로모션','예복 패키지.혼주복패키지 진행시 추가증정',sysdate,'e5.jpg');
+insert into event_board values(
+'admin','관리자',event_seq.nextval,'지오바네 패밀리이벤트','1.혼주정장 10%할인<br>2.수입원단 할인',sysdate,'e6.jpg');
+insert into event_board values(
+'admin','관리자',event_seq.nextval,'아틀레 웨딩프로모션','모든원단 20~45%할인+18가지 103만원 상당의 웨딩 패키지',sysdate,'e7.jpg');
+
+-------------------------------------------------------------------------------------
+
+insert into after_board values(
+after_seq.nextval,'admin','관리자','잘생긴김희제4','김희제 사실 .....<br>대머리<br>사진 투척합니다.<br>',
+sysdate,0,0,'1.jpg');
+
+insert into after_board values(
+after_seq.nextval,'bbbbbb','전지현','결혼 잘했어요~','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
+sysdate,0,0,'a1.jpg');
+insert into after_board values(
+after_seq.nextval,'ccc','김희제','결혼 잘했어요~','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
+sysdate,0,0,'a2.jpg');
+insert into after_board values(
+after_seq.nextval,'ddd','이상민','결혼 해버렸지뭐야','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
+sysdate,0,0,'a3.jpg');
+insert into after_board values(
+after_seq.nextval,'fff','하동수','달콤한 결혼','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
+sysdate,0,0,'a4.jpg');
+insert into after_board values(
+after_seq.nextval,'eee','이준표','결국 결혼함','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
+sysdate,0,0,'5.jpg');
+insert into after_board values(
+after_seq.nextval,'www','현수민','싸움끝에 결혼','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
+sysdate,0,0,'a6.jpg');
+insert into after_board values(
+after_seq.nextval,'rrr','김하은','결혼했어요','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
+sysdate,0,0,'a7.jpg');
+insert into after_board values(
+after_seq.nextval,'rrr','안윤선','다들 행복하세요','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
+sysdate,0,0,'a8.jpg');
+insert into after_board values(
+after_seq.nextval,'rrr','박재영','독신 탈출','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
+sysdate,0,0,'a9.jpg');
+insert into after_board values(
+after_seq.nextval,'rrr','설재호','결혼은 뭐다?','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
+sysdate,0,0,'a1.jpg');
+insert into after_board values(
+after_seq.nextval,'rrr','심규철','결혼이 제일 쉬웠어요','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
+sysdate,0,0,'a2.jpg');
+insert into after_board values(
+after_seq.nextval,'rrr','김건우','어린나이에 골인','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
+sysdate,0,0,'a3.jpg');
+
+-----------------------------------------------------------------------------------------
