@@ -54,7 +54,7 @@
 				</colgroup>
 				<tr>
 					<th>작성자</th>
-					<td><input type="text" name="bidding_name" id="bidding_name" value="${session_name}" readonly="readonly"></td>
+					<td><input type="text" name="bidding_name" id="bidding_name" value="${session_name }" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<th>제목</th>

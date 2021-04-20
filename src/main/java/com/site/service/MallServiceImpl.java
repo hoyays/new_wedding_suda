@@ -52,7 +52,6 @@ public class MallServiceImpl implements MallService {
 	public Map<String, Object> mall_view(int bid, String userid) {
 		mallDto =mallMapper.selectMall_view(bid);
 		memberDto = mallMapper.selectMall_userid(userid);
-		System.out.println(memberDto);
 		map.put("mallDto", mallDto);
 		map.put("memberDto", memberDto);
 		return map;

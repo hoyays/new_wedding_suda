@@ -370,9 +370,9 @@ $('#file').change(function(evt) {
 
 <div class="sub_link_box">
 	<div class="sub_link_menu">
-		<span id="sub_Color_f"><a href="/info/studio_writeView">스튜디오</a></span>
-		<span id="sub_Color_f" class="sub_under_bar"><a href="/info/dress_writeView">드레스</a></span>
-        <span id="sub_Color_f"><a href="/info/hairMakeUp_writeView">헤어메이크업</a></span>
+		<span id="sub_Color_f"><a href="/info/studio_list">스튜디오</a></span>
+		<span id="sub_Color_f" class="sub_under_bar"><a href="/info/dress_list">드레스</a></span>
+        <span id="sub_Color_f"><a href="/info/hairMakeUp_list">헤어메이크업</a></span>
 		<span id="sub_Color_f"><a href="./travel_list">신혼여행</a></span>
     </div>
 </div>
@@ -497,28 +497,11 @@ Trex.Tool.Test = Trex.Class.create
 </script>
 <input type="text" name="bcontent1" id="bcontent1" style="display:none;" row="100px">
 <!-- <textarea name="bcontent" id="bcontent" style="display:none;" row="100px" value="안녕하세요"></textarea> -->
-<!-- 에디터 추가 -->
+	<!-- 에디터 추가 -->
 <script type="text/javascript">
  CKEDITOR.replace('bcontent1', {height: 500});
 </script>
-
-<script type="text/javascript">
-	$(function(){
-		var add_text = "<p>업체 특징</p><p>추천 키워드</p>";
-		CKEDITOR.instances.bcontent1.setData(add_text);
-		
-	});
-</script>
-
-
-
-
 <input type="hidden" name="content" id="content" value="">
-
-
-
-
-
 <div id="tx_trex_container" name="tx_trex_container">
 <div class="body">
 

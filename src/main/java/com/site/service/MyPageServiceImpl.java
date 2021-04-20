@@ -39,6 +39,7 @@ public class MyPageServiceImpl implements MyPageService {
 		list = myPageMapper.selectmyPointListAll(startrow,endrow,userid);
 		
 		map = myPointPageNumber.myPointPageNumber(page, limit,userid);
+		
 		map.put("list", list);
 		
 		return map;

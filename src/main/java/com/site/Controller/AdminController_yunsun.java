@@ -70,6 +70,13 @@ public class AdminController_yunsun {
 		return "/admin/admin_inquiryBoard";
 	}
 	
+	
+	//test
+	@RequestMapping("/admin_temp/admin_memberStatus")
+	public String admin_memberStatus1() {
+		return "/admin_temp/admin_memberStatus";
+	}
+	
 
 	
 	

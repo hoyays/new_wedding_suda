@@ -432,44 +432,7 @@ $(document).ready(function() {
                 <div><table width="100%"><tbody><tr><td><link rel="stylesheet" href="/DaumEditor-master/daumeditor/css/editor.css" type="text/css" charset="utf-8">
 <script src="/DaumEditor-master/daumeditor/js/editor_loader.js" type="text/javascript" charset="utf-8"></script><script type="text/javascript" src="http://verygoodwedding.co.kr/DaumEditor-master/daumeditor/js/editor.js" charset="utf-8"></script>
 <script type="text/javascript">
-<!--
-//동영상기능추가
-TrexConfig.addTool
-(
-    "cinema", // 마크업에 추가한 id(tx_cinema)에 "tx_"를 제외한 부분이 됩니다.
-    {
-        url: "/DaumEditor-master/daumeditor/pages/trex/movie.html", // 속성은 마음대로 추가 가능
-        name: "editor_movie"
-    }
-);
 
-Trex.Tool.Test = Trex.Class.create
-(
-	{
-		$const: {__Identity: 'cinema' },
-		$extend: Trex.Tool,
-		oninitialized: function(config) 
-		{ 
-			var _editor = this.editor;
-			var self = this;
-			var _toolHandler = function()
-			{
-				// 정의된 속성을 이용해서 버튼 클릭시 새 창을 호출 
-				//window.open( config.url, config.name );
-				window.open(config.url, config.name, 'width=500, height=500, status=no scrollbars=yes, resizable=yes');
-			};
-			
-			this.weave.bind(this)
-			(
-				new Trex.Button(this.buttonCfg), 
-				null,
-				_toolHandler
-			);
-		}
-	}
-);
-//동영상기능추가
-//-->
 </script>
 <input type="text" name="bcontent1" id="bcontent1" style="display:none;" row="100px">
 <!-- <textarea name="bcontent" id="bcontent" style="display:none;" row="100px" value="안녕하세요"></textarea> -->
@@ -733,7 +696,7 @@ Trex.Tool.Test = Trex.Class.create
   
                 </textarea></div></div>
             </li> -->
-
+			
 
         </ul>
     </div>

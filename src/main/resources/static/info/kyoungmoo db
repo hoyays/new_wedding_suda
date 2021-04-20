@@ -209,43 +209,43 @@ insert into event_board values(
 
 insert into after_board values(
 after_seq.nextval,'admin','관리자','잘생긴김희제4','김희제 사실 .....<br>대머리<br>사진 투척합니다.<br>',
-sysdate,0,0,'1.jpg');
+sysdate,0,0,'1.jpg',AFTER_SEQ.currval);
 
 insert into after_board values(
 after_seq.nextval,'bbbbbb','전지현','결혼 잘했어요~','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
-sysdate,0,0,'a1.jpg');
+sysdate,0,0,'a1.jpg',AFTER_SEQ.currval);
 insert into after_board values(
 after_seq.nextval,'ccc','김희제','결혼 잘했어요~','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
-sysdate,0,0,'a2.jpg');
+sysdate,0,0,'a2.jpg',AFTER_SEQ.currval);
 insert into after_board values(
 after_seq.nextval,'ddd','이상민','결혼 해버렸지뭐야','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
-sysdate,0,0,'a3.jpg');
+sysdate,0,0,'a3.jpg',AFTER_SEQ.currval);
 insert into after_board values(
 after_seq.nextval,'fff','하동수','달콤한 결혼','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
-sysdate,0,0,'a4.jpg');
+sysdate,0,0,'a4.jpg',AFTER_SEQ.currval);
 insert into after_board values(
 after_seq.nextval,'eee','이준표','결국 결혼함','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
-sysdate,0,0,'5.jpg');
+sysdate,0,0,'5.jpg',AFTER_SEQ.currval);
 insert into after_board values(
 after_seq.nextval,'www','현수민','싸움끝에 결혼','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
-sysdate,0,0,'a6.jpg');
+sysdate,0,0,'a6.jpg',AFTER_SEQ.currval);
 insert into after_board values(
 after_seq.nextval,'rrr','김하은','결혼했어요','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
-sysdate,0,0,'a7.jpg');
+sysdate,0,0,'a7.jpg',AFTER_SEQ.currval);
 insert into after_board values(
 after_seq.nextval,'rrr','안윤선','다들 행복하세요','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
-sysdate,0,0,'a8.jpg');
+sysdate,0,0,'a8.jpg',AFTER_SEQ.currval);
 insert into after_board values(
 after_seq.nextval,'rrr','박재영','독신 탈출','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
-sysdate,0,0,'a9.jpg');
+sysdate,0,0,'a9.jpg',AFTER_SEQ.currval);
 insert into after_board values(
 after_seq.nextval,'rrr','설재호','결혼은 뭐다?','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
-sysdate,0,0,'a1.jpg');
+sysdate,0,0,'a1.jpg',AFTER_SEQ.currval);
 insert into after_board values(
 after_seq.nextval,'rrr','심규철','결혼이 제일 쉬웠어요','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
-sysdate,0,0,'a2.jpg');
+sysdate,0,0,'a2.jpg',AFTER_SEQ.currval);
 insert into after_board values(
 after_seq.nextval,'rrr','김건우','어린나이에 골인','웨딩수다와 함께 해서 결혼 잘했어요.<br>할인, 이벤트 그리고 맞춤형으로 진행까지~!!! <br>행복합니다.<br>',
-sysdate,0,0,'a3.jpg');
+sysdate,0,0,'a3.jpg',AFTER_SEQ.currval);
 
 -----------------------------------------------------------------------------------------

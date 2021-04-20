@@ -39,6 +39,9 @@
 <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script></head>
 <body naver_screen_capture_injected="true">
 <div class="wrap">
+<c:choose>
+	<c:when test="${session_userid eq map.queDto.userid || session_userid eq '관리자' || session_businessTy eq 'company' }">
+
 	<!-- 헤더 너을거임  -->
 
 <jsp:include page="../include/header.jsp">
@@ -238,6 +241,15 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
+	</c:when>
+	<c:otherwise>
+		<script type="text/javascript">
+			alert('비밀글은 본인이 작성한 글만 확인 가능합니다.(관리자,업체도 가능)');
+			location.href="./question_list?page=${map.page}&search=${map.search}";
+		</script>
+	</c:otherwise>
+</c:choose>
+
 
 <div id="footer_wrap2">
 <!--푸터 넣을거임  -->

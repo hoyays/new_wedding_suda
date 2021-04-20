@@ -7,7 +7,6 @@
 		<meta charset="UTF-8">
 		<title>글쓰기 체크</title>
 		<script type="text/javascript">
-		alert('${map.ModifyCheck}');
 			if(${map.ModifyCheck == 1}) {
 				alert('수정이 완료되었습니다.');
 				location.href="./studio_list";

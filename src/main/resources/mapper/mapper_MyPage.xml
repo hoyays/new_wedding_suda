@@ -9,7 +9,7 @@
   <select id="selectmyPointListAll" resultType="com.site.dto.BuyboardDto">
       <![CDATA[
         select * from  (select rownum rnum,a.*  from
-		(select * from buy_board where userid='admin' order by bid desc) a) 
+		(select * from buy_board where userid=#{userid} order by bid desc) a) 
 		where rnum>=#{startrow} and rnum<=#{endrow}
 	  ]]>
   </select>

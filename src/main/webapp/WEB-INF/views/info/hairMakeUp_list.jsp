@@ -359,7 +359,13 @@ function logout()
         </div>
         
 	<div id="board_write">
-        <a href="hairMakeUp_writeView"><input class="board_write_btn" type="button" value="상품등록" id="regist_btn" style="cursor:pointer;font-family: NanumBarunGothic;font-size:15px;"></a>
+		<c:choose>
+			<c:when test="${session_businessTy eq 'company' || session_userid eq 'admin'}">
+        		<a href="hairMakeUp_writeView"><input class="board_write_btn" type="button" value="상품등록" id="regist_btn" style="cursor:pointer;font-family: NanumBarunGothic;font-size:15px;"></a>
+			</c:when>
+			<c:otherwise>
+			</c:otherwise>
+		</c:choose>
     </div>
  </div>
 

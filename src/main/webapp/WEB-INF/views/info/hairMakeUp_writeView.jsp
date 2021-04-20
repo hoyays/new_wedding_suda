@@ -109,7 +109,7 @@
 		var content_data = CKEDITOR.instances.bcontent1.getData(); 
 		document.getElementById('content').value = content_data;
 		
-	      document.online_write_box.submit();
+	    document.online_write_box.submit();
 		
 /* 		$.ajax({
 			url:"./studio_write",
@@ -453,26 +453,7 @@ $(document).ready(function() {
                 <div><table width="100%"><tbody><tr><td><link rel="stylesheet" href="/DaumEditor-master/daumeditor/css/editor.css" type="text/css" charset="utf-8">
 <script src="/DaumEditor-master/daumeditor/js/editor_loader.js" type="text/javascript" charset="utf-8"></script><script type="text/javascript" src="http://verygoodwedding.co.kr/DaumEditor-master/daumeditor/js/editor.js" charset="utf-8"></script>
 <script type="text/javascript">
-CKEDITOR.instances.bcontent1.setData("<p>● brand's notes
-			-              
-		    
-		  ● 주요 특징
-		    -
-		    
-		  ● 추천 키워드/추천 포인트
-		    -
-		    
-		  ● 첫 방문상담 진행 소요시간
-		    -
-		    
-		  ● 헤어, 메이크업 직급 지정비용
-		    -
-		    
-		  ● 어머님 헤어피스(달비) 이용 시 비용
-		    -
-		    
-		  ● 상품 이용 일정 변경 및 취소 시 위약금
-		    - </p>");
+CKEDITOR.instances.bcontent1.setData("<p>● brand's notes<br> - <br>● 주요 특징<br> - <br>● 추천 키워드/추천 포인트<br> - <br>● 첫 방문상담 진행 소요시간<br> - <br> ● 헤어, 메이크업 직급 지정비용<br> - <br> ● 상품 이용 일정 변경 및 취소 시 위약금<br> - <br></p>");
 
 <!--
 //동영상기능추가

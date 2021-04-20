@@ -23,11 +23,7 @@
 
 <script type="text/javascript">
 function counselingCheck() {
-	if($("#counseling_name").val()==""){
-		alert("이름을 꼭 적으셔야 합니다.");
-		$("#counseling_name").focus();
-		return false;
-	}
+
 	if($("#phone2").val()==""){
 		alert("전화번호를 꼭 적으셔야 합니다.");
 		$("#phone2").focus();
@@ -38,6 +34,7 @@ function counselingCheck() {
 		$("#phone3").focus();
 		return false;
 	}
+	alert('신청되었습니다. 곧 연락드리겠습니다.');
 	document.counsel_box.submit();
 }
 
@@ -56,7 +53,7 @@ function counselingCheck() {
 		<div id="contain02_text">
 			<span class="title_name">웨딩수다를 선택한 이유!</span>
 			<span class="title_detail">투명한 결혼 정보, 웨딩수다에서 찾을 수 있습니다!</span>
-		
+		</div>
 	
 		<div id="counsel_wrap">
 			<form action="./counseling_reservation" name="counsel_box" id="counsel_box" method="post" >
@@ -138,9 +135,9 @@ function counselingCheck() {
 						<li class="ess double"><span class="counsel_title"
 							style="font-size: 15px;"><img
 								src="../images/member_icon.png">&nbsp;&nbsp;&nbsp;성명</span>
-							<div class="value02">
+							<div class="value02">&nbsp;&nbsp;
 								<input type="text" name="name" id="name"
-									class="counseling_name" value="${session_name}"> <select name="sex"
+									class="counseling_name" value="${session_name }" >&nbsp;&nbsp;&nbsp;<select name="sex"
 									id="sex" class="phone_coun_selects" style="font-size: 23px;">
 									<option value="W">신부</option>
 									<option value="M">신랑</option>
@@ -166,7 +163,7 @@ function counselingCheck() {
 						<li class="ess double"><span class="counsel_title"
 							style="font-size: 15px;"><img
 								src="../images/member_icon03.png">&nbsp;&nbsp;&nbsp;결혼예정일</span>
-							<div class="value02">
+							<div class="value02">&nbsp;
 								<input type="date" name="cusEnter" id="cusEnter" class="member_input_email hasDatepicker" style="width:150px;cursor:pointer;padding-left:5px;font-size:15px;color:#000000;">
 							</div></li>
 						<li class="ess double"><span class="counsel_title"
@@ -199,15 +196,12 @@ function counselingCheck() {
 					</span>
 					</span>
 				</div>
-				
 			</form>
-
-			</div>
-		
+		</div>
 		<!-- footer -->
 		<jsp:include page="../include/footer.jsp">
     		<jsp:param name="category" value="product2" />
 		</jsp:include>
-		</div>
+		
 	</body>
 </html>

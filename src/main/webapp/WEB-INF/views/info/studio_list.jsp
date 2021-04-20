@@ -117,85 +117,7 @@
 		</div>
 	</div>
 </div>
-<!--<script type="text/javascript">
-	
-	var data = "72";
-	var data2 = "";
-	
-	var fst_send_data = "data="+escape(data)+"&data2="+escape(data2)+"&keyword="+escape($("#userSerch2").val());	
-	
-	$(document).ready
-	(
-		function()
-		{
-			get_ajax_list(fst_send_data);
-			
-			$("#userSerch2").keydown(function(e){
-				if(e.which == 13)
-				{
-					var send_data= "data="+escape(data)+"&data2="+escape(data2)+"&keyword="+escape($("#userSerch2").val())		
-					get_ajax_list(send_data);
-					return;
-				}
-			});
-		}
-	);
-	
-	$(document).on
-	(
-		"click","img[id='search_btn']",
-		function()
-		{
-			var send_data= "data="+escape(data)+"&data2="+escape(data2)+"&keyword="+escape($("#userSerch2").val())		
-			get_ajax_list(send_data);
-		}
-	);	
-	
-	$('img[id=search_btn]').click(function() {		
-		var send_data= "data="+escape(data)+"&data2="+escape(data2)+"&keyword="+escape($("#userSerch2").val())		
-		get_ajax_list(send_data);
-	});	
 
-	function get_ajax_list(send_data)
-	{		
-		var send_url = "ajax_gallery_list.asp";				
-
-		$.ajax
-		(
-			{
-				type : "post",
-				dataType : "html",
-				url : send_url,
-				data : send_data,
-				success:function(data)
-				{	
-					$("#_collection_list").html(data);
-
-					$('a[id=pop_img_info], a[id=consult_info]').mouseover(function() {
-						$(".col_bg").css("color","");
-						$(this).css("color","#e64015");
-					});
-
-					$('a[id=pop_img_info], a[id=consult_info]').mouseout(function() {
-						$(".col_bg").css("color","");						
-					});
-					
-					$('img[id=pop_img_info], a[id=pop_img_info]').click(function() {						
-						var cIdx = $(this).attr("data");						
-										
-						location.href = "gallery_view.asp?cIdx="+cIdx+"&data=72&data2=";
-					});
-				}
-				,
-				error:function()
-				{
-					alert("데이터 처리중 문제가 발생하였습니다. 다시 시도하여 주십시오.");
-				}
-			}
-		);				
-	}	
-//
-</script>-->
 <div class="col_list_wrap">
 	<div id="_collection_list">	
 		<div id="collection_box01">
@@ -268,7 +190,13 @@
         </div>
         
 <div id="board_write">
-        <a href="studio_writeView"><input class="board_write_btn" type="button" value="상품등록" id="regist_btn" style="cursor:pointer;font-family: NanumBarunGothic;font-size:15px;"></a>
+	<c:choose>
+		<c:when test="${session_businessTy eq 'company' || session_userid eq 'admin'}">
+        	<a href="studio_writeView"><input class="board_write_btn" type="button" value="상품등록" id="regist_btn" style="cursor:pointer;font-family: NanumBarunGothic;font-size:15px;"></a>
+		</c:when>
+		<c:otherwise>
+		</c:otherwise>
+	</c:choose>
     </div>
 </div>
 

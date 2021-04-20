@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<% pageContext.setAttribute("br","<br>"); %>
+<% pageContext.setAttribute("cn","\n"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,13 +17,7 @@
 
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
-       function writeCheck(){
-    	   if($("#bidding_name").val()==""){
-    		   alert("작성자를 꼭 적으셔야 합니다.");
-    		   $("#bidding_name").focus();
-    		   return false;
-    		   
-    	   }
+    	function writeCheck(){
     	   if($("#bidding_title").val()==""){
     		   alert("타이틀을 꼭 적으셔야 합니다.");
     		   $("#bidding_title").focus();
@@ -32,8 +29,13 @@
     		   $("#bidding_content").focus();
     		   return false;
     	   }
+    	   
+    	   var str = $('#bidding_content').val();
+   		   str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+   		   $('#bidding_content').val(str);
+    	   
     	   document.writeForm.submit();
-       }
+       	}
     
     </script>
 
@@ -75,7 +77,8 @@
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td><textarea name="bidding_content" id="bidding_content" cols="50" rows="10">${map.biddingDto.bidding_content }</textarea></td>
+					<td><textarea name="bidding_content" id="bidding_content" cols="50" rows="10">${fn:replace(map.biddingDto.bidding_content,br,cn)}
+					</textarea></td>
 				</tr>
 			</table>
 			<hr>
@@ -89,9 +92,6 @@
 
 	</section>
 <hr>
-
-
-
 
 	<!-- footer -->
 	<jsp:include page="../include/footer.jsp">
