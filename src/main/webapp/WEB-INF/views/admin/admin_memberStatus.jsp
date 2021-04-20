@@ -43,7 +43,7 @@ var g5_admin_url = "https://demo.sir.kr/gnuboard5/adm";
 
 </head>
 <body cz-shortcut-listen="true">
-<div id="hd_login_msg">영카트5님 로그인 중 <a href="https://demo.sir.kr/gnuboard5/bbs/logout.php">로그아웃</a></div>
+<!-- <div id="hd_login_msg">영카트5님 로그인 중 <a href="https://demo.sir.kr/gnuboard5/bbs/logout.php">로그아웃</a></div> -->
 <script>
 var tempX = 0;
 var tempY = 0;
@@ -67,7 +67,7 @@ function imageview(id, w, h)
 }
 </script>
 
-<div id="to_content"><a href="#container">본문 바로가기</a></div>
+<!-- <div id="to_content"><a href="#container">본문 바로가기</a></div> -->
 
 <header id="hd">
     <h1>영카트5</h1>

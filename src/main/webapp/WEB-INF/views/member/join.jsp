@@ -637,7 +637,7 @@ function noRefresh()
 				</div>			
 			</li>
 			<li class="member_box_li_selet">
-				<span class="member_title_m" style="font-size:17px;"><img src="../images/member_icon03.png">&nbsp;&nbsp;이메일</span>
+				<span class="member_title_m" style="font-size:17px;"><img src="../images/member_icon.png">&nbsp;&nbsp;이메일</span>
 				            <div class="value_m">
                <input type="text" name="email1" id="email1" class="member_input_email" style="width:120px;padding-left:5px;font-size:15px;color:#000000;">@ 
                <input type="text" name="email2" id="email2" class="member_input_email" style="width:120px;padding-left:5px;font-size:15px;color:#000000;">

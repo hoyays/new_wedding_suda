@@ -70,6 +70,8 @@ public class AdminController_yunsun {
 		return "/admin/admin_inquiryBoard";
 	}
 	
+
+	
 	
 	
 }//class
