@@ -364,7 +364,7 @@
 		  	<![CDATA[ 
 			  	insert into question_board values(
 				qboard_sequence.nextval,#{bname},#{btitle},#{bcontent},
-				sysdate,0,qboard_sequence.currval,0,0,#{fileName},#{userid})
+				sysdate,0,qboard_sequence.currval,0,0,#{fileName},#{userid},#{check_userid})
 	    	]]>
 		  </insert>
 		 
@@ -395,7 +395,7 @@
 		  	<![CDATA[ 
 			  	insert into question_board values(
 				qboard_sequence.nextval,#{bname},#{btitle},#{bcontent},
-				sysdate,0,#{bgroup},#{bstep}+1,#{bindent}+1,'',#{userid})
+				sysdate,0,#{bgroup},#{bstep}+1,#{bindent}+1,'',#{userid},#{check_userid})
 	    	]]>
 		  </insert>
 	  

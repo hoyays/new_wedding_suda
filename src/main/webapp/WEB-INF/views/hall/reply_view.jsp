@@ -58,6 +58,7 @@
 			
 			    <input type="hidden" name="page" value="${map.page }">
       			<input type="hidden" name="bidding_id" value="${map.biddingDto.bidding_id }">
+      			<input type="hidden" name="check_id" value="${map.biddingDto.check_id }">
       			<input type="hidden" name="search" value="${map.search}">
 				<input type="hidden" name="bidding_group" value="${map.biddingDto.bidding_group }">
       			<input type="hidden" name="bidding_step" value="${map.biddingDto.bidding_step }">
@@ -70,7 +71,7 @@
 				</colgroup>
 				<tr>
 					<th>작성자</th>
-					<td><input type="text" name="bidding_name" id="bidding_name" value="${map.biddingDto.bidding_name }" readonly></td>
+					<td><input type="text" name="bidding_name" id="bidding_name" value="${session_name }" readonly></td>
 				</tr>
 				<tr>
 					<th>제목</th>
@@ -79,6 +80,8 @@
 				<tr>
 					<th>내용</th>
 					<td><textarea name="bidding_content" id="bidding_content" cols="50" rows="10">
+
+
 ---------------------------
 [답글]
 ${map.biddingDto.bidding_content }</textarea></td>

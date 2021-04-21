@@ -48,7 +48,7 @@ public class MallController {
 		int getpoint=mallService.mall_userid(userid,usepoint);
 		HttpSession session = request.getSession();
 		System.out.println("컨트롤러"+usepoint);
-		//mallService.mall_emailSend(email,point);
+		//mallService.mall_emailSend(email,usepoint);
 		mallService.mall_buy_board(buyboardDto);
 		session.setAttribute("session_point",getpoint);
 		return "mall/buy";

@@ -70,11 +70,7 @@
 		// FormData 객체 생성
 		var formData = new FormData(form);  //대신 밑에 formData에 넣어줌
 	
-		if($('#bcategory').val()=="") {
-			alert('문의하실 분야를 선택해주세요.(웨딩홀/허니문)');
-			$("#bcategory").focus();
-			return false;
-		}
+		
 		if($('#btitle').val()=="") {
 			alert('제목을 입력해주세요.');
 			$("#btitle").focus();
@@ -88,9 +84,6 @@
 			return false;
 		}
 		
-		var str = $('#bcontent').val();
-	      str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
-	      $('#bcontent').val(str);
 		
 	      document.online_write_box.submit();
 	      
@@ -358,6 +351,7 @@ $(document).ready(function() {
    <form name="online_write_box" id="online_write_box" method="post" action="./question_write" enctype="multipart/form-data">
    <input type="hidden" name="userid" id="userid" value="${userMap.memberDto.userid }">
    <input type="hidden" name="com_tel" id="com_tel" value="${userMap.memberDto.com_tel }">
+   <input type="hidden" name="check_userid" id="check_userid" value="${userMap.memberDto.userid }">
    
    <div class="online_Awrite_form">
       <ul>

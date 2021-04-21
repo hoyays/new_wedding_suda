@@ -13,7 +13,6 @@ public class questionBoardDto {
 
 	private int bid;
 	private String bname;
-	private String bcategory;
 	private String btitle;
 	private String bcontent;
 	private Timestamp bdate;
@@ -23,5 +22,6 @@ public class questionBoardDto {
 	private int bindent;
 	private String fileName;
 	private String userid;
+	private String check_userid;
 	
 }

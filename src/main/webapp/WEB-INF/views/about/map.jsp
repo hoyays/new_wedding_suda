@@ -38,14 +38,7 @@
 		
 		
 		<br><br>
-		<div class="map_add">
-		<span class="map_add_tx1">주소:</span>
-		<span class="map_add_tx2" style="color:#000000;">서울 구로구 디지털로34길 27 대륭포스트타워3차 1106호(관악고용센터 건물 11층)&nbsp;웨딩수다</span></div>
 		
-		<br><br>
-		
-		<p><img src="../images/rough_map.jpg" alt="웨딩수다 약도"></p>
-		<br>
 		
 		<!-- 카카오 지도 api -->
 		<p>카카오 지도</p>
@@ -110,8 +103,21 @@
 			var map = new naver.maps.Map('map', mapOptions);
 		</script>
 		 -->
+		 
+		 <div class="map_add">
+		<span class="map_add_tx1">주소:</span>
+		<span class="map_add_tx2" style="color:#000000;">서울 구로구 디지털로34길 27 대륭포스트타워3차 1106호(관악고용센터 건물 11층)&nbsp;웨딩수다</span></div>
+		
+		<br><br>
+		
+		<p><img src="../images/rough_map.jpg" alt="웨딩수다 약도"></p>
+		<br>
 		 </div>
-		<br><br><br>
+		 
+		 <br><br><br>
+		 
+		 
+		 
 		<!-- footer -->
 		<jsp:include page="../include/footer.jsp">
     		<jsp:param name="category" value="product2" />

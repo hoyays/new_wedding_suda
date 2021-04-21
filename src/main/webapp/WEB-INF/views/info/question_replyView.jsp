@@ -363,6 +363,7 @@ $(document).ready(function() {
       <input type="hidden" name="search" value="${map.search }">
 	   <input type="hidden" name="userid" id="userid" value="${userMap.memberDto.userid }">
 	   <input type="hidden" name="bid" id="bid" value="${map.queDto.bid}">
+	   <input type="hidden" name="check_userid" id="check_userid" value="${map.queDto.check_userid}">
    
    <div class="online_Awrite_form">
       <ul>

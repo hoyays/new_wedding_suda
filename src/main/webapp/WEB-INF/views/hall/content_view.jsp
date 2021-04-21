@@ -42,7 +42,7 @@
 	<body>
 	
 	<c:choose>
-	<c:when test="${session_name eq map.biddingDto.bidding_name || session_businessTy eq 'company'}" >
+	<c:when test="${session_userid eq map.biddingDto.check_id || session_businessTy eq 'company'}" >
 	
 	
 		<!-- header -->

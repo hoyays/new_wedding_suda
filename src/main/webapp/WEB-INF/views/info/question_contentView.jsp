@@ -40,7 +40,7 @@
 <body naver_screen_capture_injected="true">
 <div class="wrap">
 <c:choose>
-	<c:when test="${session_userid eq map.queDto.userid || session_userid eq '관리자' || session_businessTy eq 'company' }">
+	<c:when test="${session_userid eq map.queDto.userid || session_userid eq '관리자' || session_businessTy eq 'company' || session_userid eq map.queDto.check_userid }">
 
 	<!-- 헤더 너을거임  -->
 

@@ -96,12 +96,12 @@
 	    ]]>
   </select>
 	
-	<!-- insert -->
+	<!-- 글쓰기 insert -->
 	<insert id="insertBiddingWrite">
        <![CDATA[
 		insert into bidding_board values(
 		bidding_seq.nextval,#{bidding_title},#{bidding_name},
-		#{bidding_content},sysdate,0,bidding_seq.currval,0,0,0)
+		#{bidding_content},sysdate,0,bidding_seq.currval,0,0,0,#{check_id})
 	   ]]>
 	</insert>
 	
@@ -128,7 +128,7 @@
         insert into bidding_board values(
 		bidding_seq.nextval,#{bidding_title},#{bidding_name},
 		#{bidding_content},
-		sysdate,0,#{bidding_group},#{bidding_step}+1,#{bidding_indent}+1,0)
+		sysdate,0,#{bidding_group},#{bidding_step}+1,#{bidding_indent}+1,0,#{check_id})
 	  ]]>
     </insert>
     <!-- replyPlus -->

@@ -19,5 +19,6 @@ public class BiddingDto {
 	private int bidding_step;
 	private int bidding_indent;
 	private int auctioned;
+	private String check_id;
 
 }
