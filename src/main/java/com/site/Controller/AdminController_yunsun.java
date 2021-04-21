@@ -71,11 +71,7 @@ public class AdminController_yunsun {
 	}
 	
 	
-	//test
-	@RequestMapping("/admin_temp/admin_memberStatus")
-	public String admin_memberStatus1() {
-		return "/admin_temp/admin_memberStatus";
-	}
+
 	
 
 	

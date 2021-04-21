@@ -61,6 +61,7 @@
 		// FormData 객체 생성
 		var formData = new FormData(form);  //대신 밑에 formData에 넣어줌
 		
+		
 		if($('#c_productName').val()=="") {
 			alert('상품명을 작성해주세요.');
 			$("#c_productName").focus();
@@ -71,6 +72,39 @@
 			$("#c_name").focus();
 			return false;
 		}
+		
+		if($('#c_productPrice').val()=="") {
+			alert('상품가격을 작성해주세요.');
+			$("#c_productPrice").focus();
+			return false;
+		}
+		
+		if($('#c_onlineAddress').val()=="") {
+			alert('홈페이지 주소를 작성해주세요.');
+			$("#c_onlineAddress").focus();
+			return false;
+		}
+		
+		if($('#c_address').val()=="") {
+			alert('업체 주소를 작성해주세요.');
+			$("#c_address").focus();
+			return false;
+		}
+		
+		if($('#c_officeHours').val()=="") {
+			alert('영업시간을 작성해주세요.');
+			$("#c_officeHours").focus();
+			return false;
+		}
+		
+		if($('#c_offDays').val()=="") {
+			alert('휴무일을 작성해주세요.');
+			$("#c_offDays").focus();
+			return false;
+		}
+		
+		
+		
 		var fileCheck = document.getElementById("file").value;
 	    if(!fileCheck){
 	        alert("파일을 첨부해 주세요");

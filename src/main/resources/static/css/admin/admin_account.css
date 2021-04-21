@@ -59,6 +59,10 @@ table {
 
 }
 
+#board_table{
+	background: none;
+}
+
 td {
   position: relative;
   top: -11px;
