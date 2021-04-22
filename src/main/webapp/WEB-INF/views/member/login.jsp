@@ -102,12 +102,9 @@
 	<div class="sub_link_menu">
 		
 		<span id="sub_Color_f" class="sub_under_bar"><a href="/member/login">로그인</a></span>
-		<span id="sub_Color_f"><a href="/membership/member.asp">회원가입</a></span>
-		<span id="sub_Color_f"><a href="/membership/find_id.asp">ID/PW찾기</a></span>
+		<span id="sub_Color_f"><a href="/member/join">회원가입</a></span>
+		<span id="sub_Color_f"><a href="/find_idpw">ID/PW찾기</a></span>
 		
-		<span id="sub_Color_f"><a href="/membership/use_it.asp">이용약관 및 개인정보취급방침</a></span>
-		<!--<span id="sub_Color_f" ><a href="/membership/personal.asp">개인정보취급방침</a></span>
-		<span id="sub_Color_f" ><a href="/membership/de_email.asp">이메일무단수집거부</a></span>//-->
 	</div>
  </div>
 <div id="contain02">

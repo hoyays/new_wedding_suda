@@ -31,9 +31,10 @@
 <div class="sub_link_box">
 	<div class="sub_link_menu">
 		
-		<span id="sub_Color_f"><a href="">로그인</a></span>
-		<span id="sub_Color_f"><a href="">회원가입</a></span>
+		<span id="sub_Color_f"><a href="/member/login">로그인</a></span>
+		<span id="sub_Color_f"><a href="/member/join">회원가입</a></span>
 		<span id="sub_Color_f" class="sub_under_bar"><a href="">ID/PW찾기</a></span>
+		
 	</div>
  </div>
 <script language="javascript">
