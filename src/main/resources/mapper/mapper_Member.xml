@@ -52,5 +52,18 @@
 		]]>
   </select>
   
+  <!--아이디 확인-->
+  <select id="checkIdPw" resultType="com.site.dto.MemberDto">
+		<![CDATA[
+			select * from ws_member where name=#{name} and mobile=#{mobile}
+		]]>
+  </select>
+  
+  <update id="pwUpdate">
+	update ws_member set pwd=#{randomPw} where userid=#{userid}
+  </update>
+  
+  
+  
   
 </mapper>

@@ -100,6 +100,30 @@ public class MemberService_impl implements MemberService {
         
         return randomNum;
      }
+
+	@Override
+	public int idPwCheck(MemberDto memberdto) {
+		MemberDto resultDto= member_mapper.checkIdPw(memberdto);
+		String userid =resultDto.getUserid();
+		int checkId=-1;
+		if(resultDto!=null ) {
+			int randomPw = ((int)(Math.random()*30000)+20000); // 20000 ~ 50000까지 랜덤숫자 발송
+			checkId=1;
+			member_mapper.pwUpdate(userid,randomPw);
+			
+			MimeMessage msg = send.createMimeMessage(); MimeMessageHelper helper = new
+			MimeMessageHelper(msg); try { helper.setTo(resultDto.getEmail());
+			helper.setSubject("웨딩 수다입니다");
+			helper.setText("아이디는 <h1>"+resultDto.getUserid()+"</h1> 입니다"	+"<br>"+"임시 비밀번호는 <h1>"+randomPw+"</h1> 입니다.",true);
+			msg.setRecipients(MimeMessage.RecipientType.TO,
+			InternetAddress.parse(resultDto.getEmail())); send.send(msg);
+			}catch(Exception e) {
+			}
+			
+		}
+		
+		return checkId;
+	}
 	
 	
 	
