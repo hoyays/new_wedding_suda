@@ -155,5 +155,15 @@ public class BoardController {
 		return "hall/reply_view";
 	}
 	
+	@RequestMapping("/hall/replyCheck")
+	public String replyCheck(@RequestParam String bidding_id, @RequestParam @Nullable String page, 
+			@RequestParam @Nullable String search, Model model) throws Exception {
+		
+		biddingService.replyCheck(bidding_id, page, search);
+		model.addAttribute("map", map);
+		
+		return "redirect:/hall/hall_bidding_list";
+	}
+	
 	
 }// class

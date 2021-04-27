@@ -20,5 +20,6 @@ public class BiddingDto {
 	private int bidding_indent;
 	private int auctioned;
 	private String check_id;
+	private String userid;
 
 }

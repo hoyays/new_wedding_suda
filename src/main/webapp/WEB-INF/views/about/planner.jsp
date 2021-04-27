@@ -33,20 +33,8 @@
 		<h2>웨딩수다 소속의 플래너는 동행 플래너가 아닌 원격 플래너. 동시에 언제나 방문 가능</h2><br><br>
 		<table>
 			<tr>
-				<td><img src="/images/ahn.png" alt="안윤선" width: 50px; height: 50px;></td>
-				<td>플래너팀 리더: 안윤선</td>
-			</tr>
-			<tr>
-				<td><img src="/images/seol.png" alt="설재호" width: 50px; height: 50px;></td>
-				<td>플래너팀원: 설재호</td>
-			</tr>		
-			<tr>
-				<td><img src="/images/lee.png" alt="이경무" width: 50px; height: 50px;></td>
-				<td>플래너팀원: 이경무</td>
-			</tr>		
-			<tr>
-				<td><img src="/images/kim.png" alt="김하은" width: 50px; height: 50px;></td>
-				<td>플래너팀원: 김하은</td>
+				<td><img src="/images/team_member.png" alt="팀 소개" width: 1920px;></td>
+				
 			</tr>		
 		</table>
 		

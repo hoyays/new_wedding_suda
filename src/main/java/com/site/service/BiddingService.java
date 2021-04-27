@@ -26,6 +26,6 @@ public interface BiddingService {
 	void biddingModify(BiddingDto biddingDto);
 
 
-
+	void replyCheck(String bidding_id, String page, String search);
 
 }

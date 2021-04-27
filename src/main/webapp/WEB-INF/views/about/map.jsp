@@ -34,7 +34,7 @@
 		
 		<div id="contain02_text">
 			<span class="title_name">찾아오시는길</span>
-			<span class="title_detail">결혼 준비의 새로운 기준 베리굿웨딩과 함께 하세요!</span>
+			<span class="title_detail">결혼 준비의 새로운 기준 웨딩수다과 함께 하세요!</span>
 		
 		
 		<br><br>

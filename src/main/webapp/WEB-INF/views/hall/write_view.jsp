@@ -48,6 +48,7 @@
 		<form action="./write" id="writeForm" name="writeForm" method="post"
 			enctype="multipart/form-data">
 			<input type="hidden" name="check_id" value="${session_userid }">
+			<input type="hidden" name="userid" id="userid" value="${session_userid }">
 			<table>
 				<colgroup>
 					<col width="15%">

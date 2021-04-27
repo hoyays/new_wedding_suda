@@ -532,7 +532,7 @@ function noRefresh()
 </script>
 <div id="contain02">
 	<div id="contain02_text">
-		<span class="title_name">회원가입</span>
+		<span class="title_name">회원정보수정</span>
         <span class="title_detail">결혼 준비의 새로운 기준 웨딩수다와 함께 하세요!</span>
     </div>
 </div>

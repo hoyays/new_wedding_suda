@@ -45,5 +45,6 @@ public interface BiddingMapper {
 	// Modify
 	void biddingModify(BiddingDto biddingDto);
 
-
+	BiddingDto selectFindSameBgroup(int bidding_group);   //답변채택 버튼 노출조건 관련
+	void updateAuctioned(String bidding_id);
 }

@@ -101,7 +101,7 @@
        <![CDATA[
 		insert into bidding_board values(
 		bidding_seq.nextval,#{bidding_title},#{bidding_name},
-		#{bidding_content},sysdate,0,bidding_seq.currval,0,0,0,#{check_id})
+		#{bidding_content},sysdate,0,bidding_seq.currval,0,0,0,#{check_id},#{userid})
 	   ]]>
 	</insert>
 	
@@ -128,7 +128,7 @@
         insert into bidding_board values(
 		bidding_seq.nextval,#{bidding_title},#{bidding_name},
 		#{bidding_content},
-		sysdate,0,#{bidding_group},#{bidding_step}+1,#{bidding_indent}+1,0,#{check_id})
+		sysdate,0,#{bidding_group},#{bidding_step}+1,#{bidding_indent}+1,0,#{check_id},#{userid})
 	  ]]>
     </insert>
     <!-- replyPlus -->
@@ -138,5 +138,22 @@
         where bidding_group=#{bidding_group} and bidding_step>#{bidding_step}
 	  ]]>
     </update>
+    
+    <!-- 입찰게시판 auctioned 값을 1로 변경 -->
+	<update id="updateAuctioned">
+	  <![CDATA[
+		update bidding_board set auctioned = 1
+		where bidding_id=#{bidding_id}
+	  ]]>
+	</update>
+    
+    <!-- 답변 채택 관련 -->
+    <select id="selectFindSameBgroup" resultType="com.site.dto.BiddingDto">
+	  <![CDATA[
+		select * from bidding_board
+		where bidding_group=#{bidding_group} and bidding_indent=0
+	  ]]>
+    </select>
+    
     
 </mapper>

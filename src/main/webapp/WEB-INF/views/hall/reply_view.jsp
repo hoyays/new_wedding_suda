@@ -47,7 +47,7 @@
 
 
 	<div id="contain02_text">
-		<span class="title_name">입찰 신청 페이지 수정</span> <span class="title_detail">수정할 내용을 입력하세요.</span>
+		<span class="title_name">입찰 신청 페이지 답글쓰기</span> <span class="title_detail">내용을 입력하세요.</span>
 	</div>
 
 	<section>
@@ -63,6 +63,7 @@
 				<input type="hidden" name="bidding_group" value="${map.biddingDto.bidding_group }">
       			<input type="hidden" name="bidding_step" value="${map.biddingDto.bidding_step }">
       			<input type="hidden" name="bidding_indent" value="${map.biddingDto.bidding_indent }">
+      			<input type="hidden" name="userid" id="userid" value="${session_userid }">
 			
 			
 				<colgroup>

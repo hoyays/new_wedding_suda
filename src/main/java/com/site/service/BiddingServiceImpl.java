@@ -79,7 +79,12 @@ public class BiddingServiceImpl implements BiddingService {
 			upperDto = biddingMapper.selectBidding_upperSearch(bidding_id,search);
 			lowerDto = biddingMapper.selectBidding_lowerSearch(bidding_id,search);
 		}
-		
+		//답변채택 버튼 노출을 위해서
+		//현재의 contentView의 bgroup 값과 모두 같은 튜플중에서 bindent가 0인 튜플의 userid값을 찾는다.
+		//찾은 그 값을 map에 담는다.
+		BiddingDto result_dto = biddingMapper.selectFindSameBgroup(biddingDto.getBidding_group());
+
+		map.put("result_dto", result_dto);
 		map.put("biddingDto", biddingDto);
 		map.put("upperDto", upperDto);
 		map.put("lowerDto", lowerDto);
@@ -136,6 +141,13 @@ public class BiddingServiceImpl implements BiddingService {
 	public void biddingModify(BiddingDto biddingDto) {
 		biddingMapper.biddingModify(biddingDto);
 	    return;
+	}
+
+	@Override
+	public void replyCheck(String bidding_id, String page, String search) {
+		biddingMapper.updateAuctioned(bidding_id);
+		map.put("search", search);
+		map.put("page", page);
 	}
 
 	
