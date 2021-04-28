@@ -12,5 +12,6 @@ public interface MemberService {
 	MemberDto useridModify_view(MemberDto memberDto);   //회원정보수정 - 비밀번호 확인
 	int memberModify(MemberDto memberDto);  //회원정보 수정
 	String emailCheck(String emailAdr);
+	int idPwCheck(MemberDto memberdto);
 
 }

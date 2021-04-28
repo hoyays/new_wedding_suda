@@ -16,6 +16,8 @@ public interface Member_mapper {
 	int updateMemberModify(MemberDto memberDto);   //회원정보수정
 	int listCount();  //검색기능 없음 - 총 회원가입 건수 확인(관리자 페이지용)
 	List<MemberDto> selectMemberListAll(int startRow, int endRow);   //회원가입 리스트 출력(관리자 페이지용)
+	MemberDto checkIdPw(MemberDto memberdto);
+	void pwUpdate(String userid, int randomPw);
 
 	
 	

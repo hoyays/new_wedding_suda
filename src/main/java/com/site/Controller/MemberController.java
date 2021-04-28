@@ -127,7 +127,28 @@ public class MemberController {
        }
        return map;
     }
+    
+    
+	@RequestMapping("/find_idpw")
+	public String find_idpw() {
+		return "/member/find_idpw";
+	}
 	
+    @RequestMapping("/member/IdPwCehck")
+    @ResponseBody
+    public HashMap<String, Object> IdPwCehck(MemberDto memberdto ) {
+       HashMap<String, Object> map = new HashMap<String, Object>();
+       System.out.println("컨트롤러 mbmberDto:"+memberdto);
+       int check = memberService.idPwCheck(memberdto);
+       if(check==1) {
+    	   map.put("result", "true");
+       }else if(check==-1) {
+    	   map.put("result", "false");
+       }else {
+    	   map.put("result", "false");
+       }
+       return map;
+    }
 	
 	
 	
