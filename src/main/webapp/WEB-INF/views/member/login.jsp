@@ -130,12 +130,13 @@
 		{
 			loginSubmit();
 		}
-	);	
-	
+	);	*/
+$(document).ready(function() {
 	$('#logpwd_find').click(function() {
-		top.location.href = "find_id.asp";		
+		top.location.href = "/find_idpw";		
 	});
-
+});	
+/*
 	$('#register').click(function() {
 		top.location.href = "member.asp";		
 	});	
