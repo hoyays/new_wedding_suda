@@ -255,7 +255,7 @@ $(document).ready(function() {
         </div>
     </form>
 	<div id="log_in_btn_box_right">
-    	<img src="http://vgood.co.kr/admin/contentsImg/homepage/201803/join(1).jpg" alt="로그인">		
+    	<img src="../images/join(2).jpg" alt="로그인">		
     </div>
     <div class="log_in_btn_box">
             <ul>
