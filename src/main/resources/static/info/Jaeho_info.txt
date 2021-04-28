@@ -1,0 +1,230 @@
+
+
+==> 입찰 테이블 <==
+==> DB생성 SQL문<==
+create table bidding_board(	
+bidding_id number(4) primary key,
+bidding_title varchar2(100),
+bidding_name varchar2(30),
+bidding_content varchar2(2000),
+bidding_date date default sysdate,
+bidding_hit number(4) default 0, 
+bidding_group number(4),
+bidding_step number(4),
+bidding_indent number(4),
+auctioned number(1)
+);
+
+
+==>시퀀스 생성<==
+create sequence BIDDING_SEQ
+increment by 1
+start with 1
+minvalue 1
+maxvalue 9999
+nocycle;
+
+
+==>회원가입 더미데이터<==
+insert into bidding_board values(
+bidding_seq.nextval,'웨딩시그니처 견적 문의드립니다','설재호',
+'합정동, 웨딩시그니처, 하객300명, 식대 5만원, 신랑 설재호, 결혼예정일 2022년 2월 22일 오후2시 견적문의드립니다.',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'메리스에이프럴','김도현',
+'메리스에이프럴, 하객500명, 식대 5만원, 신랑 김도현',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'보테가마지오','양희연',
+'보테가마지오, 하객200명, 식대 5만원, 신부 양희연',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'더라빌','오광균',
+'더라빌, 하객1000명, 식대 10만원, 신랑 오광균',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'마리드블랑','이대준',
+'마리드블랑, 하객150명, 식대 4만원, 신랑 이대준',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'레노스블랑쉬','이미연',
+'레노스블랑쉬, 하객200명, 식대 5만원, 신부 이미연',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'로운아뜨리움','김기한',
+'로운아뜨리움, 하객200명, 식대 5만 5천원, 신랑 김기한',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'보닉웨딩','현태민',
+'보닉웨딩, 하객200명, 식대 7만원, 현태민',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'빌라드지디강남더그레이스켈리','서도식',
+'빌라드지디강남더그레이스켈리, 하객200명, 식대 3만원, 신랑 서도식',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'안양발리드메','문민수',
+'안양발리드메, 하객200명, 식대 3만원, 신랑 문민수',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'파티오나인','문은주',
+'파티오나인, 하객200명, 식대 3만원, 신부 문은주',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'한국교총MW컨벤션','김태희',
+'한국교총MW컨벤션, 하객200명, 식대 3만원, 신부 김태희',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'평택드마레웨딩컨벤션','김현구',
+'평택드마레웨딩컨벤션, 하객250명, 식대 5만원, 신랑 김현구',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'뮤지엄웨딩홀','강창훈',
+'뮤지엄웨딩홀, 하객800명, 식대 6만원, 신랑 강창훈',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'마리아쥬스퀘어','계예은',
+'마리아쥬스퀘어, 하객200명, 식대 3만원, 신부 계예은',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'뮤지엄웨딩홀','강창훈',
+'뮤지엄웨딩홀, 하객800명, 식대 6만원, 신랑 강창훈',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'제이오스티엘','김원빈',
+'제이오스티엘, 하객400명, 식대 4만원, 신랑 김원빈',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'브라이튼하우스','김은경',
+'브라이튼하우스, 하객500명, 식대 4만원, 신랑 김은경',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'명품웨딩프로포즈','김재희',
+'명품웨딩프로포즈, 하객500명, 식대 3만원, 신랑 김재희',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'뮤지엄웨딩홀','강창훈',
+'뮤지엄웨딩홀, 하객800명, 식대 6만원, 신랑 강창훈',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'JK아트컨벤션','나원엽',
+'JK아트컨벤션, 하객800명, 식대 6만원, 신랑 나원엽',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'규수당문래점','김인규',
+'규수당문래점, 하객800명, 식대 6만원, 신랑 김인규',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'더모임(동대문구)','이슬기',
+'더모임(동대문구), 하객200명, 식대 4만원, 신부 이슬기',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'더케이스타웨딩','이예진',
+'더케이스타웨딩, 하객200명, 식대 6만원, 신부 이예진',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'그랜드인터컨티넨탈서울파르나스','김인상',
+'그랜드인터컨티넨탈서울파르나스, 하객2000명, 식대 9만원, 신랑 김인상',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'더발렌티청담','이용규',
+'더발렌티청담, 하객300명, 식대 4만원, 신랑 이용규',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'웨스턴베니비스영등포','김인규',
+'웨스턴베니비스영등포, 하객800명, 식대 6만원, 신랑 김인규',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'웨딩헤너스','홍지봉',
+'웨딩헤너스, 하객750명, 식대 6만원, 신랑 홍지봉',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'마리드컨벤션','홍덕화',
+'마리드컨벤션, 하객800명, 식대 6만원, 신랑 홍덕화',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'노보텔엠배서더수원','조성우',
+'노보텔엠배서더수원, 하객300명, 식대 5만원, 신랑 조성우',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'웨딩플라워','김진수',
+'웨딩플라워, 하객800명, 식대 6만원, 신랑 김진수',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'마포가든호텔','장영선',
+'마포가든호텔, 하객600명, 식대 6만원, 신랑 장영선',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'드발리서울','전송진',
+'드발리서울, 하객200명, 식대 6만원, 신랑 전송진',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+insert into bidding_board values(
+bidding_seq.nextval,'아띠움블란체','신석원',
+'아띠움블란체, 하객400명, 식대 6만원, 신랑 신석원',
+sysdate,0,bidding_seq.currval,0,0,0);
+
+
+==> 상담신청 테이블 <==
+==> DB생성 SQL문<==
+create table counseling_request(	
+sido varchar2(500),
+cusHuman varchar2(500),
+cusPrice varchar2(500),
+name varchar2(30),
+sex varchar2(5), 
+phone1  varchar2(3),
+phone2  varchar2(4),
+phone3 varchar2(4),
+cusEnter varchar2(50),
+contact_point varchar2(15),
+content varchar2(2000),
+counseling_request_date date default sysdate
+);
+
+insert into counseling_request values(
+'서울강남구','100명이하','28000~30000원','이순신','M',
+010,1111,1111,'2022-01-01',
+'방문상담','처음이라 잘 모릅니다',sysdate);
+
+==============================
+4월 27일 월요일
+==============================
+
+alter table bidding_board add(check_id varchar2(30));
+alter table bidding_board add userid varchar2(20);
+ALTER TABLE bidding_board ADD FOREIGN KEY(USERID) REFERENCES ws_member(USERID);
+alter table bidding_board add  auctioned_check number(1);
+update bidding_board set auctioned_check=0;

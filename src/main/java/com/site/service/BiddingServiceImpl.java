@@ -146,6 +146,7 @@ public class BiddingServiceImpl implements BiddingService {
 	@Override
 	public void replyCheck(String bidding_id, String page, String search) {
 		biddingMapper.updateAuctioned(bidding_id);
+		biddingMapper.updateAuctionedCheck(bidding_id);
 		map.put("search", search);
 		map.put("page", page);
 	}

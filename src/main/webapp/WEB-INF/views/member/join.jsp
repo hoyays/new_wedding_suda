@@ -532,12 +532,10 @@ function noRefresh()
                if(data.result == 'true'){
                   alert('메일을 전송하였습니다. 인증번호를 입력해주십시오.');
                   randomNumber = data.randomNum;
-                  alert(randomNumber);
                   return randomNumber;
                }else {
                   alert('메일 전송에 실패하였습니다.');
                }
-               
             },
             error:function(){
                alert("에러");

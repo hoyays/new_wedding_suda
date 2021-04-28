@@ -42,7 +42,7 @@
 		
 		<!-- 카카오 지도 api -->
 		<p>카카오 지도</p>
-		<div id="map" style="width:100%;height:350px;"></div>
+		<div id="map" style="width:842px;height:595px;"></div>
 		<p>
 		    <button onclick="setCenter()">지도 중심좌표 이동시키기</button> 
 		    <button onclick="panTo()">지도 중심좌표 부드럽게 이동시키기</button> 

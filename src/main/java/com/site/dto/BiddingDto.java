@@ -21,5 +21,6 @@ public class BiddingDto {
 	private int auctioned;
 	private String check_id;
 	private String userid;
+	private int auctioned_check;
 
 }

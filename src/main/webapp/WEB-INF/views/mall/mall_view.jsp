@@ -254,7 +254,6 @@ display: none;
 						<button type ="button" style="width:120px;height:34px;cursor:pointer;border:1px solid #d9d8d8;line-height:34px;font-size:17px;background-color:#fe4253;color:#ffffff;text-align:center;" onclick="buyclick()" >구매하기</button>
 				</span>
 				<div style="height:80px;"></div>
-				<div class="h_eventtx" >${map.memberDto.email }</div>
 					</form>
             </div>
         </div>

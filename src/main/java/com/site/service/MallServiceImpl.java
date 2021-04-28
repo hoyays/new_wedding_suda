@@ -80,7 +80,7 @@ public class MallServiceImpl implements MallService {
 	       randomNum = Integer.toString(i);
 	       helper.setTo(email);
 	       helper.setSubject("웨딩 수다 문화상품권 입니다.");
-	       helper.setText("문화상품권"+point+"원 번호는 <h1>"+randomNum+"</h1> 입니다",true);
+	       helper.setText("샤넬가방"+point+"원 쿠폰 교환번호는 <h1>"+randomNum+"</h1> 입니다",true);
 	       msg.setRecipients(MimeMessage.RecipientType.TO, InternetAddress.parse(email));
 	       send.send(msg);
 	    }catch(Exception e) {

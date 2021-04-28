@@ -96,6 +96,10 @@
 					<span class="after_return_txt_del"><a id="del_btn" onclick="delete_check()" style="cursor:pointer;">삭제</a></span>
 					<span class="after_return_txt_write"><a href="/hall/reply_view?page=${map.page}&bidding_id=${map.biddingDto.bidding_id}&search=${map.search }" id="regist_btn" style="cursor:pointer;">답글달기</a></span>
 				</c:when>
+				<c:when test="${map.biddingDto.auctioned_check eq 1}">
+					<span class="after_return_txt_list"><a href="./hall_bidding_list?page=${map.page}&search=${map.search}">목록으로</a></span>
+					<span class="after_return_txt_write"><a href="/hall/reply_view?page=${map.page}&bidding_id=${map.biddingDto.bidding_id}&search=${map.search }" id="regist_btn" style="cursor:pointer;">답글달기</a></span>
+				</c:when>
 				<c:when test="${map.result_dto.userid eq session_userid && map.biddingDto.auctioned eq 0}">
 					<span class="after_return_txt_list"><a href="./hall_bidding_list?page=${map.page}&search=${map.search}">목록으로</a></span>
 					<span class="after_return_txt_write"><a href="./replyCheck?page=${map.page}&search=${map.search}&bidding_id=${map.biddingDto.bidding_id}" id="regist_btn" style="cursor:pointer; background-color:#1a41af;">답변채택</a></span>
@@ -105,8 +109,7 @@
 					<span class="after_return_txt_write"><a href="/hall/reply_view?page=${map.page}&bidding_id=${map.biddingDto.bidding_id}&search=${map.search }" id="regist_btn" style="cursor:pointer;">답글달기</a></span>
 				</c:otherwise>
 			</c:choose>
-		</div>   
-		
+		</div>  
 		
 	</div>
 

@@ -543,7 +543,7 @@ cursor
 					<!-- //info -->
 					<span class="btn_input" style="position: absolute; right: 60px; bottom: 320px;"> 
 					<c:choose>
-							<c:when test="${session_userid == map.dreDto.userid }">
+							<c:when test="${session_userid == map.dreDto.userid || session_userid eq 'admin'}">
 								<a href="dress_modifyView?infoId=${map.dreDto.infoId }">
 								<span class="btn_input"><input type="button" class="online_lg_color" id="regist_btn" value="수정하기" style="cursor: pointer; font-family: NanumBarunGothic;"></span></a>
 								<span class="btn_input"><input type="button" class="online_lg_color" id="regist_btn" value="삭제하기" style="cursor: pointer; font-family: NanumBarunGothic;" onclick="deleteCheck()"></span>
