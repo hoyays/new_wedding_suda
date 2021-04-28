@@ -94,8 +94,10 @@
 
 <div class="sub_link_box">
 	<div class="sub_link_menu">
-		<span id="sub_Color_f"><a href="/noticeboard/notice_list">공지사항</a></span>
-		<span id="sub_Color_f" class="sub_under_bar"><a href="/noticeboard/after_list">웨딩후기</a></span>
+		<span id="sub_Color_f" class="sub_under_bar"><a href="./event">이벤트</a></span>
+				<c:if test="${session_userid =='admin' }"> 
+		<span id="sub_Color_f"><a href="./event_writeview">이벤트 등록 페이지</a></span>
+		 </c:if> 
     </div>
 </div>
 <div id="contain02">

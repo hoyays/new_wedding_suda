@@ -124,7 +124,7 @@
 				<a id="loginCheck">
 				</c:when>
 				<c:otherwise>
-				<a href="/mall_view?bid=${dto.bid }">
+				<a href="/mall_view?bid=${dto.bid}">
 				</c:otherwise>
 				</c:choose>
 				<img src="/upload/${dto.fileName}" alt="미니스트로 특별프로모션" width="378" height="224"></a>
@@ -139,27 +139,6 @@
 		
 		</c:forEach>
 		
-		<div id="event_num01">
-			<div id="event_numBox">
-				<p class="img_take01"><a href="event_detail.asp?idx=92"><img src="http://vgood.co.kr/admin/contentsImg/board/202104/very good wedding icon image (2).jpg" alt="삼성전자 프리미엄스토어 그랜드오픈매장이벤트" width="378" height="224"></a></p>
-            </div>
-            <span class="event_left">
-				<p class="img_take02">삼성전자 프리미엄스토어 그랜드오픈매장이벤트</p>
-                <p class="img_take03" style="font-size:12px;color:#666464;">이벤트 기간 : 2021-04-02 ~ 2021-04-30</p>
-			</span>
-            <span class="event_right"></span>
-        </div>
-		
-		<div id="event_num01">
-			<div id="event_numBox">
-				<p class="img_take01"><a href="event_detail.asp?idx=136"><img src="http://vgood.co.kr/admin/contentsImg/board/202104/KakaoTalk_20210402_114735691.jpg" alt="바톤 4월 한정 프로모션" width="378" height="224"></a></p>
-            </div>
-            <span class="event_left">
-				<p class="img_take02">바톤 4월 한정 프로모션</p>
-                <p class="img_take03" style="font-size:12px;color:#666464;">380-274 이미지 사이즈</p>
-			</span>
-            <span class="event_right"></span>
-        </div>
 		
 		
 		
